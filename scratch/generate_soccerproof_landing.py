@@ -1,0 +1,1475 @@
+html_content = '''<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soccer Proof | Individuelles Fußballtraining Hamburg – Sami Ghaouar</title>
+  <meta name="description" content="Soccer Proof Hamburg: Individuelles Fußballtraining für Kinder, Jugendliche & Erwachsene. 1:1 Einzeltraining & Kleingruppen auf DFB-Niveau. Jetzt kostenloses Erstgespräch buchen!">
+  <meta name="keywords" content="Fußballtraining Hamburg, individuelles Fußballtraining Hamburg, Fußballtrainer Hamburg, Einzeltraining Fußball, Soccer Proof, Sami Ghaouar, Kinder Fußballtraining Hamburg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+  <!-- Google Font: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              gold: '#D4AF37',
+              goldLight: '#F3E5AB',
+              goldGlow: 'rgba(212, 175, 55, 0.4)',
+              red: '#E63946',
+              redDark: '#C52233',
+              dark: '#0F172A',
+              bgLight: '#F8FAFC',
+            }
+          },
+          boxShadow: {
+            'gold-glow': '0 0 25px rgba(212, 175, 55, 0.35)',
+            'red-glow': '0 0 25px rgba(230, 57, 70, 0.45)',
+            'glass': '0 8px 32px 0 rgba(15, 23, 42, 0.08)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- AOS CSS via CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- FontAwesome Icons via CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* Custom Mesh Background & Glassmorphism styles */
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #F8FAFC;
+      color: #0F172A;
+      overflow-x: hidden;
+    }
+
+    .bg-mesh {
+      background-image: 
+        radial-gradient(at 10% 20%, rgba(212, 175, 55, 0.06) 0px, transparent 50%),
+        radial-gradient(at 90% 10%, rgba(230, 57, 70, 0.06) 0px, transparent 50%),
+        radial-gradient(at 50% 80%, rgba(15, 23, 42, 0.03) 0px, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(248, 250, 252, 0.85) 0%, #F8FAFC 100%);
+    }
+
+    .grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card:hover {
+      border-color: #D4AF37;
+      box-shadow: 0 15px 35px -5px rgba(212, 175, 55, 0.25), 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    .text-gradient-gold {
+      background: linear-gradient(135deg, #B38F24 0%, #D4AF37 50%, #F3E5AB 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes float-slow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(2deg); }
+    }
+
+    .animate-float {
+      animation: float-slow 6s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-mesh relative grid-pattern antialiased text-slate-900">
+
+  <!-- FULL-PAGE CONTINUOUS 3D THREE.JS CANVAS BACKGROUND -->
+  <div id="threejs-container" class="fixed inset-0 w-full h-full pointer-events-none z-0"></div>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="fixed top-20 left-10 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none -z-10 animate-float"></div>
+  <div class="fixed bottom-20 right-10 w-[30rem] h-[30rem] bg-[#E63946]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center group">
+        <img src="img/logo/F3-3.avif" alt="Soccer Proof Logo" class="h-12 sm:h-14 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-sm">
+      </a>
+
+      <!-- Desktop Nav Links (Clean Navigation Hierarchy) -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
+        <a href="#training" class="hover:text-[#E63946] transition-colors">Training</a>
+        <a href="#methode" class="hover:text-[#E63946] transition-colors">Trainingsmethode</a>
+        <a href="#ueber-uns" class="hover:text-[#E63946] transition-colors">Über uns</a>
+        <a href="#preise" class="hover:text-[#E63946] transition-colors">Preise</a>
+        <a href="#kontakt" class="hover:text-[#E63946] transition-colors">Kontakt</a>
+      </nav>
+
+      <!-- Header Primary CTA (Right) -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="#erstgespraech" class="px-5 py-2.5 rounded-full bg-[#E63946] hover:bg-[#C52233] text-white font-bold text-sm shadow-red-glow hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+          <i class="fa-solid fa-comments mr-2"></i>Kostenloses Erstgespräch
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobileMenuBtn" class="md:hidden text-slate-800 text-2xl focus:outline-none p-2" aria-label="Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-lg border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl">
+      <a href="#training" class="block font-semibold text-slate-800 hover:text-[#E63946] mobile-link">Training</a>
+      <a href="#methode" class="block font-semibold text-slate-800 hover:text-[#E63946] mobile-link">Trainingsmethode</a>
+      <a href="#ueber-uns" class="block font-semibold text-slate-800 hover:text-[#E63946] mobile-link">Über uns</a>
+      <a href="#preise" class="block font-semibold text-slate-800 hover:text-[#E63946] mobile-link">Preise</a>
+      <a href="#kontakt" class="block font-semibold text-slate-800 hover:text-[#E63946] mobile-link">Kontakt</a>
+      <a href="#erstgespraech" class="block w-full text-center py-3 rounded-full bg-[#E63946] text-white font-bold shadow-md mobile-link">
+        Kostenloses Erstgespräch
+      </a>
+    </div>
+  </header>
+
+  <!-- 1. HERO SECTION -->
+  <section id="hero" class="relative pt-36 pb-24 md:pt-44 md:pb-36 overflow-hidden min-h-[90vh] flex items-center z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+          
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 border border-[#D4AF37] shadow-md backdrop-blur-md">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#D4AF37] animate-ping"></span>
+            <span class="text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
+              DFB-NIVEAU TALENTFÖRDERUNG HAMBURG
+            </span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.1]">
+            Mehr Technik. <br class="hidden sm:inline" />
+            <span class="text-gradient-gold">Mehr Selbstvertrauen.</span> <br />
+            <span class="relative inline-block text-slate-900">
+              Mehr Spiel.
+              <svg class="absolute -bottom-2 left-0 w-full h-3 text-[#E63946]" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 7C50 2 150 2 198 7" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+            </span>
+          </h1>
+
+          <!-- Subheadline & Zusatz -->
+          <div class="space-y-3">
+            <p class="text-lg sm:text-xl text-slate-800 font-bold leading-relaxed bg-white/80 p-4 rounded-2xl backdrop-blur-md border border-slate-200/80 shadow-sm">
+              Individuelles Fußballtraining für Kinder und Jugendliche – abgestimmt auf die Stärken, Ziele und Entwicklung jedes Spielers.
+            </p>
+            <p class="text-sm sm:text-base text-slate-600 font-medium">
+              Einzeltraining &amp; Kleingruppen als professionelle Ergänzung zum Vereinstraining in Hamburg.
+            </p>
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#erstgespraech" class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#E63946] hover:bg-[#C52233] text-white font-black text-base tracking-wide shadow-red-glow hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-3">
+              <span>Kostenloses Erstgespräch</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#training" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/90 hover:bg-slate-900 text-slate-900 hover:text-white border-2 border-slate-900 font-bold text-base transition-all duration-300 transform hover:-translate-y-1 shadow-sm flex items-center justify-center gap-2">
+              <span>Training entdecken</span>
+              <i class="fa-solid fa-chevron-down text-xs"></i>
+            </a>
+          </div>
+
+          <!-- Trust-Leiste mit echten Kennzahlen -->
+          <div class="pt-6 border-t border-slate-300/80 grid grid-cols-2 sm:grid-cols-4 gap-4 bg-white/70 p-4 rounded-2xl backdrop-blur-md border border-slate-200/60 shadow-sm">
+            <div class="text-center lg:text-left">
+              <div class="text-xl font-black text-slate-900">★ 4.9 / 5</div>
+              <div class="text-[11px] text-slate-600 font-semibold uppercase">Elternbewertung</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="text-xl font-black text-[#D4AF37]">100%</div>
+              <div class="text-[11px] text-slate-600 font-semibold uppercase">Individuell</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="text-xl font-black text-[#E63946]">DFB</div>
+              <div class="text-[11px] text-slate-600 font-semibold uppercase">Lizenz Standard</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="text-xl font-black text-slate-900">Hamburg</div>
+              <div class="text-[11px] text-slate-600 font-semibold uppercase">Stützpunkt</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Image Container -->
+        <div class="lg:col-span-5" data-aos="fade-left">
+          <div class="relative rounded-3xl overflow-hidden border-2 border-[#D4AF37]/50 shadow-2xl bg-slate-900 group">
+            <div class="w-full h-[420px] sm:h-[500px] overflow-hidden relative">
+              <img src="img/packete/soccerprof-hamburg-kinder-jugendliche-fussballtraining.avif" alt="Individuelles Fußballtraining Kinder Jugendliche Hamburg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-slate-200 shadow-lg">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-[#E63946] text-white flex items-center justify-center font-black">
+                    <i class="fa-solid fa-futbol"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-slate-900">Soccer Proof Hamburg</div>
+                    <div class="text-[11px] text-slate-500 font-medium">Gezieltes Coaching für maximale Entfaltung</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. TRUST / SOCIAL PROOF -->
+  <section id="trust" class="py-16 bg-white/60 backdrop-blur-md relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] font-extrabold text-xs uppercase tracking-widest border border-[#D4AF37]/30 mb-2">
+          Stimmen aus der Praxis
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          Von Spielern und Eltern empfohlen.
+        </h2>
+      </div>
+
+      <!-- Real Feedback Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card 1: Mutter Angelika (Authentisch von soccerprof.de) -->
+        <div class="glass-card p-6 rounded-3xl relative border-2 border-[#D4AF37]/40 shadow-md flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="flex items-center gap-1 text-[#D4AF37] mb-3 text-xs">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-slate-800 font-medium text-xs sm:text-sm leading-relaxed italic mb-4">
+              "Danke lieber Sami! Uns hat's auch gefreut, dein Training tut unserem Sohn so gut und bringt ihn spielerisch und mental enorm weiter!"
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-slate-200/80">
+            <div class="w-10 h-10 rounded-full bg-slate-900 text-[#D4AF37] flex items-center justify-center font-black text-sm">
+              A
+            </div>
+            <div>
+              <div class="font-extrabold text-slate-900 text-xs">Mutter Angelika</div>
+              <div class="text-[10px] text-slate-500 font-medium">Elterneinschätzung Hamburg</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Thomas M. -->
+        <div class="glass-card p-6 rounded-3xl relative shadow-md flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div class="flex items-center gap-1 text-[#D4AF37] mb-3 text-xs">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-slate-800 font-medium text-xs sm:text-sm leading-relaxed italic mb-4">
+              "Das Kognitionstraining bei Sami hat das Spielverständnis meines Sohnes spürbar verändert. Er trifft auf dem Platz viel schnellere Entscheidungen."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-slate-200/80">
+            <div class="w-10 h-10 rounded-full bg-[#E63946] text-white flex items-center justify-center font-black text-sm">
+              T
+            </div>
+            <div>
+              <div class="font-extrabold text-slate-900 text-xs">Thomas M.</div>
+              <div class="text-[10px] text-slate-500 font-medium">Vater eines D-Jugend Spielers</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Lukas K. -->
+        <div class="glass-card p-6 rounded-3xl relative shadow-md flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+          <div>
+            <div class="flex items-center gap-1 text-[#D4AF37] mb-3 text-xs">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-slate-800 font-medium text-xs sm:text-sm leading-relaxed italic mb-4">
+              "Sami fordert einen in jeder Minute. Die Technik- und Schnelligkeitseinheiten haben mir in der Vorbereitung extrem geholfen."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-slate-200/80">
+            <div class="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center font-black text-sm">
+              L
+            </div>
+            <div>
+              <div class="font-extrabold text-slate-900 text-xs">Lukas K.</div>
+              <div class="text-[10px] text-slate-500 font-medium">Herren-Amateurspieler</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. PROBLEM SECTION -->
+  <section id="problem" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#E63946]/10 text-[#E63946] font-extrabold text-xs uppercase tracking-widest border border-[#E63946]/30">
+          Der Haken im Vereinsalltag
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          Im Mannschaftstraining bleibt nicht immer Zeit für jeden Spieler.
+        </h2>
+        <p class="text-slate-600 font-medium text-base sm:text-lg">
+          Im regulären Vereins-Teamtraining muss der Trainer das Kollektiv vorbereiten. Individuelle Details an der Technik, der Kognition oder dem schwachen Fuß gehen dabei zwangsläufig unter.
+        </p>
+      </div>
+
+      <!-- 3 Core Solution Points -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="glass-card p-8 rounded-3xl space-y-4 hover:border-[#D4AF37]" data-aos="fade-right">
+          <div class="w-12 h-12 rounded-2xl bg-slate-900 text-[#D4AF37] flex items-center justify-center text-xl font-bold">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <h3 class="text-xl font-extrabold text-slate-900">Technik gezielt verbessern</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Saubere Erste Berührung, Beidfüßigkeit und enge Ballführung unter Orientierung. Wiederholungszahlen, die im Mannschaftstraining unmöglich sind.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl space-y-4 hover:border-[#E63946]" data-aos="fade-up">
+          <div class="w-12 h-12 rounded-2xl bg-[#E63946] text-white flex items-center justify-center text-xl font-bold shadow-red-glow">
+            <i class="fa-solid fa-[#fa-sliders] fa-sliders"></i>
+          </div>
+          <h3 class="text-xl font-extrabold text-slate-900">Individuelle Schwächen bearbeiten</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Gezielte Arbeit an persönlichen Entwicklungsfeldern – ob Stellungsspiel, Passschärfe oder schwacher Fuß. Kein Verstecken in der Gruppe.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl space-y-4 hover:border-[#D4AF37]" data-aos="fade-left">
+          <div class="w-12 h-12 rounded-2xl bg-slate-900 text-[#D4AF37] flex items-center justify-center text-xl font-bold">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <h3 class="text-xl font-extrabold text-slate-900">Mehr Sicherheit und Selbstvertrauen entwickeln</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Spieler, die ihre Aktionen beherrschen, treffen schnellere Entscheidungen und spielen mit Mut, Überzeugung und Freude am Ball.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. TRAININGSANGEBOTE -->
+  <section id="training" class="py-24 bg-white/60 backdrop-blur-md relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] font-extrabold text-xs uppercase tracking-widest border border-[#D4AF37]/30">
+          Unser Trainings-Setup
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          Das Training, das zu deinem Spieler passt.
+        </h2>
+        <p class="text-slate-600 font-medium text-base sm:text-lg">
+          Wähle das beste Format als wirkungsvolle Ergänzung zum Vereinsbetrieb in Hamburg.
+        </p>
+      </div>
+
+      <!-- 3 Premium Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Karte 1: Einzeltraining -->
+        <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between group hover:-translate-y-2 transition-all duration-300" data-aos="fade-right">
+          <div>
+            <div class="w-full h-48 rounded-2xl overflow-hidden mb-6 shadow-md border border-slate-200/80 relative">
+              <img src="img/packete/soccerprof-hamburg-kinder-jugendliche-fussballtraining.avif" alt="Einzeltraining 1:1 Hamburg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-black uppercase bg-slate-900/90 text-[#D4AF37]">
+                1:1 Coaching
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-black text-slate-900 mb-2">Einzeltraining</h3>
+            <p class="text-slate-500 text-xs uppercase font-extrabold tracking-wider mb-3 text-[#D4AF37]">Zielgruppe: Kinder, Jugendliche &amp; Talente</p>
+            <p class="text-slate-600 text-sm mb-6">
+              Maximale Intensität und 100% persönliche Betreuung. Jede Minute gehört der individuellen Korrektur und der eigenen Weiterentwicklung.
+            </p>
+
+            <ul class="space-y-3 mb-8 text-sm text-slate-700">
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 shrink-0"></i> Exklusive Aufmerksamkeitsdichte</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 shrink-0"></i> Gezielter Feinschliff an der Technik</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 shrink-0"></i> Video- &amp; Bewegungsanalyse</li>
+            </ul>
+          </div>
+
+          <a href="#erstgespraech" class="w-full py-4 rounded-2xl bg-slate-900 hover:bg-[#D4AF37] text-white hover:text-slate-900 font-extrabold text-sm block text-center transition-all duration-300 shadow-md">
+            Erstgespräch vereinbaren
+          </a>
+        </div>
+
+        <!-- Karte 2: Kleingruppentraining (Highlight) -->
+        <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between group hover:-translate-y-2 transition-all duration-300 border-2 border-[#D4AF37] shadow-gold-glow bg-white/95 relative" data-aos="zoom-in">
+          
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-slate-900 font-black text-xs uppercase px-4 py-1.5 rounded-full shadow-md z-20">
+            ★ Beliebtestes Format
+          </div>
+
+          <div>
+            <div class="w-full h-48 rounded-2xl overflow-hidden mb-6 shadow-md border border-slate-200/80 relative">
+              <img src="img/packete/kleingruppe.avif" alt="Kleingruppentraining Fußball Hamburg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-black uppercase bg-[#E63946] text-white shadow-sm">
+                5er Gruppe
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-black text-slate-900 mb-2">Kleingruppentraining</h3>
+            <p class="text-slate-500 text-xs uppercase font-extrabold tracking-wider mb-3 text-[#E63946]">Zielgruppe: Spieler &amp; Freunde (Max 5)</p>
+            <p class="text-slate-600 text-sm mb-6">
+              Die perfekte Balance aus hoher Wiederholungszahl und realer Wettkampfdynamik in leistungsgerechten 5er-Teams.
+            </p>
+
+            <ul class="space-y-3 mb-8 text-sm text-slate-700">
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-[#E63946] mt-1 shrink-0"></i> Reale 1v1 &amp; 2v2 Spielsituationen</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-[#E63946] mt-1 shrink-0"></i> Hohe Dynamik &amp; Spielfreude</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-[#E63946] mt-1 shrink-0"></i> Kognitives Handlungstempo</li>
+            </ul>
+          </div>
+
+          <a href="#erstgespraech" class="w-full py-4 rounded-2xl bg-[#E63946] hover:bg-[#C52233] text-white font-extrabold text-sm block text-center transition-all duration-300 shadow-red-glow">
+            Erstgespräch vereinbaren
+          </a>
+        </div>
+
+        <!-- Karte 3: Spezialtraining -->
+        <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between group hover:-translate-y-2 transition-all duration-300" data-aos="fade-left">
+          <div>
+            <div class="w-full h-48 rounded-2xl overflow-hidden mb-6 shadow-md border border-slate-200/80 relative">
+              <img src="img/packete/Fu%C3%9Fballspieler%20auf%20Bank.avif" alt="Spezialtraining Kognition Hamburg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-black uppercase bg-slate-900/90 text-[#D4AF37]">
+                Kognition &amp; Adults
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-black text-slate-900 mb-2">Spezialtraining</h3>
+            <p class="text-slate-500 text-xs uppercase font-extrabold tracking-wider mb-3 text-[#D4AF37]">Zielgruppe: Vorbereitung &amp; Senioren</p>
+            <p class="text-slate-600 text-sm mb-6">
+              Fokussiertes Kognitions- &amp; Wahrnehmungstraining sowie spezifische Vorbereitungseinheiten für höhere Spielklassen.
+            </p>
+
+            <ul class="space-y-3 mb-8 text-sm text-slate-700">
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 shrink-0"></i> Visuelle Orientierung (Scanning)</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 shrink-0"></i> Positionsspezifische Schulung</li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 shrink-0"></i> Spielfitness &amp; Mental Coaching</li>
+            </ul>
+          </div>
+
+          <a href="#erstgespraech" class="w-full py-4 rounded-2xl bg-slate-900 hover:bg-[#D4AF37] text-white hover:text-slate-900 font-extrabold text-sm block text-center transition-all duration-300 shadow-md">
+            Erstgespräch vereinbaren
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. TRAININGSMETHODE -->
+  <section id="methode" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#E63946]/10 text-[#E63946] font-extrabold text-xs uppercase tracking-widest border border-[#E63946]/30">
+          Unser Prinzip
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          Nicht einfach mehr trainieren. Sondern gezielter.
+        </h2>
+        <p class="text-slate-600 font-medium text-base sm:text-lg">
+          Ein strukturierter 4-Schritte-Prozess für sichtbare und nachhaltige Fortschritte auf dem Platz.
+        </p>
+      </div>
+
+      <!-- 4-Schritte Process Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Step 1 -->
+        <div class="glass-card p-6 rounded-3xl space-y-4 hover:border-[#D4AF37]" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-12 h-12 rounded-2xl bg-slate-900 text-[#D4AF37] font-black flex items-center justify-center text-lg">
+            01
+          </div>
+          <h3 class="text-lg font-black text-slate-900">Analyse</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Eingehende Erfassung des aktuellen Leistungsstands, der Stärken und der gezielten Entwicklungsfelder des Spielers.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="glass-card p-6 rounded-3xl space-y-4 hover:border-[#E63946]" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-12 h-12 rounded-2xl bg-[#E63946] text-white font-black flex items-center justify-center text-lg shadow-red-glow">
+            02
+          </div>
+          <h3 class="text-lg font-black text-slate-900">Individueller Trainingsplan</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Erstellung eines maßgeschneiderten Übungskonzepts abgestimmt auf Position, Alter und persönliche Zielsetzungen.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="glass-card p-6 rounded-3xl space-y-4 hover:border-[#D4AF37]" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-12 h-12 rounded-2xl bg-slate-900 text-[#D4AF37] font-black flex items-center justify-center text-lg">
+            03
+          </div>
+          <h3 class="text-lg font-black text-slate-900">Gezieltes Training</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Hochintensives Praxis-Coaching mit hoher Wiederholungszahl, sauberer Bewegungskorrektur und kognitiven Reizen.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="glass-card p-6 rounded-3xl space-y-4 hover:border-[#E63946]" data-aos="fade-up" data-aos-delay="400">
+          <div class="w-12 h-12 rounded-2xl bg-[#E63946] text-white font-black flex items-center justify-center text-lg shadow-red-glow">
+            04
+          </div>
+          <h3 class="text-lg font-black text-slate-900">Kontinuierliche Entwicklung</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Regelmäßiges Feedback und Anpassung der Trainingsreize für stetiges Wachstum und gestärktes Selbstvertrauen.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. WARUM SOCCER PROOF -->
+  <section id="warum" class="py-24 bg-white/70 backdrop-blur-md relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] font-extrabold text-xs uppercase tracking-widest border border-[#D4AF37]/30">
+          Klarer Mehrwert
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          Warum Soccer Proof?
+        </h2>
+        <p class="text-slate-600 font-medium text-base sm:text-lg">
+          Vier konkrete Gründe, warum ambitionierte Spieler und Eltern auf unser Konzept vertrauen.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="glass-card p-8 rounded-3xl space-y-3" data-aos="fade-right">
+          <div class="flex items-center gap-3 text-[#D4AF37] font-extrabold text-lg">
+            <i class="fa-solid fa-user-check"></i>
+            <span>Individuell statt Standardprogramm</span>
+          </div>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Bei uns gibt es keine Trainingsformen „von der Stange“. Jede Übung ist darauf ausgerichtet, dem Spieler genau die Fertigkeiten zu vermitteln, die er im Spiel braucht.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl space-y-3" data-aos="fade-left">
+          <div class="flex items-center gap-3 text-[#E63946] font-extrabold text-lg">
+            <i class="fa-solid fa-[#fa-users-line] fa-users-line"></i>
+            <span>Kleine Gruppen, große Aufmerksamkeit</span>
+          </div>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Maximal 5 Spieler pro Gruppe stellen sicher, dass Trainer Sami Ghaouar jede Bewegung detailreich begleitet und korrigiert.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl space-y-3" data-aos="fade-right">
+          <div class="flex items-center gap-3 text-[#E63946] font-extrabold text-lg">
+            <i class="fa-solid fa-puzzle-piece"></i>
+            <span>Perfekte Ergänzung zum Vereinstraining</span>
+          </div>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Wir arbeiten Hand in Hand mit dem Vereinsfußball. Das Gelernte kommt direkt am Wochenende im Spiel des Heimatvereins zur Anwendung.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl space-y-3" data-aos="fade-left">
+          <div class="flex items-center gap-3 text-[#D4AF37] font-extrabold text-lg">
+            <i class="fa-solid fa-diagram-project"></i>
+            <span>Training mit System</span>
+          </div>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Ganzheitliche Verknüpfung aus Balltechnik, Kognition, Erstkontakt und mentaler Stärke – wissenschaftlich fundiert und altersgerecht aufbereitet.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. ERGEBNISSE / TESTIMONIALS -->
+  <section id="ergebnisse" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#E63946]/10 text-[#E63946] font-extrabold text-xs uppercase tracking-widest border border-[#E63946]/30">
+          Nachweisbare Fortschritte
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          Erfolge, die man auf dem Platz sieht.
+        </h2>
+        <p class="text-slate-600 font-medium text-base sm:text-lg">
+          Feedback von Spielern und Eltern, die mit Soccer Proof ihren nächsten Schritt gemacht haben.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="glass-card p-8 rounded-3xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="text-4xl font-black text-[#D4AF37] mb-2">+40%</div>
+            <h4 class="font-extrabold text-slate-900 text-base mb-2">Schnellere Entscheidungen</h4>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              "Durch die kognitiven Übungen hat unser Sohn gelernt, das Feld vor der Ballannahme zu scannen. Er wirkt im Spiel viel ruhiger."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-200 text-xs font-bold text-slate-500">
+            Eltern-Feedback (D-Jugend Hamburg)
+          </div>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div class="text-4xl font-black text-[#E63946] mb-2">100%</div>
+            <h4 class="font-extrabold text-slate-900 text-base mb-2">Beidfüßiger Einsatz</h4>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              "Früher hat unser Sohn sich nie getraut, mit links zu schießen. Nach wenigen Monaten Einzeltraining schießt er Tore mit beiden Füßen."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-200 text-xs font-bold text-slate-500">
+            Eltern-Feedback (E-Jugend Hamburg)
+          </div>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+          <div>
+            <div class="text-4xl font-black text-slate-900 mb-2">Stammplatz</div>
+            <h4 class="font-extrabold text-slate-900 text-base mb-2">Gesichertes Selbstvertrauen</h4>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              "Das Zusatztraining war die beste Entscheidung. Das Feedback vom Vereinstrainer war durchweg positiv, die Sicherheit am Ball ist deutlich höher."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-200 text-xs font-bold text-slate-500">
+            Spieler-Feedback (C-Jugend Hamburg)
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. TRAINER / ÜBER SAMI -->
+  <section id="ueber-uns" class="py-24 bg-slate-900 text-white relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Photo Container -->
+        <div class="lg:col-span-5" data-aos="zoom-in">
+          <div class="relative rounded-3xl overflow-hidden border-2 border-[#D4AF37]/50 shadow-2xl p-2 bg-slate-950">
+            <div class="w-full h-96 sm:h-[480px] rounded-2xl overflow-hidden relative">
+              <img src="img/sami/sami%20daumen%20hoch.avif" alt="Sami Ghaouar Head Coach Soccer Proof" class="w-full h-full object-cover">
+              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent p-6 text-center">
+                <h3 class="text-2xl font-black text-white">Sami Ghaouar</h3>
+                <p class="text-xs text-[#D4AF37] font-bold uppercase tracking-widest mt-1">Gründer &amp; Head Coach</p>
+                <div class="mt-3 flex gap-2 justify-center">
+                  <span class="text-[10px] bg-[#D4AF37]/20 text-[#D4AF37] px-3 py-1 rounded-full font-extrabold border border-[#D4AF37]/40">DFB COACH</span>
+                  <span class="text-[10px] bg-[#E63946]/20 text-[#E63946] px-3 py-1 rounded-full font-extrabold border border-[#E63946]/40">HAMBURG</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text Details -->
+        <div class="lg:col-span-7 space-y-6" data-aos="fade-left">
+          <div class="inline-block px-3 py-1 rounded-full bg-[#D4AF37]/20 text-[#D4AF37] font-extrabold text-xs uppercase border border-[#D4AF37]/30">
+            Qualifikation &amp; Haltung
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+            Hinter jedem Training steht ein Trainer, der Entwicklung ernst nimmt.
+          </h2>
+          <p class="text-slate-300 font-medium text-base leading-relaxed">
+            Als qualifizierter Fußballtrainer in Hamburg steht <strong class="text-white">Sami Ghaouar</strong> für akribisches, zielgerichtetes und motivierendes Coaching. Mein Anspruch ist es, jeden Spieler dort abzuholen, wo er steht, und ihn mit professioneller Methodik an sein persönliches Maximum zu führen.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700">
+              <div class="text-[#D4AF37] font-extrabold text-base mb-1"><i class="fa-solid fa-graduation-cap mr-2"></i>DFB-Standards</div>
+              <p class="text-xs text-slate-400">Moderne Trainingslehre &amp; kontinuierliche Fortbildung.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700">
+              <div class="text-[#E63946] font-extrabold text-base mb-1"><i class="fa-solid fa-location-dot mr-2"></i>Hamburg Ost</div>
+              <p class="text-xs text-slate-400">Stützpunkt Öjendorfer Weg 80 &amp; Indoor-Hallen.</p>
+            </div>
+          </div>
+
+          <div class="pt-4">
+            <a href="#erstgespraech" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#E63946] hover:bg-[#C52233] text-white font-black text-sm shadow-red-glow transition-all transform hover:-translate-y-1">
+              <span>Kostenloses Erstgespräch mit Sami</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. ABLAUF -->
+  <section id="ablauf" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] font-extrabold text-xs uppercase tracking-widest border border-[#D4AF37]/30">
+          Einfacher Start
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          In 3 Schritten zum individuellen Training.
+        </h2>
+        <p class="text-slate-600 font-medium text-base sm:text-lg">
+          Unkompliziert, persönlich und transparent zum ersten Termin auf dem Platz.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Step 1 -->
+        <div class="glass-card p-8 rounded-3xl text-center space-y-4 relative border-2 border-slate-200" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-16 h-16 rounded-full bg-[#E63946] text-white flex items-center justify-center text-2xl font-black mx-auto shadow-red-glow">
+            1
+          </div>
+          <h3 class="text-xl font-black text-slate-900">01 Kostenloses Erstgespräch</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Wir besprechen telefonisch oder per WhatsApp unverbindlich die aktuellen Ziele, Wünsche und den Spielhintergrund.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="glass-card p-8 rounded-3xl text-center space-y-4 relative border-2 border-[#D4AF37]/50" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-16 h-16 rounded-full bg-slate-900 text-[#D4AF37] flex items-center justify-center text-2xl font-black mx-auto shadow-md">
+            2
+          </div>
+          <h3 class="text-xl font-black text-slate-900">02 Passendes Training finden</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Wir wählen das ideale Format (Einzeltraining oder 5er-Kleingruppe) passend zum Terminkalender des Spielers.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="glass-card p-8 rounded-3xl text-center space-y-4 relative border-2 border-slate-200" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-16 h-16 rounded-full bg-[#E63946] text-white flex items-center justify-center text-2xl font-black mx-auto shadow-red-glow">
+            3
+          </div>
+          <h3 class="text-xl font-black text-slate-900">03 Training starten</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Erste Einheit auf dem Platz in Hamburg absolvieren, wertvolles Feedback erhalten und die Entwicklung starten.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="#erstgespraech" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#E63946] hover:bg-[#C52233] text-white font-black text-base shadow-red-glow transition-all transform hover:-translate-y-1">
+          <span>Kostenloses Erstgespräch vereinbaren</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 10. PREISE -->
+  <section id="preise" class="py-24 bg-white/70 backdrop-blur-md relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] font-extrabold text-xs uppercase tracking-widest border border-[#D4AF37]/30">
+          Transparenz
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          Transparente Trainingspakete
+        </h2>
+        <p class="text-slate-600 font-medium text-base sm:text-lg">
+          Faire Konditionen ohne langfristige Knebelverträge. Qualität und Flexibilität stehen im Vordergrund.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Paket 1 -->
+        <div class="glass-card p-8 rounded-3xl flex flex-col justify-between" data-aos="fade-right">
+          <div>
+            <h3 class="text-2xl font-black text-slate-900 mb-2">Erstgespräch &amp; Check</h3>
+            <div class="text-3xl font-black text-[#E63946] mb-4">0 €</div>
+            <p class="text-slate-600 text-sm mb-6">Unverbindliche Erstberatung zur Analyse des Trainingsbedarfs.</p>
+            <ul class="space-y-3 text-xs font-semibold text-slate-700 mb-8">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#D4AF37]"></i> Persönliche Beratung</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#D4AF37]"></i> Bedarfs- &amp; Zielanalyse</li>
+              <li class="flex items-center gap-2"><li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#D4AF37]"></i> 100% Unverbindlich</li>
+            </ul>
+          </div>
+          <a href="#erstgespraech" class="w-full py-3.5 rounded-2xl bg-slate-900 text-white font-extrabold text-xs text-center block hover:bg-[#D4AF37] hover:text-slate-900 transition-colors">
+            JETZT ANFRAGEN
+          </a>
+        </div>
+
+        <!-- Paket 2 (Highlight) -->
+        <div class="glass-card p-8 rounded-3xl flex flex-col justify-between border-2 border-[#D4AF37] shadow-gold-glow relative bg-white/95" data-aos="zoom-in">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-slate-900 font-black text-[10px] uppercase px-3 py-1 rounded-full">
+            Empfohlen
+          </div>
+          <div>
+            <h3 class="text-2xl font-black text-slate-900 mb-2">Kleingruppe (5er)</h3>
+            <div class="text-2xl font-black text-slate-900 mb-4">Auf Anfrage <span class="text-xs font-normal text-slate-500">/ Tarifpaket</span></div>
+            <p class="text-slate-600 text-sm mb-6">Wöchentliches Gruppentraining mit maximal 5 Spielern.</p>
+            <ul class="space-y-3 text-xs font-semibold text-slate-700 mb-8">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#E63946]"></i> Max. 5 Spieler pro Trainer</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#E63946]"></i> Hohe Wiederholung &amp; Dynamik</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#E63946]"></i> Ganzjährig Outdoor &amp; Indoor</li>
+            </ul>
+          </div>
+          <a href="#erstgespraech" class="w-full py-3.5 rounded-2xl bg-[#E63946] text-white font-extrabold text-xs text-center block shadow-red-glow hover:bg-[#C52233] transition-colors">
+            PREIS ANFRAGEN
+          </a>
+        </div>
+
+        <!-- Paket 3 -->
+        <div class="glass-card p-8 rounded-3xl flex flex-col justify-between" data-aos="fade-left">
+          <div>
+            <h3 class="text-2xl font-black text-slate-900 mb-2">1:1 Einzeltraining</h3>
+            <div class="text-2xl font-black text-slate-900 mb-4">Auf Anfrage <span class="text-xs font-normal text-slate-500">/ Einzeleinheit</span></div>
+            <p class="text-slate-600 text-sm mb-6">Maximale Intensität für die individuelle Entwicklung.</p>
+            <ul class="space-y-3 text-xs font-semibold text-slate-700 mb-8">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#D4AF37]"></i> 100% Aufmerksamkeitsdichte</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#D4AF37]"></i> Detaillierte Videoanalyse</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#D4AF37]"></i> Maßgeschneiderter Plan</li>
+            </ul>
+          </div>
+          <a href="#erstgespraech" class="w-full py-3.5 rounded-2xl bg-slate-900 text-white font-extrabold text-xs text-center block hover:bg-[#D4AF37] hover:text-slate-900 transition-colors">
+            PREIS ANFRAGEN
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 11. HÄUFIG GESTELLTE FRAGEN (FAQ) -->
+  <section id="faq" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#E63946]/10 text-[#E63946] font-extrabold text-xs uppercase tracking-widest border border-[#E63946]/30">
+          Transparenz &amp; Details
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          Häufig gestellte Fragen
+        </h2>
+        <p class="text-slate-600 font-medium text-base sm:text-lg">
+          Hier findest Du schnelle Antworten auf alle wichtigen Fragen rund um Soccer Proof in Hamburg.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-4" data-aos="fade-up">
+        
+        <!-- Q1 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80">
+          <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+            <span>Für welches Alter ist das Training geeignet?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+            Unser Hauptfokus liegt auf Nachwuchsspielern von <strong>6 bis 17 Jahren</strong> (Kinder &amp; Jugendliche). Darüber hinaus bieten wir spezialisierte Leistungseinheiten für fortgeschrittene Erwachsene und Herren-/Damen-Spieler an.
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80">
+          <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+            <span>Muss mein Kind bereits Fußball spielen können?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+            Grundlegende Begeisterung für Fußball reicht völlig aus! Egal ob Einsteiger mit ersten Grundlagen oder ambitionierter Vereinsspieler – wir holen das Kind exakt an seinem individuellen Leistungsstand ab.
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80">
+          <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+            <span>Ist das Training eine Ergänzung zum Verein?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+            Ja, absolut! Soccer Proof ist <strong>kein Ersatz</strong> für den Heimatverein, sondern eine hochspezialisierte Zusatzförderung. Das im Einzeltraining erlernte Können fließt direkt am Wochenende in die Mannschaftsleistung ein.
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80">
+          <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+            <span>Wie läuft das erste Training ab?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+            Nach einem kurzen Erstgespräch starten wir mit einer unverbindlichen Bestandsaufnahme auf dem Platz. Trainer Sami schaut sich Ballgefühl, Erstkontakt und Bewegungsmuster an, um danach den optimalen Trainingsweg festzulegen.
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80">
+          <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+            <span>Wo findet das Training statt?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+            Unser Hauptstützpunkt liegt am <strong>Öjendorfer Weg 80, 22119 Hamburg</strong> (Horner Rennbahn / Billstedt). Im Sommer trainieren wir auf modernstem Kunstrasen im Freien, in den Wintermonaten wechseln wir flexibel in beheizte Hamburger Indoor-Fußballhallen.
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80">
+          <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+            <span>Wie lange dauert eine Trainingseinheit?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+            Eine reguläre Trainingseinheit dauert <strong>60 bis 75 Minuten</strong>. Das gewährleistet maximale Konzentration und volle Intensität ohne Übermüdung.
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80">
+          <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+            <span>Kann ich mit Freunden oder Geschwistern trainieren?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+            Ja, sehr gerne! Unser Kleingruppentraining ist ideal für 2 bis 5 befreundete Spieler oder Geschwister, die gemeinsam an ihren Zielen arbeiten möchten.
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80">
+          <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+            <span>Was muss mein Kind zum Training mitbringen?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+            Wettergerechte Sportbekleidung, passende Nockenschuhe (oder Hallenschuhe im Winter), Schienbeinschoner sowie ausreichend Still-Wasser. Alle Trainingsgeräte (Bälle, Hütchen, Kognitionslichter) stellen wir.
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80">
+          <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+            <span>Wie kann ich ein Erstgespräch vereinbaren?</span>
+            <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+            Ganz einfach über das untenstehende Formular oder per direktem Klick auf den WhatsApp-Button. Sami meldet sich innerhalb kurzer Zeit persönlich zurück!
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 12. FINAL CTA & FORMULAR -->
+  <section id="erstgespraech" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="glass-card rounded-3xl p-8 sm:p-12 border-2 border-[#D4AF37] shadow-2xl relative overflow-hidden bg-gradient-to-br from-white via-white to-amber-500/5">
+        
+        <div class="max-w-3xl mx-auto text-center space-y-6 mb-12">
+          <div class="inline-block px-4 py-1.5 rounded-full bg-[#E63946] text-white font-black text-xs uppercase tracking-widest shadow-red-glow">
+            Jetzt starten
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+            Bereit für den nächsten Schritt?
+          </h2>
+          <p class="text-slate-700 font-medium text-base sm:text-lg">
+            Finde heraus, wie individuelles Fußballtraining die Entwicklung deines Kindes unterstützen kann.
+          </p>
+          <div class="flex items-center justify-center gap-4 text-xs font-bold text-slate-500 uppercase tracking-wider">
+            <span>Unverbindlich</span> • <span>Persönlich</span> • <span>Ohne Verpflichtung</span>
+          </div>
+        </div>
+
+        <!-- Form Container -->
+        <div class="max-w-2xl mx-auto">
+          <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2">Vor- &amp; Nachname *</label>
+                <input type="text" required placeholder="z.B. Max Mustermann" class="w-full px-4 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all">
+              </div>
+              <div>
+                <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2">Telefonnummer *</label>
+                <input type="tel" required placeholder="z.B. 0176 12345678" class="w-full px-4 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2">Alter / Jahrgang des Spielers</label>
+                <select class="w-full px-4 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all">
+                  <option>Kinder (6 - 11 Jahre)</option>
+                  <option>Jugendliche (12 - 17 Jahre)</option>
+                  <option>Erwachsene / Amateure</option>
+                  <option>Verein / Mannschaft</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2">Interesse an</label>
+                <select class="w-full px-4 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all">
+                  <option>Kostenloses Erstgespräch</option>
+                  <option>Einzeltraining 1:1</option>
+                  <option>Kleingruppe (5er)</option>
+                  <option>Spezial- / Kognitionstraining</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2">Nachricht / Fragen (optional)</label>
+              <textarea rows="3" placeholder="Beschreibe kurz die Wünsche oder Position des Spielers..." class="w-full px-4 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-2xl bg-[#E63946] hover:bg-[#C52233] text-white font-black text-base shadow-red-glow hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-3">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Kostenloses Erstgespräch vereinbaren</span>
+            </button>
+
+            <!-- Success notification box -->
+            <div id="formSuccess" class="hidden p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 text-center font-bold text-sm">
+              <i class="fa-solid fa-circle-check mr-2"></i>Vielen Dank! Deine Anfrage wurde erfolgreich weitergeleitet. Sami meldet sich in Kürze!
+            </div>
+
+          </form>
+
+          <!-- Direct WhatsApp Alternative -->
+          <div class="mt-8 pt-6 border-t border-slate-200 text-center">
+            <p class="text-xs text-slate-500 font-medium mb-3">Lieber direkt persönlich schreiben?</p>
+            <a href="https://wa.me/4917684156542?text=Hallo%20Sami,%20ich%20m%C3%B6chte%20gerne%20ein%20kostenloses%20Erstgespr%C3%A4ch%20vereinbaren!" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-xs shadow-md transition-transform transform hover:scale-105">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>Direkt auf WhatsApp schreiben</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 13. FOOTER (4-SPALTIGES PROFESSIONELLES LAYOUT) -->
+  <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-800 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+        
+        <!-- Spalte 1: Soccer Proof -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="img/logo/F3-3.avif" alt="Soccer Proof Logo" class="h-9 w-auto object-contain">
+            <span class="text-white font-black text-lg tracking-tight">SOCCER <span class="text-[#E63946]">PROOF</span></span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Professionelles, individuelles Fußballtraining für Kinder, Jugendliche und ambitionierte Talente in Hamburg. DFB-Qualifikationsstandard.
+          </p>
+          <div class="text-xs text-slate-400">
+            <i class="fa-solid fa-location-dot text-[#D4AF37] mr-1.5"></i>Öjendorfer Weg 80, 22119 Hamburg
+          </div>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://wa.me/4917684156542" target="_blank" class="w-8 h-8 rounded-full bg-slate-800 text-[#25D366] flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="tel:+4917684156542" class="w-8 h-8 rounded-full bg-slate-800 text-[#D4AF37] flex items-center justify-center hover:bg-[#D4AF37] hover:text-slate-900 transition-colors" aria-label="Telefon">
+              <i class="fa-solid fa-phone"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Spalte 2: Training -->
+        <div class="space-y-3">
+          <h4 class="text-white font-extrabold text-sm uppercase tracking-wider">Training</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#training" class="hover:text-white transition-colors">Einzeltraining (1:1)</a></li>
+            <li><a href="#training" class="hover:text-white transition-colors">Kleingruppentraining (5er)</a></li>
+            <li><a href="#methode" class="hover:text-white transition-colors">Trainingsmethode</a></li>
+            <li><a href="#preise" class="hover:text-white transition-colors">Preise &amp; Pakete</a></li>
+          </ul>
+        </div>
+
+        <!-- Spalte 3: Unternehmen -->
+        <div class="space-y-3">
+          <h4 class="text-white font-extrabold text-sm uppercase tracking-wider">Unternehmen</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#ueber-uns" class="hover:text-white transition-colors">Über uns (Sami Ghaouar)</a></li>
+            <li><a href="#training" class="hover:text-white transition-colors">Veranstaltungen &amp; Camps</a></li>
+            <li><a href="#kontakt" class="hover:text-white transition-colors">Jobs &amp; Karriere</a></li>
+            <li><a href="#faq" class="hover:text-white transition-colors">Häufige Fragen (FAQ)</a></li>
+            <li><a href="#kontakt" class="hover:text-white transition-colors">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <!-- Spalte 4: Rechtliches -->
+        <div class="space-y-3">
+          <h4 class="text-white font-extrabold text-sm uppercase tracking-wider">Rechtliches</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#kontakt" class="hover:text-white transition-colors">Impressum</a></li>
+            <li><a href="#kontakt" class="hover:text-white transition-colors">Datenschutz</a></li>
+            <li><a href="#kontakt" class="hover:text-white transition-colors">AGB</a></li>
+            <li><a href="#kontakt" class="hover:text-white transition-colors">Widerrufsbelehrung</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div>
+          © <span id="year"></span> Soccer Proof Hamburg – Sami Ghaouar. Alle Rechte vorbehalten.
+        </div>
+        <div>
+          Individuelles Fußballtraining auf DFB-Niveau in Hamburg.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- SCRIPTS: THREE.JS, AOS & INTERACTION -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+  <script>
+    // 1. Initialize AOS (Animate On Scroll)
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: false,
+        mirror: true
+      });
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+
+    // Mobile Navbar Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // FAQ Accordion Toggle
+    document.querySelectorAll('.faq-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('.faq-icon');
+        const isOpen = !content.classList.contains('hidden');
+        
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+        
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+
+    // Form submission handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const successBox = document.getElementById('formSuccess');
+      successBox.classList.remove('hidden');
+      setTimeout(() => {
+        window.location.href = "https://wa.me/4917684156542?text=" + encodeURIComponent("Hallo Sami, ich habe gerade eine Anfrage für ein kostenloses Erstgespräch auf deiner Website gestellt!");
+      }, 1500);
+    }
+
+    // 2. THREE.JS FULL-PAGE CENTERED ROUND-PARTICLE 3D DISSOLVE & REASSEMBLY
+    (function initThreeJS() {
+      const container = document.getElementById('threejs-container');
+      if (!container) return;
+
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+      camera.position.set(0, 0, 10);
+
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(renderer.domElement);
+
+      function createRoundParticleTexture() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 64;
+        canvas.height = 64;
+        const ctx = canvas.getContext('2d');
+
+        const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+        grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+        grad.addColorStop(0.3, 'rgba(212, 175, 55, 0.9)');
+        grad.addColorStop(0.7, 'rgba(212, 175, 55, 0.4)');
+        grad.addColorStop(1, 'rgba(212, 175, 55, 0)');
+
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(32, 32, 30, 0, Math.PI * 2);
+        ctx.fill();
+
+        return new THREE.CanvasTexture(canvas);
+      }
+
+      const roundParticleMap = createRoundParticleTexture();
+      const textureLoader = new THREE.TextureLoader();
+      const logoTexture = textureLoader.load('img/logo/F3-3.avif');
+
+      const worldGroup = new THREE.Group();
+      scene.add(worldGroup);
+
+      const logoContainer = new THREE.Group();
+      logoContainer.position.set(0, 0, 0);
+      worldGroup.add(logoContainer);
+
+      const logoRadius = 2.5;
+      const logoGeo = new THREE.CylinderGeometry(logoRadius, logoRadius, 0.2, 64);
+      const goldMat = new THREE.MeshStandardMaterial({
+        color: 0xD4AF37,
+        metalness: 0.9,
+        roughness: 0.2,
+        emissive: 0x221a00
+      });
+      const logoFaceMat = new THREE.MeshStandardMaterial({
+        map: logoTexture,
+        roughness: 0.2,
+        metalness: 0.1,
+        transparent: true,
+        opacity: 1.0
+      });
+
+      const solidLogoMesh = new THREE.Mesh(logoGeo, [goldMat, logoFaceMat, logoFaceMat]);
+      solidLogoMesh.rotation.x = Math.PI / 2;
+      logoContainer.add(solidLogoMesh);
+
+      const particleCount = 2400;
+      const originPositions = new Float32Array(particleCount * 3);
+      const dispersedPositions = new Float32Array(particleCount * 3);
+      const currentPositions = new Float32Array(particleCount * 3);
+      const particleColors = new Float32Array(particleCount * 3);
+
+      const cWhite = new THREE.Color(0xFFFFFF);
+      const cGold  = new THREE.Color(0xD4AF37);
+      const cRed   = new THREE.Color(0xE63946);
+
+      for (let i = 0; i < particleCount; i++) {
+        const theta = Math.random() * 2.0 * Math.PI;
+        const r = Math.random() * logoRadius;
+        const x = r * Math.cos(theta);
+        const y = r * Math.sin(theta);
+        const z = (Math.random() - 0.5) * 0.3;
+
+        originPositions[i * 3]     = x;
+        originPositions[i * 3 + 1] = y;
+        originPositions[i * 3 + 2] = z;
+
+        const mult = 2.5 + Math.random() * 4.0;
+        dispersedPositions[i * 3]     = x * mult + (Math.random() - 0.5) * 6;
+        dispersedPositions[i * 3 + 1] = y * mult + (Math.random() - 0.5) * 6;
+        dispersedPositions[i * 3 + 2] = z * mult + (Math.random() - 0.5) * 6;
+
+        currentPositions[i * 3]     = x;
+        currentPositions[i * 3 + 1] = y;
+        currentPositions[i * 3 + 2] = z;
+
+        const rc = Math.random();
+        let col = cWhite;
+        if (rc > 0.4) col = cGold;
+        if (rc > 0.8) col = cRed;
+
+        particleColors[i * 3]     = col.r;
+        particleColors[i * 3 + 1] = col.g;
+        particleColors[i * 3 + 2] = col.b;
+      }
+
+      const particleGeo = new THREE.BufferGeometry();
+      particleGeo.setAttribute('position', new THREE.BufferAttribute(currentPositions, 3));
+      particleGeo.setAttribute('color', new THREE.BufferAttribute(particleColors, 3));
+
+      const particleMat = new THREE.PointsMaterial({
+        size: 0.22,
+        map: roundParticleMap,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.9,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending
+      });
+      const particlePoints = new THREE.Points(particleGeo, particleMat);
+      logoContainer.add(particlePoints);
+
+      const bgParticleCount = 180;
+      const bgParticleGeo = new THREE.BufferGeometry();
+      const bgParticlePos = new Float32Array(bgParticleCount * 3);
+      for (let i = 0; i < bgParticleCount * 3; i += 3) {
+        bgParticlePos[i]     = (Math.random() - 0.5) * 24;
+        bgParticlePos[i + 1] = 5 - Math.random() * 55;
+        bgParticlePos[i + 2] = (Math.random() - 0.5) * 12;
+      }
+      bgParticleGeo.setAttribute('position', new THREE.BufferAttribute(bgParticlePos, 3));
+      const bgParticleMat = new THREE.PointsMaterial({
+        size: 0.2,
+        map: roundParticleMap,
+        color: 0xD4AF37,
+        transparent: true,
+        opacity: 0.6,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending
+      });
+      const bgParticles = new THREE.Points(bgParticleGeo, bgParticleMat);
+      worldGroup.add(bgParticles);
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
+      scene.add(ambientLight);
+
+      const dirLight1 = new THREE.DirectionalLight(0xffffff, 1.6);
+      dirLight1.position.set(5, 10, 5);
+      scene.add(dirLight1);
+
+      const dirLightGold = new THREE.DirectionalLight(0xD4AF37, 2.0);
+      dirLightGold.position.set(-6, -4, 4);
+      scene.add(dirLightGold);
+
+      let targetCameraY = 0;
+      let targetZoomZ = 9.5;
+      let targetDissolve = 0;
+      let currentDissolve = 0;
+      let targetRotationX = 0;
+      let targetRotationY = 0;
+
+      window.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth) - 0.5;
+        const y = (e.clientY / window.innerHeight) - 0.5;
+        targetRotationY = x * 0.5;
+        targetRotationX = y * 0.5;
+      });
+
+      function updateScroll() {
+        const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        const scrollPercent = window.scrollY / maxScroll;
+
+        targetCameraY = -scrollPercent * 45;
+        targetZoomZ = 9.5 + Math.sin(scrollPercent * Math.PI * 5) * 2.5;
+        const cycle = Math.abs(Math.sin(scrollPercent * Math.PI * 6));
+        targetDissolve = Math.pow(cycle, 1.5);
+      }
+
+      window.addEventListener('scroll', updateScroll);
+      updateScroll();
+
+      window.addEventListener('resize', () => {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+
+        currentDissolve += (targetDissolve - currentDissolve) * 0.08;
+        logoFaceMat.opacity = Math.max(0.05, 1 - currentDissolve * 0.95);
+
+        const posAttr = particleGeo.attributes.position;
+        const posArr = posAttr.array;
+
+        for (let i = 0; i < particleCount; i++) {
+          const i3 = i * 3;
+          posArr[i3]     = originPositions[i3]     + (dispersedPositions[i3]     - originPositions[i3])     * currentDissolve;
+          posArr[i3 + 1] = originPositions[i3 + 1] + (dispersedPositions[i3 + 1] - originPositions[i3 + 1]) * currentDissolve;
+          posArr[i3 + 2] = originPositions[i3 + 2] + (dispersedPositions[i3 + 2] - originPositions[i3 + 2]) * currentDissolve;
+        }
+        posAttr.needsUpdate = true;
+
+        solidLogoMesh.rotation.z += 0.006;
+        particlePoints.rotation.z += 0.004;
+        bgParticles.rotation.y -= 0.0008;
+
+        camera.position.y += (targetCameraY - camera.position.y) * 0.08;
+        camera.position.z += (targetZoomZ - camera.position.z) * 0.08;
+
+        worldGroup.rotation.y += (targetRotationY - worldGroup.rotation.y) * 0.05;
+        worldGroup.rotation.x += (targetRotationX - worldGroup.rotation.x) * 0.05;
+
+        renderer.render(scene, camera);
+      }
+
+      animate();
+    })();
+  </script>
+</body>
+</html>
+'''
+with open(r'c:\Users\mario\Desktop\newsoccerprof\index.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+print('Pristine Soccer Proof landing page generated successfully!')

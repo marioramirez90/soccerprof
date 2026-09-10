@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoccerProf Academy | Sami Ghaouar Hamburg – DFB-Niveau Fußballtraining</title>
+  <meta name="description" content="SoccerProf Academy in Hamburg (Sami Ghaouar): Individuelles Fußballtraining auf DFB-Niveau. Technik, Taktik, Kognition & Mentaltraining für Kinder, Jugendliche & Erwachsene.">
+  <meta name="keywords" content="Fußballtraining Hamburg, Einzeltraining Fußball, Sami Ghaouar, SoccerProf, Kognitionstraining, DFB Trainer, Öjendorfer Weg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+  <!-- Google Font: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              gold: '#D4AF37',
+              goldLight: '#F3E5AB',
+              goldGlow: 'rgba(212, 175, 55, 0.4)',
+              red: '#E63946',
+              redDark: '#C52233',
+              dark: '#0F172A',
+              bgLight: '#F8FAFC',
+            }
+          },
+          boxShadow: {
+            'gold-glow': '0 0 25px rgba(212, 175, 55, 0.35)',
+            'red-glow': '0 0 25px rgba(230, 57, 70, 0.45)',
+            'glass': '0 8px 32px 0 rgba(15, 23, 42, 0.08)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- AOS CSS via CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- FontAwesome Icons via CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* Custom Mesh Background & Glassmorphism styles */
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #F8FAFC;
+      color: #0F172A;
+      overflow-x: hidden;
+    }
+
+    .bg-mesh {
+      background-image: 
+        radial-gradient(at 10% 20%, rgba(212, 175, 55, 0.06) 0px, transparent 50%),
+        radial-gradient(at 90% 10%, rgba(230, 57, 70, 0.06) 0px, transparent 50%),
+        radial-gradient(at 50% 80%, rgba(15, 23, 42, 0.03) 0px, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(248, 250, 252, 0.85) 0%, #F8FAFC 100%);
+    }
+
+    .grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card:hover {
+      border-color: #D4AF37;
+      box-shadow: 0 15px 35px -5px rgba(212, 175, 55, 0.25), 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    .text-gradient-gold {
+      background: linear-gradient(135deg, #B38F24 0%, #D4AF37 50%, #F3E5AB 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Floating Ambient Animation */
+    @keyframes float-slow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(2deg); }
+    }
+
+    .animate-float {
+      animation: float-slow 6s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-mesh relative grid-pattern antialiased text-slate-900">
+
+  <!-- FULL-PAGE CONTINUOUS 3D THREE.JS CANVAS BACKGROUND (CENTERED ROUND-PARTICLE LOGO EMBLEM) -->
+  <div id="threejs-container" class="fixed inset-0 w-full h-full pointer-events-none z-0"></div>
+
+  <!-- Floating Glow Orbs in Background -->
+  <div class="fixed top-20 left-10 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none -z-10 animate-float"></div>
+  <div class="fixed bottom-20 right-10 w-[30rem] h-[30rem] bg-[#E63946]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Clean Logo Image Only (No text duplication) -->
+      <a href="#" class="flex items-center group">
+        <img src="img/logo/F3-3.avif" alt="SoccerProf Logo" class="h-12 sm:h-14 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-sm">
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
+        <a href="#warum" class="hover:text-[#E63946] transition-colors">Warum SoccerProf</a>
+        <a href="#angebote" class="hover:text-[#E63946] transition-colors">Trainingsangebote</a>
+        <a href="#events" class="hover:text-[#E63946] transition-colors">Events &amp; Camps</a>
+        <a href="#methoden" class="hover:text-[#E63946] transition-colors">Methodik</a>
+        <a href="#galerie" class="hover:text-[#E63946] transition-colors">Galerie</a>
+        <a href="#coach" class="hover:text-[#E63946] transition-colors">Über Sami</a>
+        <a href="#stimmen" class="hover:text-[#E63946] transition-colors">Stimmen</a>
+        <a href="#faq" class="hover:text-[#E63946] transition-colors">FAQ</a>
+        <a href="#kontakt" class="hover:text-[#E63946] transition-colors">Kontakt</a>
+      </nav>
+
+      <!-- Nav CTA Button -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="#kontakt" class="px-5 py-2.5 rounded-full bg-[#E63946] hover:bg-[#C52233] text-white font-bold text-sm shadow-red-glow hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+          <i class="fa-solid fa-bolt mr-2"></i>Probetraining
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="md:hidden text-slate-800 text-2xl focus:outline-none p-2" aria-label="Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-lg border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl">
+      <a href="#warum" class="block font-semibold text-slate-800 hover:text-[#E63946] mobile-link">Warum SoccerProf</a>
+      <a href="#angebote" class="block font-semibold text-slate-800 hover:text-[#E63946] mobile-link">Trainingsangebote</a>
+      <a href="#events" class="block font-semibold text-slate-800 hover:text-[#E63946] mobile-link">Events &amp; Camps</a>
+      <a href="#methoden" class="block font-semibold text-slate-800 hover:text-[#E63946] mobile-link">Methodik</a>
+      <a href="#galerie" class="block font-semibold text-slate-800 hover:text-[#E63946] mobile-link">Galerie</a>
+      <a href="#coach" class="block font-semibold text-slate-800 hover:text-[#E63946] mobile-link">Über Sami</a>
+      <a href="#stimmen" class="block font-semibold text-slate-800 hover:text-[#E63946] mobile-link">Stimmen</a>
+      <a href="#faq" class="block font-semibold text-slate-800 hover:text-[#E63946] mobile-link">FAQ</a>
+      <a href="#kontakt" class="block font-semibold text-slate-800 hover:text-[#E63946] mobile-link">Kontakt</a>
+      <a href="#kontakt" class="block w-full text-center py-3 rounded-full bg-[#E63946] text-white font-bold shadow-md">
+        Probetraining anfragen
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-36 pb-24 md:pt-44 md:pb-36 overflow-hidden min-h-[90vh] flex items-center z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="max-w-3xl space-y-8 text-center lg:text-left">
+        
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 border border-[#D4AF37] shadow-md backdrop-blur-md">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#D4AF37] animate-ping"></span>
+          <span class="text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
+            DFB-NIVEAU TALENTFÖRDERUNG HAMBURG
+          </span>
+        </div>
+
+        <!-- Main Headline (Original Unchanged Text) -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.1]">
+          INDIVIDUELLES <br class="hidden sm:inline" />
+          <span class="text-gradient-gold">FUßBALLTRAINING</span> FÜR DIE <span class="relative inline-block text-slate-900">
+            NÄCHSTE GENERATION
+            <svg class="absolute -bottom-2 left-0 w-full h-3 text-[#E63946]" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 7C50 2 150 2 198 7" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+          </span>
+        </h1>
+
+        <!-- Subtext -->
+        <p class="text-lg sm:text-xl text-slate-700 font-medium leading-relaxed bg-white/70 p-5 rounded-2xl backdrop-blur-md border border-slate-200/60 shadow-sm">
+          Profitiere von maßgeschneidertem Coaching in den Säulen <strong class="text-slate-900">Technik</strong>, <strong class="text-slate-900">Taktik</strong>, <strong class="text-slate-900">Kognitivtraining</strong> &amp; <strong class="text-slate-900">Mentaltraining</strong> – speziell entwickelt für Kinder, Jugendliche und Erwachsene in Hamburg.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+          <a href="#kontakt" class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#E63946] hover:bg-[#C52233] text-white font-black text-base tracking-wide shadow-red-glow hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-3">
+            <span>Jetzt Probetraining anfragen</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#methoden" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/90 hover:bg-slate-900 text-slate-900 hover:text-white border-2 border-slate-900 font-bold text-base transition-all duration-300 transform hover:-translate-y-1 shadow-sm flex items-center justify-center gap-2">
+            <span>Trainingsmethoden</span>
+            <i class="fa-solid fa-circle-play text-xs"></i>
+          </a>
+        </div>
+
+        <!-- Feature Highlights Bar -->
+        <div class="pt-6 border-t border-slate-300/80 grid grid-cols-3 gap-4 max-w-xl mx-auto lg:mx-0 bg-white/70 p-4 rounded-2xl backdrop-blur-md border border-slate-200/50">
+          <div class="text-center lg:text-left">
+            <div class="text-2xl font-black text-slate-900">100%</div>
+            <div class="text-xs text-slate-600 font-semibold uppercase">Individuell</div>
+          </div>
+          <div class="text-center lg:text-left">
+            <div class="text-2xl font-black text-[#D4AF37]">DFB</div>
+            <div class="text-xs text-slate-600 font-semibold uppercase">Lizenz Standard</div>
+          </div>
+          <div class="text-center lg:text-left">
+            <div class="text-2xl font-black text-[#E63946]">4 Säulen</div>
+            <div class="text-xs text-slate-600 font-semibold uppercase">Ganzheitlich</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABSCHNITT 1: WARUM SOCCERPROF (AOS FADE-RIGHT & FADE-LEFT) -->
+  <section id="warum" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] font-extrabold text-xs uppercase tracking-widest border border-[#D4AF37]/30">
+          Exzellenz im Fokus
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          WARUM <span class="text-gradient-gold">SOCCERPROF ACADEMY</span>?
+        </h2>
+        <p class="text-slate-600 font-medium text-base sm:text-lg">
+          Klassisches Vereinstraining reicht oft nicht aus, um das volle individuelle Potenzial zu entfalten. Wir bieten die entscheidende Zusatzförderung.
+        </p>
+      </div>
+
+      <!-- Feature Grid with AOS Animations -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Card 1: Fade Right -->
+        <div data-aos="fade-right" data-aos-delay="100" class="glass-card p-8 rounded-3xl relative group">
+          <div class="w-14 h-14 rounded-2xl bg-slate-900 text-[#D4AF37] flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 group-hover:bg-[#E63946] group-hover:text-white transition-all shadow-md">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <h3 class="text-xl font-extrabold text-slate-900 mb-3 group-hover:text-[#E63946] transition-colors">
+            100% Individuelle Analyse
+          </h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Wir analysieren Stärken und Schwächen im Detail. Jeder Spieler erhält einen maßgeschneiderten Entwicklungsplan für maximale Fortschritte.
+          </p>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center text-xs font-bold text-[#D4AF37]">
+            <span>PRÄZISIONSTRAINING</span>
+            <i class="fa-solid fa-chevron-right ml-auto"></i>
+          </div>
+        </div>
+
+        <!-- Card 2: Fade Right -->
+        <div data-aos="fade-right" data-aos-delay="250" class="glass-card p-8 rounded-3xl relative group">
+          <div class="w-14 h-14 rounded-2xl bg-slate-900 text-[#D4AF37] flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 group-hover:bg-[#E63946] group-hover:text-white transition-all shadow-md">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <h3 class="text-xl font-extrabold text-slate-900 mb-3 group-hover:text-[#E63946] transition-colors">
+            Kognition &amp; Spielintelligenz
+          </h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Schnellere Entscheidungen auf dem Platz durch modernes Kognitiv- &amp; Wahrnehmungstraining nach neuesten sportwissenschaftlichen Erkenntnissen.
+          </p>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center text-xs font-bold text-[#D4AF37]">
+            <span>HEAD-GAME BOOST</span>
+            <i class="fa-solid fa-chevron-right ml-auto"></i>
+          </div>
+        </div>
+
+        <!-- Card 3: Fade Left -->
+        <div data-aos="fade-left" data-aos-delay="100" class="glass-card p-8 rounded-3xl relative group">
+          <div class="w-14 h-14 rounded-2xl bg-slate-900 text-[#D4AF37] flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 group-hover:bg-[#E63946] group-hover:text-white transition-all shadow-md">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="text-xl font-extrabold text-slate-900 mb-3 group-hover:text-[#E63946] transition-colors">
+            Mentale Stärke &amp; Fokus
+          </h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Selbstbewusstsein unter Druck, Fokussierung in entscheidenden Spielsituationen und der richtige Umgang mit Fehlschlägen.
+          </p>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center text-xs font-bold text-[#D4AF37]">
+            <span>MENTAL COACHING</span>
+            <i class="fa-solid fa-chevron-right ml-auto"></i>
+          </div>
+        </div>
+
+        <!-- Card 4: Fade Left -->
+        <div data-aos="fade-left" data-aos-delay="250" class="glass-card p-8 rounded-3xl relative group md:col-span-2 lg:col-span-3">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-5">
+              <div class="w-16 h-16 rounded-2xl bg-[#E63946] text-white flex items-center justify-center text-3xl font-black shrink-0 shadow-red-glow">
+                <i class="fa-solid fa-award"></i>
+              </div>
+              <div>
+                <h4 class="text-2xl font-black text-slate-900">DFB-Qualifizierte Coaching-Standards</h4>
+                <p class="text-slate-600 font-medium text-sm mt-1">
+                  Unter der Leitung von <strong class="text-slate-900">Sami Ghaouar</strong> bringen wir Hamburgs Nachwuchs- und Profitalente auf das nächste Level.
+                </p>
+              </div>
+            </div>
+            <a href="#kontakt" class="shrink-0 px-6 py-3 rounded-full bg-slate-900 text-white font-bold text-sm hover:bg-[#E63946] transition-colors">
+              Erfahre mehr über unsere Standards
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABSCHNITT 2: TRAININGSANGEBOTE (MIT ECHTEN BILDERN) -->
+  <section id="angebote" class="py-24 bg-white/60 backdrop-blur-md relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#E63946]/10 text-[#E63946] font-extrabold text-xs uppercase tracking-widest border border-[#E63946]/30">
+          Unser Trainings-Setup
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          TRAININGSANGEBOTE &amp; <span class="text-gradient-gold">FORMATE</span>
+        </h2>
+        <p class="text-slate-600 font-medium text-base sm:text-lg">
+          Wähle das perfekte Format für Deine individuellen Ziele – vom intensiven 1-zu-1 Coaching bis zum professionellen Mannschaftstraining.
+        </p>
+      </div>
+
+      <!-- Pricing / Offer Cards Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+
+        <!-- Karte 1: Einzeltraining (data-aos="fade-right") -->
+        <div data-aos="fade-right" data-aos-duration="900" class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between relative group hover:-translate-y-2 transition-all duration-300">
+          <div>
+            <!-- Image Header -->
+            <div class="w-full h-48 rounded-2xl overflow-hidden mb-6 shadow-md border border-slate-200/80 relative">
+              <img src="img/packete/soccerprof-hamburg-kinder-jugendliche-fussballtraining.avif" alt="Einzeltraining 1:1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-black uppercase bg-slate-900/90 backdrop-blur-md text-[#D4AF37]">
+                1:1 Coaching
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-black text-slate-900 mb-2">Einzeltraining</h3>
+            <p class="text-slate-500 text-sm mb-6">Maximale Intensität &amp; volle Aufmerksamkeit für Deinen persönlichen Durchbruch.</p>
+
+            <div class="space-y-3.5 mb-8">
+              <div class="flex items-start gap-3 text-sm text-slate-700">
+                <i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 shrink-0"></i>
+                <span>Gezieltes Technik- &amp; Feinschliff-Coaching</span>
+              </div>
+              <div class="flex items-start gap-3 text-sm text-slate-700">
+                <i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 shrink-0"></i>
+                <span>Positions- &amp; rollenspezifische Übungen</span>
+              </div>
+              <div class="flex items-start gap-3 text-sm text-slate-700">
+                <i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 shrink-0"></i>
+                <span>Kognitive Sensorik &amp; High-Speed Ballkontrolle</span>
+              </div>
+              <div class="flex items-start gap-3 text-sm text-slate-700">
+                <i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 shrink-0"></i>
+                <span>Detaillierte Video- &amp; Bewegungsanalyse</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="#kontakt" class="w-full py-4 rounded-2xl bg-slate-900 hover:bg-[#D4AF37] text-white hover:text-slate-900 font-extrabold text-sm block text-center transition-all duration-300 shadow-md">
+              1:1 TRAINING ANFRAGEN
+            </a>
+          </div>
+        </div>
+
+        <!-- Karte 2: Kleingruppentraining (5er Gruppen) (data-aos="zoom-in") - HIGHLIGHTED -->
+        <div data-aos="zoom-in" data-aos-duration="900" class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between relative group hover:-translate-y-2 transition-all duration-300 border-2 border-[#D4AF37] shadow-gold-glow bg-white/95">
+          
+          <!-- Highlight Badge -->
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-slate-900 font-black text-xs uppercase px-4 py-1.5 rounded-full shadow-md z-20">
+            ★ Beliebtestes Format
+          </div>
+
+          <div>
+            <!-- Image Header -->
+            <div class="w-full h-48 rounded-2xl overflow-hidden mb-6 shadow-md border border-slate-200/80 relative">
+              <img src="img/packete/kleingruppe.avif" alt="Kleingruppentraining" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-black uppercase bg-[#E63946] text-white shadow-sm">
+                5er Gruppe
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-black text-slate-900 mb-2">Kleingruppentraining (5er Gruppen)</h3>
+            <p class="text-slate-500 text-sm mb-6">Wettkampfdynamik in der 5er-Gruppe kombiniert mit hoher individueller Korrektur.</p>
+
+            <div class="space-y-3.5 mb-8">
+              <div class="flex items-start gap-3 text-sm text-slate-700">
+                <i class="fa-solid fa-circle-check text-[#E63946] mt-1 shrink-0"></i>
+                <span>Gegnerdruck &amp; reale 1v1 / 2v2 Spielsituationen</span>
+              </div>
+              <div class="flex items-start gap-3 text-sm text-slate-700">
+                <i class="fa-solid fa-circle-check text-[#E63946] mt-1 shrink-0"></i>
+                <span>Hohe Wiederholungszahl bei maximaler Gruppendynamik</span>
+              </div>
+              <div class="flex items-start gap-3 text-sm text-slate-700">
+                <i class="fa-solid fa-circle-check text-[#E63946] mt-1 shrink-0"></i>
+                <span>Passschärfe, Umschaltspiel &amp; Kognition</span>
+              </div>
+              <div class="flex items-start gap-3 text-sm text-slate-700">
+                <i class="fa-solid fa-circle-check text-[#E63946] mt-1 shrink-0"></i>
+                <span>Leistungsgerechte Gruppeneinteilung</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="#kontakt" class="w-full py-4 rounded-2xl bg-[#E63946] hover:bg-[#C52233] text-white font-extrabold text-sm block text-center transition-all duration-300 shadow-red-glow">
+              GRUPPENTRAINING ANFRAGEN
+            </a>
+          </div>
+        </div>
+
+        <!-- Karte 3: Mannschafts- & Erwachsenentraining (data-aos="fade-left") -->
+        <div data-aos="fade-left" data-aos-duration="900" class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between relative group hover:-translate-y-2 transition-all duration-300">
+          <div>
+            <!-- Image Header -->
+            <div class="w-full h-48 rounded-2xl overflow-hidden mb-6 shadow-md border border-slate-200/80 relative">
+              <img src="img/packete/Fu%C3%9Fballspieler%20auf%20Bank.avif" alt="Mannschaftstraining" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-black uppercase bg-slate-900/90 backdrop-blur-md text-[#D4AF37]">
+                Teams &amp; Adults
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-black text-slate-900 mb-2">Mannschafts- &amp; Erwachsenentraining</h3>
+            <p class="text-slate-500 text-sm mb-6">Taktische Ausrichtung, Athletik und Spezial-Einheiten für Teams &amp; Ambitionierte.</p>
+
+            <div class="space-y-3.5 mb-8">
+              <div class="flex items-start gap-3 text-sm text-slate-700">
+                <i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 shrink-0"></i>
+                <span>Ganzheitliches Team-Coaching &amp; Taktik-Workshops</span>
+              </div>
+              <div class="flex items-start gap-3 text-sm text-slate-700">
+                <i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 shrink-0"></i>
+                <span>Spezifische Saison- &amp; Vorbereitungseinheiten</span>
+              </div>
+              <div class="flex items-start gap-3 text-sm text-slate-700">
+                <i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 shrink-0"></i>
+                <span>Erwachsenentraining (Performance &amp; Fitness)</span>
+              </div>
+              <div class="flex items-start gap-3 text-sm text-slate-700">
+                <i class="fa-solid fa-circle-check text-[#D4AF37] mt-1 shrink-0"></i>
+                <span>Vor-Ort Coaching im eigenen Verein in Hamburg</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="#kontakt" class="w-full py-4 rounded-2xl bg-slate-900 hover:bg-[#D4AF37] text-white hover:text-slate-900 font-extrabold text-sm block text-center transition-all duration-300 shadow-md">
+              TEAMTRAINING ANFRAGEN
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- METHODIK & DIE 4 SÄULEN SECTION -->
+  <section id="methoden" class="py-24 relative overflow-hidden z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-5 space-y-6" data-aos="fade-right">
+          <div class="inline-block px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] font-extrabold text-xs uppercase">
+            Ganzheitlicher Ansatz
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+            UNSERE 4 SÄULEN FÜR DEINEN <span class="text-gradient-gold">SPITZENSPORT-ERFOLG</span>
+          </h2>
+          <p class="text-slate-600 font-medium text-base leading-relaxed">
+            Bei der SoccerProf Academy kombinieren wir technische Perfektion mit modernen kognitiven Trainingsreizen. Ein Spieler muss das Spiel sehen, verstehen und in Sekundenbruchteilen handeln.
+          </p>
+          <div class="p-6 rounded-2xl bg-slate-900 text-white space-y-3 shadow-xl border border-[#D4AF37]/30">
+            <div class="flex items-center gap-3 text-[#D4AF37] font-bold">
+              <i class="fa-solid fa-quote-left text-2xl"></i>
+              <span>Sami Ghaouar, Head Coach</span>
+            </div>
+            <p class="text-xs text-slate-300 italic leading-relaxed">
+              "Technik ist das Werkzeug, aber der Kopf steuert das Spiel. Wir trainieren die Kombination aus schneller Kognition, Präzision und mentaler Überzeugung."
+            </p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6" data-aos="fade-left">
+          
+          <!-- Säule 1 -->
+          <div class="glass-card p-6 rounded-3xl space-y-3 hover:border-[#D4AF37]">
+            <div class="w-10 h-10 rounded-xl bg-[#D4AF37]/20 text-[#D4AF37] font-black flex items-center justify-center text-lg">
+              01
+            </div>
+            <h3 class="text-lg font-black text-slate-900">Technik &amp; Erste Berührung</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Saubere Ballannahme unter Orientierung, Beidfüßigkeit, Enge Ballführung und saubere Passtechnik.
+            </p>
+          </div>
+
+          <!-- Säule 2 -->
+          <div class="glass-card p-6 rounded-3xl space-y-3 hover:border-[#E63946]">
+            <div class="w-10 h-10 rounded-xl bg-[#E63946]/20 text-[#E63946] font-black flex items-center justify-center text-lg">
+              02
+            </div>
+            <h3 class="text-lg font-black text-slate-900">Spieltaktik &amp; Orientierung</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Vororientierung (Scanning), Raumverständnis, Timing beim Freilaufverhalten und 1v1 Offensive/Defensive.
+            </p>
+          </div>
+
+          <!-- Säule 3 -->
+          <div class="glass-card p-6 rounded-3xl space-y-3 hover:border-[#D4AF37]">
+            <div class="w-10 h-10 rounded-xl bg-[#D4AF37]/20 text-[#D4AF37] font-black flex items-center justify-center text-lg">
+              03
+            </div>
+            <h3 class="text-lg font-black text-slate-900">Kognition &amp; Speed</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Visuelle Reizverarbeitung, schnelle Reaktionsfähigkeit und multiaktionales Handlungstempo.
+            </p>
+          </div>
+
+          <!-- Säule 4 -->
+          <div class="glass-card p-6 rounded-3xl space-y-3 hover:border-[#E63946]">
+            <div class="w-10 h-10 rounded-xl bg-[#E63946]/20 text-[#E63946] font-black flex items-center justify-center text-lg">
+              04
+            </div>
+            <h3 class="text-lg font-black text-slate-900">Mentaltraining &amp; Mindset</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Resilienz gegen Druck, Gewinner-Mentalität, Fokussierung und Selbstvertrauen auf dem Platz.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABSCHNITT: SPECIAL EVENTS & FERIEN-CAMPS -->
+  <section id="events" class="py-24 bg-white/60 backdrop-blur-md relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#E63946]/10 text-[#E63946] font-extrabold text-xs uppercase tracking-widest border border-[#E63946]/30">
+          Unvergessliche Highlights
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          SPECIAL EVENTS &amp; <span class="text-gradient-gold">FERIEN-CAMPS</span>
+        </h2>
+        <p class="text-slate-600 font-medium text-base sm:text-lg">
+          Ob der Traum-Kindergeburtstag auf dem Platz oder das intensive Ferien-Camp – wir schaffen besondere Erlebnisse für echte Fußballfans in Hamburg.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Event 1: Kindergeburtstage -->
+        <div data-aos="fade-up" data-aos-delay="100" class="glass-card p-6 rounded-3xl flex flex-col justify-between group hover:-translate-y-2 transition-all duration-300">
+          <div>
+            <div class="w-full h-48 rounded-2xl overflow-hidden mb-6 relative shadow-md">
+              <img src="img/bilderwebsite/ed34eb_bc3fa3f4a60144ee9c32042fd712a420~mv2.avif" alt="Fußball Kindergeburtstag Hamburg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-black uppercase bg-[#D4AF37] text-slate-900 shadow-sm">
+                Party Hit
+              </span>
+            </div>
+            <h3 class="text-2xl font-black text-slate-900 mb-2">Kindergeburtstage</h3>
+            <p class="text-slate-600 text-sm mb-4">
+              Der ultimative Fußball-Geburtstag! Professionelles Training, Mini-Turniere, Torschuss-Geschwindigkeitsmessung und Riesen-Spaß mit Sami Ghaouar.
+            </p>
+            <ul class="space-y-2 text-xs font-semibold text-slate-700 mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-star text-[#D4AF37]"></i> Exklusiver Platz &amp; Profiliga-Atmosphäre</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-star text-[#D4AF37]"></i> Trainer-Betreuung &amp; Wettbewerbe</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-star text-[#D4AF37]"></i> Überraschungs-Präsent fürs Geburtstagskind</li>
+            </ul>
+          </div>
+          <a href="#kontakt" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-[#D4AF37] text-white hover:text-slate-900 font-extrabold text-xs text-center transition-all block">
+            GEBURTSTAG ANFRAGEN
+          </a>
+        </div>
+
+        <!-- Event 2: Ferien-Camps -->
+        <div data-aos="fade-up" data-aos-delay="200" class="glass-card p-6 rounded-3xl flex flex-col justify-between group hover:-translate-y-2 transition-all duration-300 border-2 border-[#E63946]/40 shadow-red-glow">
+          <div>
+            <div class="w-full h-48 rounded-2xl overflow-hidden mb-6 relative shadow-md">
+              <img src="img/packete/kleingruppe (1).avif" alt="Fußball Ferien Camps Hamburg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-black uppercase bg-[#E63946] text-white shadow-sm">
+                Hamburger Ferien
+              </span>
+            </div>
+            <h3 class="text-2xl font-black text-slate-900 mb-2">Sommer- &amp; Feriencamps</h3>
+            <p class="text-slate-600 text-sm mb-4">
+              Intensive Fußballtage in den Schulferien. Technik, Kognition, Taktik &amp; Teamwettbewerbe für maximale Entwicklung in kurzer Zeit.
+            </p>
+            <ul class="space-y-2 text-xs font-semibold text-slate-700 mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-fire text-[#E63946]"></i> Tägliche Intensiv-Einheiten</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-fire text-[#E63946]"></i> Verpflegung &amp; Camp-Erinnerungen</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-fire text-[#E63946]"></i> Für Jungen &amp; Mädchen (6 - 16 Jahre)</li>
+            </ul>
+          </div>
+          <a href="#kontakt" class="w-full py-3.5 rounded-2xl bg-[#E63946] hover:bg-[#C52233] text-white font-extrabold text-xs text-center transition-all block shadow-md">
+            CAMP TERMIN SICHERN
+          </a>
+        </div>
+
+        <!-- Event 3: Erwachsenentraining -->
+        <div data-aos="fade-up" data-aos-delay="300" class="glass-card p-6 rounded-3xl flex flex-col justify-between group hover:-translate-y-2 transition-all duration-300">
+          <div>
+            <div class="w-full h-48 rounded-2xl overflow-hidden mb-6 relative shadow-md">
+              <img src="img/bilderwebsite/ed34eb_62ddc206c2e5452697831563b63fb32e~mv2.avif" alt="Erwachsenentraining Fußball" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-black uppercase bg-slate-900 text-[#D4AF37] shadow-sm">
+                Adult Performance
+              </span>
+            </div>
+            <h3 class="text-2xl font-black text-slate-900 mb-2">Erwachsenentraining</h3>
+            <p class="text-slate-600 text-sm mb-4">
+              Gezielte Weiterentwicklung für Seniorenspieler, Amateure &amp; Wiedereinsteiger. Athletik, Erstkontakt-Präzision &amp; Spielfitness.
+            </p>
+            <ul class="space-y-2 text-xs font-semibold text-slate-700 mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-bolt text-[#D4AF37]"></i> Individuelles Leistungstraining</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-bolt text-[#D4AF37]"></i> Vorbereitung auf Testspiele &amp; Saison</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-bolt text-[#D4AF37]"></i> Flexible Zeiteinteilung in Hamburg</li>
+            </ul>
+          </div>
+          <a href="#kontakt" class="w-full py-3.5 rounded-2xl bg-slate-900 hover:bg-[#D4AF37] text-white hover:text-slate-900 font-extrabold text-xs text-center transition-all block">
+            ERWACHSENEN-COACHING ANFRAGEN
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BILDER-GALERIE / TRAININGSEINDRÜCKE SECTION -->
+  <section id="galerie" class="py-24 bg-white/40 backdrop-blur-md relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] font-extrabold text-xs uppercase tracking-widest border border-[#D4AF37]/30">
+          Einblicke auf den Platz
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          TRAININGSEINDRÜCKE <span class="text-gradient-gold">HAMBURG</span>
+        </h2>
+        <p class="text-slate-600 font-medium text-base sm:text-lg">
+          Leidenschaft, Einsatz &amp; Freude am Fortschritt – so trainieren wir bei der SoccerProf Academy.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
+        
+        <div class="glass-card rounded-3xl overflow-hidden shadow-xl group border border-slate-200/80">
+          <div class="h-64 overflow-hidden relative">
+            <img src="img/bilderwebsite/Fu%C3%9Fballtraining%20auf%20Kunstrasen.avif" alt="Fußballtraining Kunstrasen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full text-xs font-bold bg-slate-900/80 text-white backdrop-blur-sm">Hamburg Pitch</span>
+          </div>
+          <div class="p-6">
+            <h4 class="font-extrabold text-slate-900 text-lg">Kunstrasen &amp; Outdoor</h4>
+            <p class="text-xs text-slate-500 mt-1">Ganzjähriges Training unter professionellen Bedingungen.</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-3xl overflow-hidden shadow-xl group border border-slate-200/80">
+          <div class="h-64 overflow-hidden relative">
+            <img src="img/bilderwebsite/Fu%C3%9Fballtraining%20im%20Freien.avif" alt="Fußballtraining im Freien" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full text-xs font-bold bg-slate-900/80 text-white backdrop-blur-sm">Technik &amp; Speed</span>
+          </div>
+          <div class="p-6">
+            <h4 class="font-extrabold text-slate-900 text-lg">Technik &amp; Dynamik</h4>
+            <p class="text-xs text-slate-500 mt-1">Gezielte Übungsformen für erste Berührung &amp; Schärfe.</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-3xl overflow-hidden shadow-xl group border border-slate-200/80">
+          <div class="h-64 overflow-hidden relative">
+            <img src="img/bilderwebsite/Image%20by%20Tareq%20Ismail.avif" alt="Fußball Action" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full text-xs font-bold bg-slate-900/80 text-white backdrop-blur-sm">Match Action</span>
+          </div>
+          <div class="p-6">
+            <h4 class="font-extrabold text-slate-900 text-lg">Wettkampf &amp; Spielreize</h4>
+            <p class="text-xs text-slate-500 mt-1">Reale Spielsituationen unter Gegnerdruck trainieren.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ÜBER SAMI GHAOUAR SECTION (MIT ECHTEM SAMI FOTO) -->
+  <section id="coach" class="py-24 bg-slate-900/95 backdrop-blur-lg text-white relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Image / Profile Visual Container -->
+        <div class="lg:col-span-5" data-aos="zoom-in">
+          <div class="relative rounded-3xl overflow-hidden border-2 border-[#D4AF37]/50 shadow-2xl p-2 bg-gradient-to-br from-slate-800 to-slate-950">
+            <div class="w-full h-96 sm:h-[480px] rounded-2xl overflow-hidden relative">
+              <img src="img/sami/sami%20daumen%20hoch.avif" alt="Sami Ghaouar Head Coach" class="w-full h-full object-cover">
+              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent p-6 text-center">
+                <h3 class="text-2xl font-black tracking-tight text-white">Sami Ghaouar</h3>
+                <p class="text-xs text-[#D4AF37] font-bold uppercase tracking-widest mt-1">Gründer &amp; Cheftrainer</p>
+                <div class="mt-3 flex gap-2 justify-center">
+                  <span class="text-[10px] bg-[#D4AF37]/20 text-[#D4AF37] px-3 py-1 rounded-full font-extrabold border border-[#D4AF37]/40">DFB COACH</span>
+                  <span class="text-[10px] bg-[#E63946]/20 text-[#E63946] px-3 py-1 rounded-full font-extrabold border border-[#E63946]/40">HAMBURG</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details Content -->
+        <div class="lg:col-span-7 space-y-6" data-aos="fade-left">
+          <div class="inline-block px-3 py-1 rounded-full bg-[#D4AF37]/20 text-[#D4AF37] font-extrabold text-xs uppercase border border-[#D4AF37]/30">
+            Head Coach &amp; Gründer
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+            LEIDENSCHAFT &amp; <span class="text-gradient-gold">PROFESSIONELLER ANSPRUCH</span>
+          </h2>
+          <p class="text-slate-300 font-medium text-base leading-relaxed">
+            Als erfahrener Trainer in Hamburg steht <strong class="text-white">Sami Ghaouar</strong> für akribisches, modernes und hochintensives Fußballtraining. Sein Ziel ist es, die Talente von heute mit der richtigen Methodik zu den Leistungsträgern von morgen zu formen.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700">
+              <div class="text-[#D4AF37] font-extrabold text-lg mb-1"><i class="fa-solid fa-graduation-cap mr-2"></i>Qualifiziert</div>
+              <p class="text-xs text-slate-400">DFB-zertifizierte Ausbildungsstandards &amp; stetige Weiterentwicklung.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700">
+              <div class="text-[#E63946] font-extrabold text-lg mb-1"><i class="fa-solid fa-location-dot mr-2"></i>Hamburg-Based</div>
+              <p class="text-xs text-slate-400">Verankert im Hamburger Fußball, vernetzt mit Talenten und Vereinen.</p>
+            </div>
+          </div>
+
+          <div class="pt-4">
+            <a href="https://wa.me/4917684156542?text=Hallo%20Sami,%20ich%20m%C3%B6chte%20gerne%20mehr%20über%20das%20Training%20erfahren!" target="_blank" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-sm shadow-lg transition-transform transform hover:scale-105">
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+              <span>DIREKT MIT SAMI PER WHATSAPP SPRECHEN</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABSCHNITT: KUNDENSTIMMEN & FEEDBACK -->
+  <section id="stimmen" class="py-24 bg-white/70 backdrop-blur-md relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] font-extrabold text-xs uppercase tracking-widest border border-[#D4AF37]/30">
+          Echte Erfahrungen
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          DAS SAGEN <span class="text-gradient-gold">ELTERN &amp; SPIELER</span>
+        </h2>
+        <p class="text-slate-600 font-medium text-base sm:text-lg">
+          Erfolge, Vertrauen und echte Fortschritte – Feedback aus der SoccerProf Community in Hamburg.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Testimonial 1: Mutter Angelika (Authentisch von soccerprof.de) -->
+        <div data-aos="fade-right" data-aos-delay="100" class="glass-card p-8 rounded-3xl relative border-2 border-[#D4AF37]/50 shadow-xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-[#D4AF37] mb-4 text-sm">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-slate-800 font-medium text-sm leading-relaxed italic mb-6">
+              "Danke lieber Sami! Uns hat's auch gefreut, dein Training tut unserem Sohn so gut und bringt ihn spielerisch und mental enorm weiter!"
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-4 border-t border-slate-200">
+            <div class="w-12 h-12 rounded-full bg-slate-900 text-[#D4AF37] flex items-center justify-center font-black text-lg">
+              A
+            </div>
+            <div>
+              <div class="font-extrabold text-slate-900 text-sm">Mutter Angelika</div>
+              <div class="text-xs text-slate-500 font-medium">Elterneinschätzung Hamburg</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2: Vater Thomas M. -->
+        <div data-aos="fade-up" data-aos-delay="200" class="glass-card p-8 rounded-3xl relative shadow-xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-[#D4AF37] mb-4 text-sm">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-slate-800 font-medium text-sm leading-relaxed italic mb-6">
+              "Das Kognitionstraining bei Sami hat das Spielverständnis meines Sohnes spürbar verändert. Er trifft auf dem Platz viel schnellere Entscheidungen als vorher."
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-4 border-t border-slate-200">
+            <div class="w-12 h-12 rounded-full bg-[#E63946] text-white flex items-center justify-center font-black text-lg">
+              T
+            </div>
+            <div>
+              <div class="font-extrabold text-slate-900 text-sm">Thomas M.</div>
+              <div class="text-xs text-slate-500 font-medium">Vater eines D-Jugend Spielers</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3: Lukas K. (Amateurspieler) -->
+        <div data-aos="fade-left" data-aos-delay="300" class="glass-card p-8 rounded-3xl relative shadow-xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-[#D4AF37] mb-4 text-sm">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-slate-800 font-medium text-sm leading-relaxed italic mb-6">
+              "Sami fordert einen in jeder Minute. Die Technik- und Schnelligkeitseinheiten haben mir vor der Saison extrem geholfen, meine Stammplatz-Position zu sichern."
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-4 border-t border-slate-200">
+            <div class="w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center font-black text-lg">
+              L
+            </div>
+            <div>
+              <div class="font-extrabold text-slate-900 text-sm">Lukas K.</div>
+              <div class="text-xs text-slate-500 font-medium">Herren-Amateurspieler</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABSCHNITT: FAQ & TRAININGS-STANDORT HAMBURG -->
+  <section id="faq" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#E63946]/10 text-[#E63946] font-extrabold text-xs uppercase tracking-widest border border-[#E63946]/30">
+          Transparenz &amp; Information
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          HÄUFIG GESTELLTE <span class="text-gradient-gold">FRAGEN (FAQ)</span>
+        </h2>
+        <p class="text-slate-600 font-medium text-base sm:text-lg">
+          Hier findest Du alle wichtigen Antworten rund um unser Training, Standorte und den Ablauf in Hamburg.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Accordion Container (7 Authentic FAQs) -->
+        <div class="lg:col-span-8 space-y-4" data-aos="fade-right">
+          
+          <!-- FAQ 1 -->
+          <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80 transition-all">
+            <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+              <span>Wo genau findet das Fußballtraining in Hamburg statt?</span>
+              <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+              Unser Hauptstützpunkt befindet sich am <strong>Öjendorfer Weg 80, 22119 Hamburg</strong> (Ost-Hamburg, nahe Horner Rennbahn &amp; Billstedt). Im Sommer nutzen wir erstklassige Kunstrasen- &amp; Rasenplätze im Freien. Im Winter oder bei extremer Witterung weichen wir auf moderne Indoor-Fußballhallen in Hamburg aus.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80 transition-all">
+            <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+              <span>Was passiert bei schlechtem Wetter oder in den Wintermonaten?</span>
+              <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+              Kein Training muss ausfallen! Wir sind flexibel aufgestellt: Sobald die Witterung im Spätherbst und Winter ein Außentraining erschwert, wechseln wir in beheizte Indoor-Fußballhallen in Hamburg. So ist kontinuierlicher Fortschritt das ganze Jahr über garantiert.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80 transition-all">
+            <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+              <span>Müssen wir die Vereinsmitgliedschaft meines Kindes kündigen?</span>
+              <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+              Nein, im Gegenteil! Die SoccerProf Academy ist <strong>kein Ersatz</strong> für den Heimatverein, sondern eine hochspezialisierte Ergänzung (Zusatzförderung). Das im Einzeltraining oder in der Kleingruppe Erlernte wendet der Spieler direkt am Wochenende im Vereinsspiel an.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80 transition-all">
+            <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+              <span>Wie groß sind die Gruppen im Kleingruppentraining?</span>
+              <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+              Unsere Kleingruppen sind streng limitiert auf <strong>maximal 5 Spieler</strong>. Nur so gewährleisten wir, dass Trainer Sami Ghaouar jede Bewegung genau korrigieren kann und die Kids dennoch echten Gegnerdruck und Spielspaß erleben.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80 transition-all">
+            <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+              <span>Dürfen Eltern beim Training zuschauen?</span>
+              <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+              Ja, selbstverständlich! Eltern sind herzlich eingeladen, das Training vom Spielfeldrand zu verfolgen. Wir legen Wert auf ein offenes, familiäres und vertrauensvolles Verhältnis zu den Familien unserer Spieler.
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80 transition-all">
+            <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+              <span>Gibt es Leistungsdruck oder Pflicht-Turniere?</span>
+              <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+              Nein. Bei uns geht es um die Freude an der eigenen Weiterentwicklung und den individuellen Fortschritt. Es gibt keinen negativen Leistungsdruck und keine Verpflichtungen zu Wochenendturnieren.
+            </div>
+          </div>
+
+          <!-- FAQ 7 -->
+          <div class="glass-card rounded-2xl overflow-hidden border border-slate-200/80 transition-all">
+            <button class="faq-button w-full px-6 py-5 text-left font-extrabold text-slate-900 text-base sm:text-lg flex justify-between items-center focus:outline-none hover:text-[#E63946] transition-colors">
+              <span>Wie buche ich ein erstes Probetraining?</span>
+              <i class="fa-solid fa-chevron-down faq-icon text-[#D4AF37] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+              Fülle einfach unser kurzes Online-Kontaktformular aus oder sende Sami Ghaouar eine direkte Nachricht per <strong>WhatsApp an +49 176 841 565 42</strong>. Wir melden uns umgehend zur Terminabsprache.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sidebar: Location & Weather Flex Feature Box -->
+        <div class="lg:col-span-4 space-y-6" data-aos="fade-left">
+          
+          <div class="glass-card p-8 rounded-3xl border-2 border-[#D4AF37] shadow-xl space-y-6">
+            <div class="w-14 h-14 rounded-2xl bg-slate-900 text-[#D4AF37] flex items-center justify-center text-2xl font-bold shadow-md">
+              <i class="fa-solid fa-cloud-sun-rain"></i>
+            </div>
+            <h3 class="text-xl font-black text-slate-900">Ganzjährig optimal versorgt</h3>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Wir passen uns der Jahreszeit in Hamburg an, damit die Trainingsqualität zu 100% konstant bleibt:
+            </p>
+
+            <div class="space-y-4 pt-2">
+              <div class="flex items-start gap-3 p-3 rounded-2xl bg-amber-500/10 border border-amber-500/20">
+                <i class="fa-solid fa-sun text-amber-600 text-lg mt-0.5 shrink-0"></i>
+                <div>
+                  <div class="font-extrabold text-slate-900 text-xs">SOMMERMONATE</div>
+                  <div class="text-[11px] text-slate-600">Freiluft &amp; Kunstrasen-Anlagen in Hamburg Ost.</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3 rounded-2xl bg-blue-500/10 border border-blue-500/20">
+                <i class="fa-solid fa-snowflake text-blue-600 text-lg mt-0.5 shrink-0"></i>
+                <div>
+                  <div class="font-extrabold text-slate-900 text-xs">WINTERMONATE</div>
+                  <div class="text-[11px] text-slate-600">Beheizte Indoor-Fußballhallen in Hamburg.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200">
+              <a href="#kontakt" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-[#E63946] text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <span>Standort im Detail anfragen</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick WhatsApp Card -->
+          <div class="p-6 rounded-3xl bg-gradient-to-br from-[#25D366] to-[#1da851] text-white shadow-xl space-y-3">
+            <div class="flex items-center gap-3">
+              <i class="fa-brands fa-whatsapp text-3xl"></i>
+              <span class="font-black text-lg">Direkte Fragen?</span>
+            </div>
+            <p class="text-xs text-white/90 leading-relaxed">
+              Schreib Sami direkt auf WhatsApp. Er antwortet in der Regel innerhalb weniger Stunden!
+            </p>
+            <a href="https://wa.me/4917684156542?text=Hallo%20Sami,%20ich%20habe%20eine%20Frage%20zum%20Training!" target="_blank" class="inline-block px-5 py-2.5 rounded-full bg-white text-slate-900 font-extrabold text-xs shadow-md hover:bg-slate-100 transition-colors">
+              Jetzt chatten
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- KONTAKT & FOOTER SECTION -->
+  <section id="kontakt" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#E63946]/10 text-[#E63946] font-extrabold text-xs uppercase tracking-widest border border-[#E63946]/30">
+          Bereit für den nächsten Schritt?
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          JETZT <span class="text-gradient-gold">PROBETRAINING</span> VEREINBAREN
+        </h2>
+        <p class="text-slate-600 font-medium text-base sm:text-lg">
+          Nimm direkt Kontakt mit Cheftrainer Sami Ghaouar auf und sichere Dir Deinen Termin in Hamburg!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Contact Card Sami Ghaouar -->
+        <div class="lg:col-span-5 glass-card p-8 rounded-3xl space-y-8 border-2 border-[#D4AF37]/50 shadow-xl" data-aos="fade-right">
+          
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-2xl overflow-hidden border-2 border-[#D4AF37] shadow-md shrink-0">
+              <img src="img/sami/sami%20daumen%20hoch.avif" alt="Sami Ghaouar" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <h3 class="text-xl font-black text-slate-900">Sami Ghaouar</h3>
+              <p class="text-xs font-bold text-[#E63946] uppercase tracking-wider">SoccerProf Academy Hamburg</p>
+            </div>
+          </div>
+
+          <div class="space-y-5 border-t border-b border-slate-200/80 py-6">
+            
+            <!-- Phone -->
+            <a href="tel:+4917684156542" class="flex items-center gap-4 group p-3 rounded-2xl hover:bg-slate-100 transition-colors">
+              <div class="w-12 h-12 rounded-xl bg-[#E63946]/10 text-[#E63946] flex items-center justify-center text-lg font-bold shrink-0 group-hover:bg-[#E63946] group-hover:text-white transition-colors">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-500 font-semibold uppercase">Telefon / Mobil</div>
+                <div class="text-base font-extrabold text-slate-900 group-hover:text-[#E63946] transition-colors">+49 176 841 565 42</div>
+              </div>
+            </a>
+
+            <!-- Location -->
+            <div class="flex items-center gap-4 p-3 rounded-2xl">
+              <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 text-[#D4AF37] flex items-center justify-center text-lg font-bold shrink-0">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-500 font-semibold uppercase">Standort Hamburg</div>
+                <div class="text-base font-extrabold text-slate-900">Öjendorfer Weg 80</div>
+                <div class="text-xs text-slate-500 font-semibold">22119 Hamburg, Deutschland</div>
+              </div>
+            </div>
+
+            <!-- WhatsApp Direct Button -->
+            <a href="https://wa.me/4917684156542?text=Hallo%20Sami,%20ich%20interessiere%20mich%20f%C3%BCr%20ein%20Probetraining!" target="_blank" class="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-sm shadow-md transition-all transform hover:-translate-y-0.5">
+              <i class="fa-brands fa-whatsapp text-2xl"></i>
+              <span>WHATSAPP SCHNELLKONTAKT</span>
+            </a>
+
+          </div>
+
+          <div class="text-xs text-slate-500 text-center font-medium">
+            <i class="fa-solid fa-clock text-[#D4AF37] mr-1"></i> Trainingszeiten nach individueller Absprache.
+          </div>
+
+        </div>
+
+        <!-- Direct Form Card -->
+        <div class="lg:col-span-7 glass-card p-8 rounded-3xl shadow-xl" data-aos="fade-left">
+          <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2">Vor- &amp; Nachname *</label>
+                <input type="text" required placeholder="z.B. Max Mustermann" class="w-full px-4 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all">
+              </div>
+              <div>
+                <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2">Telefonnummer *</label>
+                <input type="tel" required placeholder="z.B. 0176 12345678" class="w-full px-4 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2">Gefördertes Alter / Jahrgang</label>
+                <select class="w-full px-4 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all">
+                  <option>Kinder (6 - 11 Jahre)</option>
+                  <option>Jugendliche (12 - 17 Jahre)</option>
+                  <option>Erwachsene / Herren / Damen</option>
+                  <option>Mannschaft / Verein</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2">Gewünschtes Format</label>
+                <select class="w-full px-4 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all">
+                  <option>1:1 Einzeltraining</option>
+                  <option>Kleingruppe (5er Gruppe)</option>
+                  <option>Mannschaftstraining</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2">Nachricht / Anmerkung</label>
+              <textarea rows="4" placeholder="Teile uns Deine Ziele oder Wünsche für das Probetraining mit..." class="w-full px-4 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-2xl bg-[#E63946] hover:bg-[#C52233] text-white font-black text-base shadow-red-glow hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-3">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>ANFRAGE ABSENDEN (PROBETRAINING)</span>
+            </button>
+
+            <!-- Success notification box -->
+            <div id="formSuccess" class="hidden p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 text-center font-bold text-sm">
+              <i class="fa-solid fa-circle-check mr-2"></i>Vielen Dank! Deine Anfrage wurde erfolgreich weitergeleitet. Sami meldet sich in Kürze!
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <img src="img/logo/F3-3.avif" alt="SoccerProf Logo" class="h-8 w-auto object-contain">
+        <span class="text-white font-extrabold text-base">SOCCER<span class="text-[#E63946]">PROF</span> ACADEMY</span>
+      </div>
+
+      <div class="text-xs text-slate-500">
+        © <span id="year"></span> SoccerProf Academy Hamburg – Sami Ghaouar. Alle Rechte vorbehalten.
+      </div>
+
+      <div class="flex items-center gap-6 text-xs font-semibold text-slate-400">
+        <a href="#kontakt" class="hover:text-white transition-colors">Jobs &amp; Karriere</a>
+        <a href="#kontakt" class="hover:text-white transition-colors">Impressum</a>
+        <a href="#kontakt" class="hover:text-white transition-colors">Datenschutz</a>
+        <a href="tel:+4917684156542" class="hover:text-[#D4AF37] transition-colors"><i class="fa-solid fa-phone mr-1"></i>+49 176 841 565 42</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- SCRIPTS SECTION: THREE.JS & AOS INIT -->
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- AOS JS CDN -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+  <script>
+    // 1. Initialize AOS (Animate On Scroll)
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: false,
+        mirror: true
+      });
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+
+    // Mobile Navbar Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // FAQ Accordion Toggle
+    document.querySelectorAll('.faq-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('.faq-icon');
+        const isOpen = !content.classList.contains('hidden');
+        
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+        
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+
+    // Form submission handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const successBox = document.getElementById('formSuccess');
+      successBox.classList.remove('hidden');
+      setTimeout(() => {
+        window.location.href = "https://wa.me/4917684156542?text=" + encodeURIComponent("Hallo Sami, ich habe gerade eine Probetraining-Anfrage auf deiner Website gestellt!");
+      }, 1500);
+    }
+
+    // 2. THREE.JS FULL-PAGE CENTERED ROUND-PARTICLE 3D DISSOLVE & REASSEMBLY (NO ORBIT RINGS)
+    (function initThreeJS() {
+      const container = document.getElementById('threejs-container');
+      if (!container) return;
+
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+
+      // Scene, Camera, Renderer
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+      camera.position.set(0, 0, 10);
+
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(renderer.domElement);
+
+      // Create a smooth circular round dot texture for point particles
+      function createRoundParticleTexture() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 64;
+        canvas.height = 64;
+        const ctx = canvas.getContext('2d');
+
+        const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+        grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+        grad.addColorStop(0.3, 'rgba(212, 175, 55, 0.9)');
+        grad.addColorStop(0.7, 'rgba(212, 175, 55, 0.4)');
+        grad.addColorStop(1, 'rgba(212, 175, 55, 0)');
+
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(32, 32, 30, 0, Math.PI * 2);
+        ctx.fill();
+
+        const texture = new THREE.CanvasTexture(canvas);
+        return texture;
+      }
+
+      const roundParticleMap = createRoundParticleTexture();
+
+      // Load SoccerProf Logo Texture
+      const textureLoader = new THREE.TextureLoader();
+      const logoTexture = textureLoader.load('img/logo/F3-3.avif');
+
+      // Root World Group (CENTERED MITTIG)
+      const worldGroup = new THREE.Group();
+      scene.add(worldGroup);
+
+      // Main Centered Container
+      const logoContainer = new THREE.Group();
+      logoContainer.position.set(0, 0, 0); // MITTIG IN DER MITTE
+      worldGroup.add(logoContainer);
+
+      // Solid 3D Logo Emblem (NO ORBIT RINGS)
+      const logoRadius = 2.5;
+      const logoGeo = new THREE.CylinderGeometry(logoRadius, logoRadius, 0.2, 64);
+      const goldMat = new THREE.MeshStandardMaterial({
+        color: 0xD4AF37,
+        metalness: 0.9,
+        roughness: 0.2,
+        emissive: 0x221a00
+      });
+      const logoFaceMat = new THREE.MeshStandardMaterial({
+        map: logoTexture,
+        roughness: 0.2,
+        metalness: 0.1,
+        transparent: true,
+        opacity: 1.0
+      });
+
+      const solidLogoMesh = new THREE.Mesh(logoGeo, [goldMat, logoFaceMat, logoFaceMat]);
+      solidLogoMesh.rotation.x = Math.PI / 2;
+      logoContainer.add(solidLogoMesh);
+
+      // --- ROUND DISSOLVING & REASSEMBLING PARTICLE CLOUD (2400 Round Particles) ---
+      const particleCount = 2400;
+      const originPositions = new Float32Array(particleCount * 3);
+      const dispersedPositions = new Float32Array(particleCount * 3);
+      const currentPositions = new Float32Array(particleCount * 3);
+      const particleColors = new Float32Array(particleCount * 3);
+
+      const cWhite = new THREE.Color(0xFFFFFF);
+      const cGold  = new THREE.Color(0xD4AF37);
+      const cRed   = new THREE.Color(0xE63946);
+
+      for (let i = 0; i < particleCount; i++) {
+        // Points distributed on 3D emblem surface
+        const theta = Math.random() * 2.0 * Math.PI;
+        const r = Math.random() * logoRadius;
+        const x = r * Math.cos(theta);
+        const y = r * Math.sin(theta);
+        const z = (Math.random() - 0.5) * 0.3;
+
+        originPositions[i * 3]     = x;
+        originPositions[i * 3 + 1] = y;
+        originPositions[i * 3 + 2] = z;
+
+        // Dispersed positions (explodes outward radially when scrolling: "gehen auseinander")
+        const mult = 2.5 + Math.random() * 4.0;
+        dispersedPositions[i * 3]     = x * mult + (Math.random() - 0.5) * 6;
+        dispersedPositions[i * 3 + 1] = y * mult + (Math.random() - 0.5) * 6;
+        dispersedPositions[i * 3 + 2] = z * mult + (Math.random() - 0.5) * 6;
+
+        currentPositions[i * 3]     = x;
+        currentPositions[i * 3 + 1] = y;
+        currentPositions[i * 3 + 2] = z;
+
+        const rc = Math.random();
+        let col = cWhite;
+        if (rc > 0.4) col = cGold;
+        if (rc > 0.8) col = cRed;
+
+        particleColors[i * 3]     = col.r;
+        particleColors[i * 3 + 1] = col.g;
+        particleColors[i * 3 + 2] = col.b;
+      }
+
+      const particleGeo = new THREE.BufferGeometry();
+      particleGeo.setAttribute('position', new THREE.BufferAttribute(currentPositions, 3));
+      particleGeo.setAttribute('color', new THREE.BufferAttribute(particleColors, 3));
+
+      // PointsMaterial using our smooth ROUND particle map
+      const particleMat = new THREE.PointsMaterial({
+        size: 0.22,
+        map: roundParticleMap,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.9,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending
+      });
+      const particlePoints = new THREE.Points(particleGeo, particleMat);
+      logoContainer.add(particlePoints);
+
+      // --- AMBIENT BACKGROUND SPARKLES ---
+      const bgParticleCount = 180;
+      const bgParticleGeo = new THREE.BufferGeometry();
+      const bgParticlePos = new Float32Array(bgParticleCount * 3);
+      for (let i = 0; i < bgParticleCount * 3; i += 3) {
+        bgParticlePos[i]     = (Math.random() - 0.5) * 24;
+        bgParticlePos[i + 1] = 5 - Math.random() * 55;
+        bgParticlePos[i + 2] = (Math.random() - 0.5) * 12;
+      }
+      bgParticleGeo.setAttribute('position', new THREE.BufferAttribute(bgParticlePos, 3));
+      const bgParticleMat = new THREE.PointsMaterial({
+        size: 0.2,
+        map: roundParticleMap,
+        color: 0xD4AF37,
+        transparent: true,
+        opacity: 0.6,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending
+      });
+      const bgParticles = new THREE.Points(bgParticleGeo, bgParticleMat);
+      worldGroup.add(bgParticles);
+
+      // --- LIGHTING ---
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
+      scene.add(ambientLight);
+
+      const dirLight1 = new THREE.DirectionalLight(0xffffff, 1.6);
+      dirLight1.position.set(5, 10, 5);
+      scene.add(dirLight1);
+
+      const dirLightGold = new THREE.DirectionalLight(0xD4AF37, 2.0);
+      dirLightGold.position.set(-6, -4, 4);
+      scene.add(dirLightGold);
+
+      // --- SCROLL DYNAMICS: MITTIG, AUSEINANDERGEHEN & REINZOOMEN ---
+      let targetCameraY = 0;
+      let targetZoomZ = 9.5;
+      let targetDissolve = 0;
+      let currentDissolve = 0;
+      let targetRotationX = 0;
+      let targetRotationY = 0;
+
+      window.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth) - 0.5;
+        const y = (e.clientY / window.innerHeight) - 0.5;
+        targetRotationY = x * 0.5;
+        targetRotationX = y * 0.5;
+      });
+
+      function updateScroll() {
+        const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        const scrollPercent = window.scrollY / maxScroll;
+
+        // Camera moves down along the page centered
+        targetCameraY = -scrollPercent * 45;
+
+        // Dynamic Zoom in / out while scrolling ("zoomen")
+        targetZoomZ = 9.5 + Math.sin(scrollPercent * Math.PI * 5) * 2.5;
+
+        // Dissolve / Reassemble cycle ("gehen auseinander und gehen wieder rein")
+        const cycle = Math.abs(Math.sin(scrollPercent * Math.PI * 6));
+        targetDissolve = Math.pow(cycle, 1.5);
+      }
+
+      window.addEventListener('scroll', updateScroll);
+      updateScroll();
+
+      window.addEventListener('resize', () => {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+      });
+
+      // Animation Loop
+      function animate() {
+        requestAnimationFrame(animate);
+
+        // Smooth Lerp for Dissolve / Reassemble
+        currentDissolve += (targetDissolve - currentDissolve) * 0.08;
+
+        // Fade solid logo materials opacity based on dissolve factor
+        logoFaceMat.opacity = Math.max(0.05, 1 - currentDissolve * 0.95);
+
+        // Morph particle positions between centered 3D logo shape and dispersed cloud ("auseinandergehen & rein-reineinander")
+        const posAttr = particleGeo.attributes.position;
+        const posArr = posAttr.array;
+
+        for (let i = 0; i < particleCount; i++) {
+          const i3 = i * 3;
+          posArr[i3]     = originPositions[i3]     + (dispersedPositions[i3]     - originPositions[i3])     * currentDissolve;
+          posArr[i3 + 1] = originPositions[i3 + 1] + (dispersedPositions[i3 + 1] - originPositions[i3 + 1]) * currentDissolve;
+          posArr[i3 + 2] = originPositions[i3 + 2] + (dispersedPositions[i3 + 2] - originPositions[i3 + 2]) * currentDissolve;
+        }
+        posAttr.needsUpdate = true;
+
+        // Continuous Rotation
+        solidLogoMesh.rotation.z += 0.006;
+        particlePoints.rotation.z += 0.004;
+
+        bgParticles.rotation.y -= 0.0008;
+
+        // Smooth Camera Position & Zoom
+        camera.position.y += (targetCameraY - camera.position.y) * 0.08;
+        camera.position.z += (targetZoomZ - camera.position.z) * 0.08;
+
+        // Mouse Parallax
+        worldGroup.rotation.y += (targetRotationY - worldGroup.rotation.y) * 0.05;
+        worldGroup.rotation.x += (targetRotationX - worldGroup.rotation.x) * 0.05;
+
+        renderer.render(scene, camera);
+      }
+
+      animate();
+    })();
+  </script>
+</body>
+</html>
