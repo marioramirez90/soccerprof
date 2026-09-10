@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+import os
+
+html_code = """<!DOCTYPE html>
 <html lang="de" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -1211,3 +1213,9 @@
   </script>
 </body>
 </html>
+"""
+
+with open(r"c:\Users\mario\Desktop\newsoccerprof\index.html", "w", encoding="utf-8") as f:
+    f.write(html_code)
+
+print("Authentic SoccerProf website successfully built!")
