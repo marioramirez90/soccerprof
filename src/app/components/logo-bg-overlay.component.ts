@@ -81,7 +81,7 @@ export class LogoBgOverlayComponent implements OnInit, OnDestroy {
       else if (normZ > 0.82) opacity = (1 - normZ) / 0.18;
       else opacity = 1;
 
-      opacity = Math.max(0, Math.min(0.24, opacity * 0.24));
+      opacity = Math.max(0, Math.min(0.08, opacity * 0.08));
       const rot = (scrollY * p.rotSpeed + i * 35) % 360;
 
       p.style = {
