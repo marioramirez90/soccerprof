@@ -9,9 +9,9 @@ import { RouterLink } from '@angular/router';
   template: `
 
     <!-- ══════════════════════════════════════════════
-         HERO SECTION (COACH MESUT ATHLETIC STYLE IN ROT)
+         HERO SECTION (FULLSCREEN 100VH ON DESKTOP)
          ══════════════════════════════════════════════ -->
-    <section class="relative bg-white pt-24 pb-20 md:pt-28 md:pb-24 border-b border-slate-100 overflow-hidden">
+    <section class="relative bg-white min-h-[calc(100vh-80px)] lg:min-h-screen pt-24 pb-16 lg:pt-24 lg:pb-16 flex flex-col justify-center border-b border-slate-100 overflow-hidden">
 
       <!-- Subtle background grid -->
       <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -20,7 +20,7 @@ import { RouterLink } from '@angular/router';
                background-size: 44px 44px;">
       </div>
 
-      <div class="sp-container relative z-10 w-full">
+      <div class="sp-container relative z-10 w-full my-auto">
         <!-- TOP GRID: Left Text Content + Right Photo Card -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
 
@@ -31,9 +31,11 @@ import { RouterLink } from '@angular/router';
                 HAMBURG · KINDER, JUGENDLICHE & AMBITIONIERTE SPIELER
               </div>
 
-              <!-- Headline (Scaled, Compact & DFB Gold Accent) -->
+              <!-- Headline with "INDIVIDUELLES TRAINING" in Gold & DFB Underline -->
               <h1 class="hero-title mb-4">
-                PRIVATER FUßBALL-TRAINER FÜR INDIVIDUELLES TRAINING FÜR 
+                PRIVATER FUßBALL-TRAINER FÜR 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 font-black">INDIVIDUELLES TRAINING</span> 
+                FÜR 
                 <span class="relative inline-block whitespace-nowrap">
                   <span class="relative z-10 text-slate-950">ANFÄNGER & PROS</span>
                   <!-- DFB-inspirierter Gold-Strich -->
@@ -72,7 +74,7 @@ import { RouterLink } from '@angular/router';
             <div class="relative max-w-md mx-auto lg:max-w-none h-full">
               
               <!-- Coach Action Visual (Sami mit Taktiktafel) -->
-              <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 relative bg-slate-100 w-full h-full min-h-[360px] lg:min-h-full">
+              <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 relative bg-slate-100 w-full h-full min-h-[380px] lg:min-h-full">
                 <img src="img/sami/Ich Taktiktafel.avif"
                   alt="Coach Sami Ghaouar – Taktik & Coaching Hamburg"
                   class="w-full h-full object-cover object-top">
@@ -112,7 +114,7 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <!-- STATS ROW: Right below the grid, right where the image ends! -->
-        <div class="mt-8 pt-6 border-t border-slate-200">
+        <div class="mt-8 lg:mt-10 pt-6 border-t border-slate-200">
           <div class="grid grid-cols-3 gap-6 max-w-lg">
             <div>
               <p class="font-heading font-black text-2xl sm:text-3xl text-slate-900">100<span class="text-red-600">%</span></p>
