@@ -1,16 +1,21 @@
-<!DOCTYPE html>
+import os
+
+workspace_dir = r"c:\Users\mario\Desktop\newsoccerprof"
+
+def get_head(title="SoccerProf Academy | Privater Fußballtrainer Hamburg", desc="Individuelles Fußballtraining für Kinder, Jugendliche und Erwachsene in Hamburg."):
+    html = '''<!DOCTYPE html>
 <html lang="de" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SoccerProf Academy | Privater Fußballtrainer Hamburg</title>
-  <meta name="description" content="Individuelles Fußballtraining für Kinder, Jugendliche und Erwachsene in Hamburg.">
+  <title>__TITLE__</title>
+  <meta name="description" content="__DESC__">
   <meta name="keywords" content="Fußballtraining Hamburg, individuelles Fußballtraining Hamburg, Fußballtrainer Hamburg, Sami Ghaouar, SoccerProf Academy">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="SoccerProf Academy | Privater Fußballtrainer Hamburg">
-  <meta property="og:description" content="Individuelles Fußballtraining für Kinder, Jugendliche und Erwachsene in Hamburg.">
+  <meta property="og:title" content="__TITLE__">
+  <meta property="og:description" content="__DESC__">
   <meta property="og:image" content="img/logo/F3-3.avif">
   <meta property="og:type" content="website">
 
@@ -219,14 +224,25 @@
     details summary::-webkit-details-marker { display: none; }
     details[open] summary .faq-icon { transform: rotate(180deg); }
   </style>
-</head>
-<body class="bg-mesh relative grid-pattern antialiased text-slate-900 pb-20 sm:pb-0">
+</head>'''
+    return html.replace("__TITLE__", title).replace("__DESC__", desc)
 
-  <!-- Ambient Glow Orbs -->
-  <div class="fixed top-20 left-10 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none -z-10 animate-float"></div>
-  <div class="fixed top-1/2 right-10 w-[30rem] h-[30rem] bg-[#E63946]/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-glow"></div>
+def get_header(active_page=""):
+    nav_items = [
+        ("Training", "training.html"),
+        ("Trainingsmethoden", "trainingsmethoden.html"),
+        ("Über uns", "ueber-uns.html"),
+        ("Preise", "preise.html"),
+        ("Kontakt", "kontakt.html"),
+    ]
+    
+    nav_links_html = ""
+    for label, link in nav_items:
+        is_active = (active_page == label)
+        active_cls = "nav-link-anim text-[#E63946] font-black active" if is_active else "nav-link-anim text-slate-700 hover:text-[#E63946]"
+        nav_links_html += f'<a href="{link}" class="{active_cls}">{label}</a>\n'
 
-  <!-- HEADER -->
+    return f'''<!-- HEADER -->
   <header id="main-header" class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <!-- Brand Logo -->
@@ -237,12 +253,7 @@
 
       <!-- Desktop Navigation Links -->
       <nav class="hidden lg:flex items-center gap-7 text-sm font-bold">
-        <a href="training.html" class="nav-link-anim text-slate-700 hover:text-[#E63946]">Training</a>
-<a href="trainingsmethoden.html" class="nav-link-anim text-slate-700 hover:text-[#E63946]">Trainingsmethoden</a>
-<a href="ueber-uns.html" class="nav-link-anim text-slate-700 hover:text-[#E63946]">Über uns</a>
-<a href="preise.html" class="nav-link-anim text-slate-700 hover:text-[#E63946]">Preise</a>
-<a href="kontakt.html" class="nav-link-anim text-slate-700 hover:text-[#E63946]">Kontakt</a>
-
+        {nav_links_html}
       </nav>
 
       <!-- Right Action Group: Shop & Primary CTA -->
@@ -284,7 +295,217 @@
         <i class="fa-solid fa-calendar-check mr-2"></i>Kostenloses Erstgespräch
       </a>
     </div>
-  </header>
+  </header>'''
+
+def get_footer():
+    return '''<!-- FOOTER -->
+  <footer class="bg-black text-slate-400 py-16 border-t border-slate-800 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+        
+        <!-- Spalte 1: Training -->
+        <div class="space-y-3">
+          <h4 class="text-white font-black text-xs uppercase tracking-wider">Training</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="einzeltraining.html" class="hover:text-white transition-colors">Einzeltraining (1:1)</a></li>
+            <li><a href="kleingruppe.html" class="hover:text-white transition-colors">Kleingruppentraining (5er)</a></li>
+            <li><a href="mannschaft.html" class="hover:text-white transition-colors">Mannschaftstraining</a></li>
+            <li><a href="trainingsmethoden.html" class="hover:text-white transition-colors">Trainingsmethoden</a></li>
+            <li><a href="preise.html" class="hover:text-white transition-colors">Preise &amp; Tarife</a></li>
+          </ul>
+        </div>
+
+        <!-- Spalte 2: SoccerProf -->
+        <div class="space-y-3">
+          <h4 class="text-white font-black text-xs uppercase tracking-wider">SoccerProf</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="ueber-uns.html" class="hover:text-white transition-colors">Über uns</a></li>
+            <li><a href="veranstaltungen.html" class="hover:text-white transition-colors">Veranstaltungen &amp; Camps</a></li>
+            <li><a href="jobs.html" class="hover:text-white transition-colors">Jobs &amp; Karriere</a></li>
+            <li><a href="faq.html" class="hover:text-white transition-colors">Häufige Fragen (FAQ)</a></li>
+            <li><a href="kontakt.html" class="hover:text-white transition-colors">Kontakt &amp; Standorte</a></li>
+          </ul>
+        </div>
+
+        <!-- Spalte 3: Service & Shop -->
+        <div class="space-y-3">
+          <h4 class="text-white font-black text-xs uppercase tracking-wider">Service</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="shop.html" class="hover:text-white transition-colors">SoccerProf Shop</a></li>
+            <li><a href="kontakt.html" class="hover:text-white transition-colors">Kostenloses Erstgespräch</a></li>
+            <li><a href="kontakt.html" class="hover:text-white transition-colors">Direkter Ansprechpartner</a></li>
+          </ul>
+        </div>
+
+        <!-- Spalte 4: Rechtlich -->
+        <div class="space-y-3">
+          <h4 class="text-white font-black text-xs uppercase tracking-wider">Rechtlich</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="impressum.html" class="hover:text-white transition-colors">Impressum</a></li>
+            <li><a href="datenschutz.html" class="hover:text-white transition-colors">Datenschutzrichtlinie</a></li>
+            <li><a href="cookie-richtlinie.html" class="hover:text-white transition-colors">Cookie-Richtlinie</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div class="flex items-center gap-3">
+          <img src="img/logo/F3-3.avif" alt="SoccerProf Logo" class="h-8 w-auto object-contain">
+          <span>© 2026 SoccerProf Academy · Sami Ghaouar · Alle Rechte vorbehalten.</span>
+        </div>
+        <div class="font-bold text-slate-400">
+          DIE PERFEKTE ERGÄNZUNG ZUM FUßBALLVEREIN 👍 ⚽
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY BAR -->
+  <div class="sm:hidden fixed bottom-0 left-0 w-full z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-2.5 flex items-center justify-between shadow-2xl">
+    <div>
+      <div class="text-[11px] font-black text-slate-900">SoccerProf Academy</div>
+      <div class="text-[9px] text-[#D4AF37] font-black uppercase">Sami Ghaouar · Hamburg</div>
+    </div>
+    <a href="kontakt.html" class="btn-fill-red px-4 py-2 rounded-full bg-[#E63946] text-white font-black text-xs uppercase tracking-wider shadow-red-glow flex items-center gap-1.5">
+      <i class="fa-solid fa-calendar-check"></i>
+      <span>Erstgespräch</span>
+    </a>
+  </div>'''
+
+def get_scripts():
+    return '''<!-- DYNAMIC LOGO OVERLAY CONTAINER -->
+  <div id="logo-bg-overlay"></div>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({
+        duration: 750,
+        easing: 'ease-out-cubic',
+        once: false,
+        mirror: true
+      });
+
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('.mobile-link').forEach(link => {
+          link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+      }
+
+      // ============================================================
+      // SPECTACULAR 3D FLY-TOWARDS-VIEWER LOGO ANIMATION ENGINE ("Das kommt zu mir!")
+      // ============================================================
+      const overlay = document.getElementById('logo-bg-overlay');
+      if (overlay) {
+        const isMobile = window.innerWidth < 768;
+        const particleCount = isMobile ? 35 : 75;
+        const particlesData = [];
+
+        for (let i = 0; i < particleCount; i++) {
+          const el = document.createElement('div');
+          el.className = 'global-logo-particle';
+
+          // Random initial positions distributed across viewport
+          const posX = Math.random() * 92 + 4; // %
+          const posY = Math.random() * 92 + 4; // %
+          
+          // Z Depth start (-700px to +300px)
+          const baseZ = -700 + Math.random() * 1000;
+          const zSpeed = 0.7 + Math.random() * 1.5; // Z fly speed on scroll
+          
+          // Independent float drift vectors ("jeder bewegt sich dahin, wo er möchte")
+          const driftX = (Math.random() - 0.5) * 70;
+          const driftY = (Math.random() - 0.5) * 70;
+          const driftFreq = 0.001 + Math.random() * 0.002;
+          const phase = Math.random() * Math.PI * 2;
+          
+          const maxOpacity = 0.18 + Math.random() * 0.22; // High contrast & clear visibility
+          const rotSpeed = (Math.random() - 0.5) * 0.15;
+          let currRot = (Math.random() - 0.5) * 30;
+
+          el.style.left = posX + '%';
+          el.style.top = posY + '%';
+          
+          overlay.appendChild(el);
+
+          particlesData.push({
+            el,
+            posX,
+            posY,
+            baseZ,
+            zSpeed,
+            driftX,
+            driftY,
+            driftFreq,
+            phase,
+            maxOpacity,
+            rotSpeed,
+            currRot
+          });
+        }
+
+        let startTime = performance.now();
+
+        function update3DLogoFlythrough(now) {
+          const scrolled = window.scrollY;
+          const elapsed = now - startTime;
+
+          particlesData.forEach((pd) => {
+            pd.currRot += pd.rotSpeed;
+            
+            // Calculate continuous Z depth flying TOWARDS camera ("Das kommt zu mir!")
+            // Loop Z depth smoothly from -700px to +450px (total range 1150px)
+            const rawZ = (pd.baseZ + scrolled * pd.zSpeed) % 1150;
+            const currentZ = rawZ > 450 ? rawZ - 1150 : rawZ;
+
+            // Independent continuous floating oscillation ("Jeder bewegt sich dahin, wo er möchte")
+            const floatX = Math.sin(elapsed * pd.driftFreq + pd.phase) * pd.driftX;
+            const floatY = Math.cos(elapsed * pd.driftFreq * 0.8 + pd.phase) * pd.driftY;
+            const scrollYOffset = scrolled * 0.08;
+
+            // Smooth opacity fade in from distance (-700px) and fade out as it flies past screen (+400px)
+            let normOpacity = 1.0;
+            if (currentZ < -400) {
+              normOpacity = (currentZ + 700) / 300;
+            } else if (currentZ > 250) {
+              normOpacity = (450 - currentZ) / 200;
+            }
+            const finalOpacity = Math.max(0, Math.min(pd.maxOpacity, normOpacity * pd.maxOpacity));
+
+            pd.el.style.transform = `translate3d(${floatX.toFixed(1)}px, ${(floatY + scrollYOffset).toFixed(1)}px, ${currentZ.toFixed(1)}px) rotate(${pd.currRot.toFixed(1)}deg)`;
+            pd.el.style.opacity = finalOpacity.toFixed(3);
+          });
+
+          requestAnimationFrame(update3DLogoFlythrough);
+        }
+
+        requestAnimationFrame(update3DLogoFlythrough);
+      }
+    });
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      window.location.href = "https://wa.me/4917684156542?text=" + encodeURIComponent("Hallo Sami, ich habe eine Anfrage gesendet!");
+    }
+  </script>
+</body>
+</html>'''
+
+def generate_index_html():
+    body_part = '''<body class="bg-mesh relative grid-pattern antialiased text-slate-900 pb-20 sm:pb-0">
+
+  <!-- Ambient Glow Orbs -->
+  <div class="fixed top-20 left-10 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none -z-10 animate-float"></div>
+  <div class="fixed top-1/2 right-10 w-[30rem] h-[30rem] bg-[#E63946]/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-glow"></div>
+
+  ''' + get_header(active_page="Home") + '''
 
   <!-- ============================================================
        1. HERO SECTION (Links-bündig, Schriftfarben original & knackig)
@@ -699,200 +920,15 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-black text-slate-400 py-16 border-t border-slate-800 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
-        
-        <!-- Spalte 1: Training -->
-        <div class="space-y-3">
-          <h4 class="text-white font-black text-xs uppercase tracking-wider">Training</h4>
-          <ul class="space-y-2 text-xs">
-            <li><a href="einzeltraining.html" class="hover:text-white transition-colors">Einzeltraining (1:1)</a></li>
-            <li><a href="kleingruppe.html" class="hover:text-white transition-colors">Kleingruppentraining (5er)</a></li>
-            <li><a href="mannschaft.html" class="hover:text-white transition-colors">Mannschaftstraining</a></li>
-            <li><a href="trainingsmethoden.html" class="hover:text-white transition-colors">Trainingsmethoden</a></li>
-            <li><a href="preise.html" class="hover:text-white transition-colors">Preise &amp; Tarife</a></li>
-          </ul>
-        </div>
+  ''' + get_footer() + '''
+  ''' + get_scripts()
 
-        <!-- Spalte 2: SoccerProf -->
-        <div class="space-y-3">
-          <h4 class="text-white font-black text-xs uppercase tracking-wider">SoccerProf</h4>
-          <ul class="space-y-2 text-xs">
-            <li><a href="ueber-uns.html" class="hover:text-white transition-colors">Über uns</a></li>
-            <li><a href="veranstaltungen.html" class="hover:text-white transition-colors">Veranstaltungen &amp; Camps</a></li>
-            <li><a href="jobs.html" class="hover:text-white transition-colors">Jobs &amp; Karriere</a></li>
-            <li><a href="faq.html" class="hover:text-white transition-colors">Häufige Fragen (FAQ)</a></li>
-            <li><a href="kontakt.html" class="hover:text-white transition-colors">Kontakt &amp; Standorte</a></li>
-          </ul>
-        </div>
+    index_content = get_head() + "\n" + body_part
 
-        <!-- Spalte 3: Service & Shop -->
-        <div class="space-y-3">
-          <h4 class="text-white font-black text-xs uppercase tracking-wider">Service</h4>
-          <ul class="space-y-2 text-xs">
-            <li><a href="shop.html" class="hover:text-white transition-colors">SoccerProf Shop</a></li>
-            <li><a href="kontakt.html" class="hover:text-white transition-colors">Kostenloses Erstgespräch</a></li>
-            <li><a href="kontakt.html" class="hover:text-white transition-colors">Direkter Ansprechpartner</a></li>
-          </ul>
-        </div>
+    with open(os.path.join(workspace_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(index_content)
 
-        <!-- Spalte 4: Rechtlich -->
-        <div class="space-y-3">
-          <h4 class="text-white font-black text-xs uppercase tracking-wider">Rechtlich</h4>
-          <ul class="space-y-2 text-xs">
-            <li><a href="impressum.html" class="hover:text-white transition-colors">Impressum</a></li>
-            <li><a href="datenschutz.html" class="hover:text-white transition-colors">Datenschutzrichtlinie</a></li>
-            <li><a href="cookie-richtlinie.html" class="hover:text-white transition-colors">Cookie-Richtlinie</a></li>
-          </ul>
-        </div>
+    print("Generated index.html successfully!")
 
-      </div>
-
-      <!-- Footer Bottom -->
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-        <div class="flex items-center gap-3">
-          <img src="img/logo/F3-3.avif" alt="SoccerProf Logo" class="h-8 w-auto object-contain">
-          <span>© 2026 SoccerProf Academy · Sami Ghaouar · Alle Rechte vorbehalten.</span>
-        </div>
-        <div class="font-bold text-slate-400">
-          DIE PERFEKTE ERGÄNZUNG ZUM FUßBALLVEREIN 👍 ⚽
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- MOBILE STICKY BAR -->
-  <div class="sm:hidden fixed bottom-0 left-0 w-full z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-2.5 flex items-center justify-between shadow-2xl">
-    <div>
-      <div class="text-[11px] font-black text-slate-900">SoccerProf Academy</div>
-      <div class="text-[9px] text-[#D4AF37] font-black uppercase">Sami Ghaouar · Hamburg</div>
-    </div>
-    <a href="kontakt.html" class="btn-fill-red px-4 py-2 rounded-full bg-[#E63946] text-white font-black text-xs uppercase tracking-wider shadow-red-glow flex items-center gap-1.5">
-      <i class="fa-solid fa-calendar-check"></i>
-      <span>Erstgespräch</span>
-    </a>
-  </div>
-  <!-- DYNAMIC LOGO OVERLAY CONTAINER -->
-  <div id="logo-bg-overlay"></div>
-
-  <!-- SCRIPTS -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      AOS.init({
-        duration: 750,
-        easing: 'ease-out-cubic',
-        once: false,
-        mirror: true
-      });
-
-      // Mobile Menu Toggle
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        document.querySelectorAll('.mobile-link').forEach(link => {
-          link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-        });
-      }
-
-      // ============================================================
-      // SPECTACULAR 3D FLY-TOWARDS-VIEWER LOGO ANIMATION ENGINE ("Das kommt zu mir!")
-      // ============================================================
-      const overlay = document.getElementById('logo-bg-overlay');
-      if (overlay) {
-        const isMobile = window.innerWidth < 768;
-        const particleCount = isMobile ? 35 : 75;
-        const particlesData = [];
-
-        for (let i = 0; i < particleCount; i++) {
-          const el = document.createElement('div');
-          el.className = 'global-logo-particle';
-
-          // Random initial positions distributed across viewport
-          const posX = Math.random() * 92 + 4; // %
-          const posY = Math.random() * 92 + 4; // %
-          
-          // Z Depth start (-700px to +300px)
-          const baseZ = -700 + Math.random() * 1000;
-          const zSpeed = 0.7 + Math.random() * 1.5; // Z fly speed on scroll
-          
-          // Independent float drift vectors ("jeder bewegt sich dahin, wo er möchte")
-          const driftX = (Math.random() - 0.5) * 70;
-          const driftY = (Math.random() - 0.5) * 70;
-          const driftFreq = 0.001 + Math.random() * 0.002;
-          const phase = Math.random() * Math.PI * 2;
-          
-          const maxOpacity = 0.18 + Math.random() * 0.22; // High contrast & clear visibility
-          const rotSpeed = (Math.random() - 0.5) * 0.15;
-          let currRot = (Math.random() - 0.5) * 30;
-
-          el.style.left = posX + '%';
-          el.style.top = posY + '%';
-          
-          overlay.appendChild(el);
-
-          particlesData.push({
-            el,
-            posX,
-            posY,
-            baseZ,
-            zSpeed,
-            driftX,
-            driftY,
-            driftFreq,
-            phase,
-            maxOpacity,
-            rotSpeed,
-            currRot
-          });
-        }
-
-        let startTime = performance.now();
-
-        function update3DLogoFlythrough(now) {
-          const scrolled = window.scrollY;
-          const elapsed = now - startTime;
-
-          particlesData.forEach((pd) => {
-            pd.currRot += pd.rotSpeed;
-            
-            // Calculate continuous Z depth flying TOWARDS camera ("Das kommt zu mir!")
-            // Loop Z depth smoothly from -700px to +450px (total range 1150px)
-            const rawZ = (pd.baseZ + scrolled * pd.zSpeed) % 1150;
-            const currentZ = rawZ > 450 ? rawZ - 1150 : rawZ;
-
-            // Independent continuous floating oscillation ("Jeder bewegt sich dahin, wo er möchte")
-            const floatX = Math.sin(elapsed * pd.driftFreq + pd.phase) * pd.driftX;
-            const floatY = Math.cos(elapsed * pd.driftFreq * 0.8 + pd.phase) * pd.driftY;
-            const scrollYOffset = scrolled * 0.08;
-
-            // Smooth opacity fade in from distance (-700px) and fade out as it flies past screen (+400px)
-            let normOpacity = 1.0;
-            if (currentZ < -400) {
-              normOpacity = (currentZ + 700) / 300;
-            } else if (currentZ > 250) {
-              normOpacity = (450 - currentZ) / 200;
-            }
-            const finalOpacity = Math.max(0, Math.min(pd.maxOpacity, normOpacity * pd.maxOpacity));
-
-            pd.el.style.transform = `translate3d(${floatX.toFixed(1)}px, ${(floatY + scrollYOffset).toFixed(1)}px, ${currentZ.toFixed(1)}px) rotate(${pd.currRot.toFixed(1)}deg)`;
-            pd.el.style.opacity = finalOpacity.toFixed(3);
-          });
-
-          requestAnimationFrame(update3DLogoFlythrough);
-        }
-
-        requestAnimationFrame(update3DLogoFlythrough);
-      }
-    });
-
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      window.location.href = "https://wa.me/4917684156542?text=" + encodeURIComponent("Hallo Sami, ich habe eine Anfrage gesendet!");
-    }
-  </script>
-</body>
-</html>
+if __name__ == "__main__":
+    generate_index_html()
