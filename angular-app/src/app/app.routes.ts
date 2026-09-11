@@ -1,0 +1,37 @@
+import { Routes } from '@angular/router';
+import { HomeComponent } from './pages/home.component';
+import { TrainingOverviewComponent } from './pages/training-overview.component';
+import { EinzeltrainingComponent } from './pages/einzeltraining.component';
+import { KleingruppeComponent } from './pages/kleingruppe.component';
+import { MannschaftComponent } from './pages/mannschaft.component';
+import { TrainingsmethodenComponent } from './pages/trainingsmethoden.component';
+import { PreiseComponent } from './pages/preise.component';
+import { UeberUnsComponent } from './pages/ueber-uns.component';
+import { VeranstaltungenComponent } from './pages/veranstaltungen.component';
+import { JobsComponent } from './pages/jobs.component';
+import { FaqComponent } from './pages/faq.component';
+import { KontaktComponent } from './pages/kontakt.component';
+import { ShopComponent } from './pages/shop.component';
+import { ImpressumComponent } from './pages/impressum.component';
+import { DatenschutzComponent } from './pages/datenschutz.component';
+import { CookieRichtlinieComponent } from './pages/cookie-richtlinie.component';
+
+export const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'training', component: TrainingOverviewComponent },
+  { path: 'einzeltraining', component: EinzeltrainingComponent },
+  { path: 'kleingruppe', component: KleingruppeComponent },
+  { path: 'mannschaft', component: MannschaftComponent },
+  { path: 'trainingsmethoden', component: TrainingsmethodenComponent },
+  { path: 'preise', component: PreiseComponent },
+  { path: 'ueber-uns', component: UeberUnsComponent },
+  { path: 'veranstaltungen', component: VeranstaltungenComponent },
+  { path: 'jobs', component: JobsComponent },
+  { path: 'faq', component: FaqComponent },
+  { path: 'kontakt', component: KontaktComponent },
+  { path: 'shop', component: ShopComponent },
+  { path: 'impressum', component: ImpressumComponent },
+  { path: 'datenschutz', component: DatenschutzComponent },
+  { path: 'cookie-richtlinie', component: CookieRichtlinieComponent },
+  { path: '**', redirectTo: '' }
+];
