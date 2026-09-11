@@ -7,86 +7,130 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLink],
   template: `
-    <footer class="bg-[#090D16] text-white pt-16 pb-12 border-t border-slate-800 relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          
-          <!-- Column 1: Brand Info -->
-          <div>
+    <footer style="background: var(--sp-dark-2); border-top: 1px solid rgba(255,255,255,0.06);">
+      <div class="sp-container" style="padding-block: 72px 40px;">
+
+        <!-- Top Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
+          <!-- Brand Column -->
+          <div class="lg:col-span-1">
             <a routerLink="/" class="inline-block mb-6">
-              <img src="img/logo/F3-3.avif" alt="SoccerProf Logo" class="h-14 w-auto brightness-110 drop-shadow-lg">
+              <img src="img/logo/F3-3.avif" alt="SoccerProf Academy" class="h-12 w-auto">
             </a>
-            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-              Professionelles &amp; individuelles Fußballtraining für Kinder, Jugendliche und ambitionierte Spieler in Hamburg.
+            <p class="text-slate-500 text-sm leading-relaxed mb-6" style="max-width: 240px;">
+              Professionelles & individuelles Fußballtraining für Kinder, Jugendliche und ambitionierte Spieler in Hamburg.
             </p>
+            <!-- Social icons -->
             <div class="flex items-center gap-3">
-              <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-[#E63946] hover:text-white transition-all">
-                <i class="fa-brands fa-instagram"></i>
+              <a href="https://instagram.com" target="_blank" rel="noopener"
+                class="w-9 h-9 rounded-xl flex items-center justify-center text-slate-400 hover:text-white transition-all"
+                style="background: rgba(255,255,255,0.06);">
+                <i class="fa-brands fa-instagram text-sm"></i>
               </a>
-              <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-[#E63946] hover:text-white transition-all">
-                <i class="fa-brands fa-facebook"></i>
+              <a href="https://facebook.com" target="_blank" rel="noopener"
+                class="w-9 h-9 rounded-xl flex items-center justify-center text-slate-400 hover:text-white transition-all"
+                style="background: rgba(255,255,255,0.06);">
+                <i class="fa-brands fa-facebook text-sm"></i>
               </a>
-              <a href="https://youtube.com" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-[#E63946] hover:text-white transition-all">
-                <i class="fa-brands fa-youtube"></i>
+              <a href="https://youtube.com" target="_blank" rel="noopener"
+                class="w-9 h-9 rounded-xl flex items-center justify-center text-slate-400 hover:text-white transition-all"
+                style="background: rgba(255,255,255,0.06);">
+                <i class="fa-brands fa-youtube text-sm"></i>
+              </a>
+              <a href="https://tiktok.com" target="_blank" rel="noopener"
+                class="w-9 h-9 rounded-xl flex items-center justify-center text-slate-400 hover:text-white transition-all"
+                style="background: rgba(255,255,255,0.06);">
+                <i class="fa-brands fa-tiktok text-sm"></i>
               </a>
             </div>
           </div>
 
-          <!-- Column 2: Navigation -->
+          <!-- Training Column -->
           <div>
-            <h4 class="font-heading text-lg font-bold mb-5 text-[#D4AF37]">Trainingsangebote</h4>
-            <ul class="space-y-3 text-sm text-slate-400">
-              <li><a routerLink="/einzeltraining" class="hover:text-white transition-colors">Einzeltraining (ab 40€)</a></li>
-              <li><a routerLink="/kleingruppe" class="hover:text-white transition-colors">Kleingruppentraining (20-25€)</a></li>
-              <li><a routerLink="/mannschaft" class="hover:text-white transition-colors">Mannschaftstraining (ab 90€)</a></li>
-              <li><a routerLink="/trainingsmethoden" class="hover:text-white transition-colors">4-Phasen Trainingsmethode</a></li>
-              <li><a routerLink="/veranstaltungen" class="hover:text-white transition-colors">Powercamp (80€/Tag)</a></li>
+            <h4 class="text-white font-heading font-bold mb-5 text-sm uppercase tracking-wider"
+              style="color: var(--sp-gold);">Trainingsangebote</h4>
+            <ul class="flex flex-col gap-3">
+              <li><a routerLink="/einzeltraining" class="footer-link">Einzeltraining <span class="text-slate-600 ml-1">ab 40€</span></a></li>
+              <li><a routerLink="/kleingruppe" class="footer-link">Kleingruppentraining <span class="text-slate-600 ml-1">20–25€</span></a></li>
+              <li><a routerLink="/mannschaft" class="footer-link">Mannschaftstraining <span class="text-slate-600 ml-1">ab 90€</span></a></li>
+              <li><a routerLink="/trainingsmethoden" class="footer-link">4-Phasen Methode</a></li>
+              <li><a routerLink="/veranstaltungen" class="footer-link">Powercamp <span class="text-slate-600 ml-1">80€/Tag</span></a></li>
             </ul>
           </div>
 
-          <!-- Column 3: Quick Links -->
+          <!-- Info Column -->
           <div>
-            <h4 class="font-heading text-lg font-bold mb-5 text-[#D4AF37]">Informationen</h4>
-            <ul class="space-y-3 text-sm text-slate-400">
-              <li><a routerLink="/ueber-uns" class="hover:text-white transition-colors">Über Sami Ghaouar</a></li>
-              <li><a routerLink="/preise" class="hover:text-white transition-colors">Preise &amp; Pakete</a></li>
-              <li><a routerLink="/jobs" class="hover:text-white transition-colors">Jobs &amp; Karriere</a></li>
-              <li><a routerLink="/faq" class="hover:text-white transition-colors">Häufige Fragen (FAQ)</a></li>
-              <li><a routerLink="/shop" class="hover:text-white transition-colors">SoccerProf Fan-Shop</a></li>
+            <h4 class="font-heading font-bold mb-5 text-sm uppercase tracking-wider"
+              style="color: var(--sp-gold);">Informationen</h4>
+            <ul class="flex flex-col gap-3">
+              <li><a routerLink="/ueber-uns" class="footer-link">Über Sami Ghaouar</a></li>
+              <li><a routerLink="/preise" class="footer-link">Preise & Pakete</a></li>
+              <li><a routerLink="/jobs" class="footer-link">Jobs & Karriere</a></li>
+              <li><a routerLink="/faq" class="footer-link">Häufige Fragen (FAQ)</a></li>
+              <li><a routerLink="/shop" class="footer-link">SoccerProf Fan-Shop</a></li>
+              <li><a routerLink="/kontakt" class="footer-link">Kontakt</a></li>
             </ul>
           </div>
 
-          <!-- Column 4: Contact -->
+          <!-- Contact Column -->
           <div>
-            <h4 class="font-heading text-lg font-bold mb-5 text-[#D4AF37]">Kontakt Hamburg</h4>
-            <div class="space-y-3 text-sm text-slate-400">
-              <p class="flex items-start gap-3">
-                <i class="fa-solid fa-location-dot text-[#E63946] mt-1"></i>
-                <span>SoccerProf Academy<br>Hamburg &amp; Umgebung</span>
-              </p>
-              <p class="flex items-center gap-3">
-                <i class="fa-solid fa-phone text-[#E63946]"></i>
-                <a href="tel:+4917600000000" class="hover:text-white transition-colors">+49 (0) 176 / 000 000 00</a>
-              </p>
-              <p class="flex items-center gap-3">
-                <i class="fa-solid fa-envelope text-[#E63946]"></i>
-                <a href="mailto:info@soccerprof.de" class="hover:text-white transition-colors">info&#64;soccerprof.de</a>
-              </p>
+            <h4 class="font-heading font-bold mb-5 text-sm uppercase tracking-wider"
+              style="color: var(--sp-gold);">Kontakt Hamburg</h4>
+            <div class="flex flex-col gap-4">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-location-dot mt-0.5 flex-shrink-0" style="color: var(--sp-red);"></i>
+                <div>
+                  <p class="text-white text-sm font-bold">SoccerProf Academy</p>
+                  <p class="text-slate-500 text-sm">Hamburg & Umgebung</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-phone flex-shrink-0" style="color: var(--sp-red);"></i>
+                <a href="tel:+4917600000000" class="text-slate-400 hover:text-white text-sm transition-colors">
+                  +49 (0) 176 / 000 000 00
+                </a>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-envelope flex-shrink-0" style="color: var(--sp-red);"></i>
+                <a href="mailto:info@soccerprof.de" class="text-slate-400 hover:text-white text-sm transition-colors">
+                  info&#64;soccerprof.de
+                </a>
+              </div>
+            </div>
+
+            <!-- Mini CTA -->
+            <div class="mt-6">
+              <a routerLink="/kontakt" class="btn btn-primary btn-sm">
+                Probetraining anfragen
+              </a>
             </div>
           </div>
-
         </div>
 
-        <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© 2026 SoccerProf Academy. Alle Rechte vorbehalten.</p>
+        <!-- Bottom Bar -->
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"
+          style="border-top: 1px solid rgba(255,255,255,0.06);">
+          <p class="text-slate-600 text-xs">© 2026 SoccerProf Academy · Alle Rechte vorbehalten.</p>
           <div class="flex items-center gap-6">
-            <a routerLink="/impressum" class="hover:text-slate-400 transition-colors">Impressum</a>
-            <a routerLink="/datenschutz" class="hover:text-slate-400 transition-colors">Datenschutz</a>
-            <a routerLink="/cookie-richtlinie" class="hover:text-slate-400 transition-colors">Cookie-Richtlinie</a>
+            <a routerLink="/impressum" class="text-slate-600 hover:text-slate-400 text-xs transition-colors">Impressum</a>
+            <a routerLink="/datenschutz" class="text-slate-600 hover:text-slate-400 text-xs transition-colors">Datenschutz</a>
+            <a routerLink="/cookie-richtlinie" class="text-slate-600 hover:text-slate-400 text-xs transition-colors">Cookie-Richtlinie</a>
           </div>
         </div>
       </div>
     </footer>
-  `
+  `,
+  styles: [`
+    .footer-link {
+      color: #64748b;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-link:hover {
+      color: #e8edf5;
+    }
+  `]
 })
 export class FooterComponent {}

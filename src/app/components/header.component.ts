@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
@@ -7,66 +7,112 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLink, RouterLinkActive],
   template: `
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300 shadow-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <header id="main-header"
+      class="sp-nav"
+      [class.scrolled]="isScrolled()">
+      <div class="sp-container w-full flex items-center justify-between">
+
         <!-- Brand Logo -->
-        <a routerLink="/" class="flex items-center gap-3 group">
-          <img src="img/logo/F3-3.avif" alt="SoccerProf Academy Logo"
-            class="h-12 sm:h-14 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-sm">
+        <a routerLink="/" class="flex items-center gap-3 group flex-shrink-0">
+          <img src="img/logo/F3-3.avif"
+            alt="SoccerProf Academy"
+            class="h-11 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
         </a>
 
-        <!-- Desktop Navigation Links -->
-        <nav class="hidden lg:flex items-center gap-7 text-sm font-bold">
-          <a routerLink="/training" routerLinkActive="text-[#E63946] active" [routerLinkActiveOptions]="{exact: true}" class="nav-link-anim text-slate-700 hover:text-[#E63946]">Training</a>
-          <a routerLink="/trainingsmethoden" routerLinkActive="text-[#E63946] active" class="nav-link-anim text-slate-700 hover:text-[#E63946]">Trainingsmethoden</a>
-          <a routerLink="/ueber-uns" routerLinkActive="text-[#E63946] active" class="nav-link-anim text-slate-700 hover:text-[#E63946]">Über uns</a>
-          <a routerLink="/preise" routerLinkActive="text-[#E63946] active" class="nav-link-anim text-slate-700 hover:text-[#E63946]">Preise</a>
-          <a routerLink="/kontakt" routerLinkActive="text-[#E63946] active" class="nav-link-anim text-slate-700 hover:text-[#E63946]">Kontakt</a>
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-8">
+          <a routerLink="/training" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+            class="sp-nav-link">Training</a>
+          <a routerLink="/trainingsmethoden" routerLinkActive="active"
+            class="sp-nav-link">Trainingsmethoden</a>
+          <a routerLink="/ueber-uns" routerLinkActive="active"
+            class="sp-nav-link">Über uns</a>
+          <a routerLink="/preise" routerLinkActive="active"
+            class="sp-nav-link">Preise</a>
+          <a routerLink="/faq" routerLinkActive="active"
+            class="sp-nav-link">FAQ</a>
         </nav>
 
-        <!-- Right Action Group: Shop & Primary CTA -->
-        <div class="hidden sm:flex items-center gap-4">
+        <!-- Right Actions -->
+        <div class="hidden md:flex items-center gap-3">
           <a routerLink="/shop"
-            class="p-2.5 rounded-full text-slate-700 hover:text-[#E63946] hover:bg-slate-100 transition-colors relative"
+            class="sp-nav-link flex items-center gap-2 p-2 rounded-lg hover:bg-white/05 transition-colors"
             title="Fan-Shop">
-            <i class="fa-solid fa-bag-shopping text-lg"></i>
+            <i class="fa-solid fa-bag-shopping"></i>
           </a>
-
-          <a routerLink="/kontakt"
-            class="btn-fill-red inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#E63946] text-white font-bold text-sm tracking-wide shadow-red-glow hover:shadow-xl transition-all">
-            <span>Probetraining anfragen</span>
+          <a routerLink="/kontakt" class="btn btn-primary btn-sm">
+            Probetraining anfragen
           </a>
         </div>
 
-        <!-- Mobile Menu Toggle Button -->
-        <button (click)="toggleMenu()" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Menu Toggle">
-          <i [class]="isMenuOpen() ? 'fa-solid fa-xmark text-2xl' : 'fa-solid fa-bars text-2xl'"></i>
+        <!-- Mobile Hamburger -->
+        <button (click)="toggleMenu()"
+          class="lg:hidden flex flex-col items-center justify-center w-10 h-10 gap-1.5 rounded-lg hover:bg-white/05 transition-colors"
+          aria-label="Navigation öffnen">
+          <span class="block w-5 h-0.5 bg-white transition-all duration-300"
+            [class.rotate-45]="isMenuOpen()"
+            [class.translate-y-2]="isMenuOpen()"></span>
+          <span class="block w-5 h-0.5 bg-white transition-all duration-300"
+            [class.opacity-0]="isMenuOpen()"></span>
+          <span class="block w-5 h-0.5 bg-white transition-all duration-300"
+            [class.-rotate-45]="isMenuOpen()"
+            [class.-translate-y-2]="isMenuOpen()"></span>
         </button>
+
       </div>
 
-      <!-- Mobile Navigation Drawer -->
-      <div *ngIf="isMenuOpen()" class="lg:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-6 py-6 transition-all duration-300">
-        <div class="flex flex-col gap-4 font-bold">
-          <a routerLink="/" (click)="closeMenu()" class="py-2 text-slate-800 hover:text-[#E63946]">Startseite</a>
-          <a routerLink="/training" (click)="closeMenu()" class="py-2 text-slate-800 hover:text-[#E63946]">Training</a>
-          <a routerLink="/einzeltraining" (click)="closeMenu()" class="py-2 pl-4 text-slate-600 hover:text-[#E63946]">↳ Einzeltraining</a>
-          <a routerLink="/kleingruppe" (click)="closeMenu()" class="py-2 pl-4 text-slate-600 hover:text-[#E63946]">↳ Kleingruppe</a>
-          <a routerLink="/mannschaft" (click)="closeMenu()" class="py-2 pl-4 text-slate-600 hover:text-[#E63946]">↳ Mannschaftstraining</a>
-          <a routerLink="/trainingsmethoden" (click)="closeMenu()" class="py-2 text-slate-800 hover:text-[#E63946]">Trainingsmethoden</a>
-          <a routerLink="/ueber-uns" (click)="closeMenu()" class="py-2 text-slate-800 hover:text-[#E63946]">Über uns</a>
-          <a routerLink="/preise" (click)="closeMenu()" class="py-2 text-slate-800 hover:text-[#E63946]">Preise & Pakete</a>
-          <a routerLink="/veranstaltungen" (click)="closeMenu()" class="py-2 text-slate-800 hover:text-[#E63946]">Powercamp & Events</a>
-          <a routerLink="/jobs" (click)="closeMenu()" class="py-2 text-slate-800 hover:text-[#E63946]">Jobs & Karriere</a>
-          <a routerLink="/faq" (click)="closeMenu()" class="py-2 text-slate-800 hover:text-[#E63946]">FAQ</a>
-          <a routerLink="/shop" (click)="closeMenu()" class="py-2 text-slate-800 hover:text-[#E63946]">Shop</a>
-          <a routerLink="/kontakt" (click)="closeMenu()" class="mt-2 text-center py-3 bg-[#E63946] text-white rounded-xl font-bold shadow-lg">Probetraining anfragen</a>
+      <!-- Mobile Drawer -->
+      <div *ngIf="isMenuOpen()"
+        class="lg:hidden absolute top-full left-0 right-0 border-b"
+        style="background: var(--sp-dark-2); border-color: rgba(255,255,255,0.06);">
+        <div class="sp-container py-6 flex flex-col gap-1">
+          <a routerLink="/" (click)="closeMenu()" class="mobile-nav-link">Startseite</a>
+          <a routerLink="/training" (click)="closeMenu()" class="mobile-nav-link">Training</a>
+          <a routerLink="/einzeltraining" (click)="closeMenu()" class="mobile-nav-link pl-8 text-sm">↳ Einzeltraining</a>
+          <a routerLink="/kleingruppe" (click)="closeMenu()" class="mobile-nav-link pl-8 text-sm">↳ Kleingruppe</a>
+          <a routerLink="/mannschaft" (click)="closeMenu()" class="mobile-nav-link pl-8 text-sm">↳ Mannschaftstraining</a>
+          <a routerLink="/trainingsmethoden" (click)="closeMenu()" class="mobile-nav-link">Trainingsmethoden</a>
+          <a routerLink="/ueber-uns" (click)="closeMenu()" class="mobile-nav-link">Über uns</a>
+          <a routerLink="/preise" (click)="closeMenu()" class="mobile-nav-link">Preise & Pakete</a>
+          <a routerLink="/veranstaltungen" (click)="closeMenu()" class="mobile-nav-link">Powercamp & Events</a>
+          <a routerLink="/jobs" (click)="closeMenu()" class="mobile-nav-link">Jobs & Karriere</a>
+          <a routerLink="/faq" (click)="closeMenu()" class="mobile-nav-link">FAQ</a>
+          <a routerLink="/shop" (click)="closeMenu()" class="mobile-nav-link">Fan-Shop</a>
+          <div class="pt-4 mt-2 border-t" style="border-color: rgba(255,255,255,0.08);">
+            <a routerLink="/kontakt" (click)="closeMenu()" class="btn btn-primary w-full" style="border-radius:14px;">
+              <i class="fa-solid fa-calendar-check"></i>
+              Probetraining anfragen
+            </a>
+          </div>
         </div>
       </div>
     </header>
-  `
+  `,
+  styles: [`
+    .mobile-nav-link {
+      display: block;
+      padding: 10px 12px;
+      color: rgba(232, 237, 245, 0.7);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .mobile-nav-link:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.05);
+    }
+  `]
 })
 export class HeaderComponent {
   isMenuOpen = signal(false);
+  isScrolled = signal(false);
+
+  @HostListener('window:scroll', [])
+  onScroll() {
+    this.isScrolled.set(window.scrollY > 20);
+  }
 
   toggleMenu() {
     this.isMenuOpen.update(v => !v);
