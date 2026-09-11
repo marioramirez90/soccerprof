@@ -9,9 +9,9 @@ import { RouterLink } from '@angular/router';
   template: `
 
     <!-- ══════════════════════════════════════════════
-         HERO SECTION (FULLSCREEN 100VH ON DESKTOP)
+         HERO SECTION (COACH MESUT ATHLETIC STYLE IN ROT)
          ══════════════════════════════════════════════ -->
-    <section class="relative bg-white min-h-screen pt-24 pb-20 lg:pt-20 lg:pb-16 flex flex-col justify-center border-b border-slate-100 overflow-hidden">
+    <section class="relative bg-white pt-24 pb-20 md:pt-28 md:pb-24 border-b border-slate-100 overflow-hidden">
 
       <!-- Subtle background grid -->
       <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -20,60 +20,59 @@ import { RouterLink } from '@angular/router';
                background-size: 44px 44px;">
       </div>
 
-      <div class="sp-container relative z-10 w-full my-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div class="sp-container relative z-10 w-full">
+        <!-- TOP GRID: Left Text Content + Right Photo Card -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
 
           <!-- LEFT: Text Content -->
-          <div class="lg:col-span-7 xl:col-span-6">
-
-            <div class="sub-title mb-3">
-              HAMBURG · KINDER, JUGENDLICHE & AMBITIONIERTE SPIELER
-            </div>
-
-            <!-- Headline (Scaled, Compact & Authoritative) -->
-            <h1 class="hero-title mb-4">
-              PRIVATER FUßBALL-TRAINER FÜR INDIVIDUELLES TRAINING FÜR ANFÄNGER & PROS.
-            </h1>
-
-            <p class="text-base text-slate-600 leading-relaxed mb-6 max-w-lg">
-              Individuelles Fußballtraining für Kinder, Jugendliche und ambitionierte Spieler in Hamburg – abgestimmt auf die Stärken, Ziele und Entwicklung jedes Spielers. Einzeltraining und Kleingruppentraining als professionelle Ergänzung zum Vereinstraining.
-            </p>
-
-            <!-- Coach Mesut Style Buttons in Rot -->
-            <div class="flex flex-wrap gap-4 items-center mb-8">
-              <a routerLink="/kontakt" class="btn">
-                <span>Jetzt Probetraining anfragen</span>
-                <i class="fa-solid fa-arrow-right text-xs"></i>
-              </a>
-              <a routerLink="/preise" class="btn btn-outline">
-                <span>Trainingspakete entdecken</span>
-              </a>
-            </div>
-
-            <!-- Trust / Stats Numbers -->
-            <div class="grid grid-cols-3 gap-6 pt-6 border-t border-slate-200 max-w-lg">
-              <div>
-                <p class="font-heading font-black text-2xl sm:text-3xl text-slate-900">100<span class="text-red-600">%</span></p>
-                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Individuell</p>
+          <div class="lg:col-span-7 xl:col-span-6 flex flex-col justify-between">
+            <div>
+              <div class="sub-title mb-3">
+                HAMBURG · KINDER, JUGENDLICHE & AMBITIONIERTE SPIELER
               </div>
-              <div class="border-l border-slate-200 pl-6">
-                <p class="font-heading font-black text-2xl sm:text-3xl text-slate-900">1:1</p>
-                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Intensiv-Fokus</p>
-              </div>
-              <div class="border-l border-slate-200 pl-6">
-                <p class="font-heading font-black text-2xl sm:text-3xl text-red-600">Hamburg</p>
-                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Flexibler Ort</p>
+
+              <!-- Headline (Scaled, Compact & DFB Gold Accent) -->
+              <h1 class="hero-title mb-4">
+                PRIVATER FUßBALL-TRAINER FÜR INDIVIDUELLES TRAINING FÜR 
+                <span class="relative inline-block whitespace-nowrap">
+                  <span class="relative z-10 text-slate-950">ANFÄNGER & PROS</span>
+                  <!-- DFB-inspirierter Gold-Strich -->
+                  <svg class="absolute -bottom-1.5 left-0 w-full h-3 -z-0 pointer-events-none" viewBox="0 0 240 12" fill="none" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="dfbGoldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#F59E0B" />
+                        <stop offset="50%" stop-color="#FCD34D" />
+                        <stop offset="100%" stop-color="#D97706" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M 3 8.5 C 70 2.5, 160 2.5, 237 7 C 170 4.5, 80 5.5, 3 9.5" stroke="url(#dfbGoldGrad)" stroke-width="4.5" stroke-linecap="round" />
+                  </svg>
+                </span>.
+              </h1>
+
+              <p class="text-base text-slate-600 leading-relaxed mb-6 max-w-xl">
+                Individuelles Fußballtraining für Kinder, Jugendliche und ambitionierte Spieler in Hamburg – abgestimmt auf die Stärken, Ziele und Entwicklung jedes Spielers. Einzeltraining und Kleingruppentraining als professionelle Ergänzung zum Vereinstraining.
+              </p>
+
+              <!-- Coach Mesut Style Buttons in Rot -->
+              <div class="flex flex-wrap gap-4 items-center">
+                <a routerLink="/kontakt" class="btn">
+                  <span>Jetzt Probetraining anfragen</span>
+                  <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+                <a routerLink="/preise" class="btn btn-outline">
+                  <span>Trainingspakete entdecken</span>
+                </a>
               </div>
             </div>
-
           </div>
 
-          <!-- RIGHT: Visual Column (Directly aligned with headline) -->
+          <!-- RIGHT: Visual Column (Starts at subtitle, ends right at bottom of buttons) -->
           <div class="lg:col-span-5 xl:col-span-6 relative">
-            <div class="relative max-w-md mx-auto lg:max-w-none">
+            <div class="relative max-w-md mx-auto lg:max-w-none h-full">
               
               <!-- Coach Action Visual (Sami mit Taktiktafel) -->
-              <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] relative bg-slate-100">
+              <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 relative bg-slate-100 w-full h-full min-h-[360px] lg:min-h-full">
                 <img src="img/sami/Ich Taktiktafel.avif"
                   alt="Coach Sami Ghaouar – Taktik & Coaching Hamburg"
                   class="w-full h-full object-cover object-top">
@@ -111,13 +110,23 @@ import { RouterLink } from '@angular/router';
           </div>
 
         </div>
-      </div>
 
-      <!-- Subtle Desktop Scroll Indicator -->
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1.5 opacity-50 hover:opacity-100 transition-opacity z-10 pointer-events-none">
-        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Scroll</span>
-        <div class="w-5 h-8 border-2 border-slate-300 rounded-full flex justify-center pt-1.5">
-          <div class="w-1 h-2 bg-red-600 rounded-full animate-bounce"></div>
+        <!-- STATS ROW: Right below the grid, right where the image ends! -->
+        <div class="mt-8 pt-6 border-t border-slate-200">
+          <div class="grid grid-cols-3 gap-6 max-w-lg">
+            <div>
+              <p class="font-heading font-black text-2xl sm:text-3xl text-slate-900">100<span class="text-red-600">%</span></p>
+              <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Individuell</p>
+            </div>
+            <div class="border-l border-slate-200 pl-6">
+              <p class="font-heading font-black text-2xl sm:text-3xl text-slate-900">1:1</p>
+              <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Intensiv-Fokus</p>
+            </div>
+            <div class="border-l border-slate-200 pl-6">
+              <p class="font-heading font-black text-2xl sm:text-3xl text-red-600">Hamburg</p>
+              <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Flexibler Ort</p>
+            </div>
+          </div>
         </div>
       </div>
 
