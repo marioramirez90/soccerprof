@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 /* ════════════════════════════════════════════════════
-   SOCCERPROF ACADEMY – COACH MESUT INSPIRED DESIGN SYSTEM
-   Weiß, seriös, athletisch mit dynamischen Mesut-Buttons & Karten
+   SOCCERPROF ACADEMY – CLEAN WHITE & ATHLETIC RED
+   Coach Mesut Button-Design & Kartenstruktur in SoccerProf Rot
    ════════════════════════════════════════════════════ */
 :root {
   --sp-white:        #FFFFFF;
@@ -17,14 +17,11 @@
   --sp-border:       #E2E8F0;
   --sp-border-strong:#CBD5E1;
   
-  /* Coach Mesut Electric Athletic Blue Accent */
-  --sp-theme:        #1E6FFB;
-  --sp-theme-dark:   #1254C7;
-  --sp-theme-light:  #EFF6FF;
-  --sp-theme-border: #BFDBFE;
-
-  /* Red Brand Secondary Accent */
-  --sp-red:          #DC2626;
+  /* SoccerProf Athletic Crimson Red Accent */
+  --sp-theme:        #DC2626;
+  --sp-theme-dark:   #B91C1C;
+  --sp-theme-light:  #FEF2F2;
+  --sp-theme-border: #FECACA;
 
   --header-h:        80px;
   --section-pad:     clamp(72px, 8vw, 120px);
@@ -71,7 +68,7 @@ h1, h2, h3, h4, h5, .font-heading {
 }
 
 /* ════════════════════════════════════════════════════
-   COACH MESUT SIGNATURE SKEWED BUTTONS
+   COACH MESUT SIGNATURE SKEWED BUTTONS (IN ATHLETIC RED)
    ════════════════════════════════════════════════════ */
 .btn {
   position: relative;
@@ -107,7 +104,7 @@ h1, h2, h3, h4, h5, .font-heading {
   transition: all 0.35s var(--ease-out);
   border-radius: 8px;
   transform: skewX(-10deg);
-  box-shadow: 0 6px 20px -4px rgba(30, 111, 251, 0.35);
+  box-shadow: 0 6px 20px -4px rgba(220, 38, 38, 0.35);
 }
 
 .btn:hover {
@@ -149,7 +146,7 @@ h1, h2, h3, h4, h5, .font-heading {
 
 .btn-dark:hover::before {
   background: var(--sp-theme);
-  box-shadow: 0 8px 25px -4px rgba(30, 111, 251, 0.4);
+  box-shadow: 0 8px 25px -4px rgba(220, 38, 38, 0.4);
 }
 
 /* Button sizing */
@@ -283,7 +280,7 @@ h1, h2, h3, h4, h5, .font-heading {
 .mesut-tab-btn.active {
   background: var(--sp-theme);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(30, 111, 251, 0.3);
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3);
 }
 
 /* ════════════════════════════════════════════════════
@@ -304,10 +301,10 @@ h1, h2, h3, h4, h5, .font-heading {
 .mesut-package-card:hover {
   border-color: var(--sp-theme-border);
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px -10px rgba(30, 111, 251, 0.12);
+  box-shadow: 0 20px 40px -10px rgba(220, 38, 38, 0.12);
 }
 
-/* Featured / Highlighted Dark Card (like Coach Mesut "Senior Profi") */
+/* Featured / Highlighted Dark Card */
 .mesut-package-card.featured {
   background: var(--sp-dark);
   color: #ffffff;
@@ -317,7 +314,7 @@ h1, h2, h3, h4, h5, .font-heading {
 
 .mesut-package-card.featured:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 48px -6px rgba(30, 111, 251, 0.25);
+  box-shadow: 0 24px 48px -6px rgba(220, 38, 38, 0.25);
   border-color: var(--sp-theme);
 }
 
@@ -404,7 +401,7 @@ h1, h2, h3, h4, h5, .font-heading {
 .testimonial-card:hover {
   transform: translateY(-4px);
   border-color: var(--sp-theme-border);
-  box-shadow: 0 16px 32px -8px rgba(30, 111, 251, 0.08);
+  box-shadow: 0 16px 32px -8px rgba(220, 38, 38, 0.08);
 }
 
 .stars {

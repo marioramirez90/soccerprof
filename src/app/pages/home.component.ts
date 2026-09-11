@@ -9,9 +9,9 @@ import { RouterLink } from '@angular/router';
   template: `
 
     <!-- ══════════════════════════════════════════════
-         HERO SECTION (COACH MESUT ATHLETIC STYLE)
+         HERO SECTION (FULLSCREEN 100VH ON DESKTOP)
          ══════════════════════════════════════════════ -->
-    <section class="relative bg-white pt-28 pb-20 md:pt-36 md:pb-28 border-b border-slate-100 overflow-hidden">
+    <section class="relative bg-white min-h-screen pt-24 pb-20 lg:pt-20 lg:pb-16 flex flex-col justify-center border-b border-slate-100 overflow-hidden">
 
       <!-- Subtle background grid -->
       <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -20,70 +20,74 @@ import { RouterLink } from '@angular/router';
                background-size: 44px 44px;">
       </div>
 
-      <div class="sp-container relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="sp-container relative z-10 w-full my-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
           <!-- LEFT: Text Content -->
           <div class="lg:col-span-7 xl:col-span-6">
 
-            <div class="sub-title mb-4">
+            <div class="sub-title mb-3">
               HAMBURG · KINDER, JUGENDLICHE & AMBITIONIERTE SPIELER
             </div>
 
-            <!-- Headline -->
-            <h1 class="hero-title mb-6">
+            <!-- Headline (Scaled, Compact & Authoritative) -->
+            <h1 class="hero-title mb-4">
               PRIVATER FUßBALL-TRAINER FÜR INDIVIDUELLES TRAINING FÜR ANFÄNGER & PROS.
             </h1>
 
-            <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">
+            <p class="text-base text-slate-600 leading-relaxed mb-6 max-w-lg">
               Individuelles Fußballtraining für Kinder, Jugendliche und ambitionierte Spieler in Hamburg – abgestimmt auf die Stärken, Ziele und Entwicklung jedes Spielers. Einzeltraining und Kleingruppentraining als professionelle Ergänzung zum Vereinstraining.
             </p>
 
-            <!-- Coach Mesut Style Buttons -->
-            <div class="flex flex-wrap gap-4 items-center">
-              <a routerLink="/kontakt" class="btn btn-lg">
+            <!-- Coach Mesut Style Buttons in Rot -->
+            <div class="flex flex-wrap gap-4 items-center mb-8">
+              <a routerLink="/kontakt" class="btn">
                 <span>Jetzt Probetraining anfragen</span>
                 <i class="fa-solid fa-arrow-right text-xs"></i>
               </a>
-              <a routerLink="/preise" class="btn btn-outline btn-lg">
+              <a routerLink="/preise" class="btn btn-outline">
                 <span>Trainingspakete entdecken</span>
               </a>
             </div>
 
             <!-- Trust / Stats Numbers -->
-            <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-slate-200 max-w-lg">
+            <div class="grid grid-cols-3 gap-6 pt-6 border-t border-slate-200 max-w-lg">
               <div>
-                <p class="font-heading font-black text-3xl sm:text-4xl text-slate-900">100<span class="text-blue-600">%</span></p>
-                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">Individuell</p>
+                <p class="font-heading font-black text-2xl sm:text-3xl text-slate-900">100<span class="text-red-600">%</span></p>
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Individuell</p>
               </div>
               <div class="border-l border-slate-200 pl-6">
-                <p class="font-heading font-black text-3xl sm:text-4xl text-slate-900">1:1</p>
-                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">Intensiv-Fokus</p>
+                <p class="font-heading font-black text-2xl sm:text-3xl text-slate-900">1:1</p>
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Intensiv-Fokus</p>
               </div>
               <div class="border-l border-slate-200 pl-6">
-                <p class="font-heading font-black text-3xl sm:text-4xl text-blue-600">Hamburg</p>
-                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">Flexibler Ort</p>
+                <p class="font-heading font-black text-2xl sm:text-3xl text-red-600">Hamburg</p>
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Flexibler Ort</p>
               </div>
             </div>
 
           </div>
 
-          <!-- RIGHT: Visual Column -->
+          <!-- RIGHT: Visual Column (Directly aligned with headline) -->
           <div class="lg:col-span-5 xl:col-span-6 relative">
             <div class="relative max-w-md mx-auto lg:max-w-none">
               
-              <!-- Action photo with rounded modern frame -->
-              <div class="rounded-3xl overflow-hidden shadow-2xl border border-slate-200 aspect-[4/5] relative">
-                <img src="img/bilderwebsite/Fußballtraining im Freien.avif"
-                  alt="SoccerProf Academy Hamburg – Professionelles Fußballtraining"
-                  class="w-full h-full object-cover">
+              <!-- Coach Action Visual (Sami mit Taktiktafel) -->
+              <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] relative bg-slate-100">
+                <img src="img/sami/Ich Taktiktafel.avif"
+                  alt="Coach Sami Ghaouar – Taktik & Coaching Hamburg"
+                  class="w-full h-full object-cover object-top">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
                 
                 <!-- Bottom Coach Bar -->
-                <div class="absolute bottom-6 left-6 right-6">
-                  <div class="bg-white/90 backdrop-blur-md rounded-2xl p-4 flex items-center justify-between shadow-lg border border-white/40">
-                    <div>
-                      <p class="text-slate-900 font-extrabold text-sm">Sami Ghaouar</p>
-                      <p class="text-slate-600 text-xs">Head Coach · Lizenzierter Privattrainer</p>
+                <div class="absolute bottom-4 left-4 right-4">
+                  <div class="bg-white/95 backdrop-blur-md rounded-2xl p-3.5 flex items-center justify-between shadow-lg border border-white/60">
+                    <div class="flex items-center gap-3">
+                      <img src="img/logo/F3-3.avif" alt="SoccerProf" class="h-8 w-auto flex-shrink-0">
+                      <div>
+                        <p class="text-slate-900 font-extrabold text-sm leading-tight">Sami Ghaouar</p>
+                        <p class="text-slate-500 text-xs">Head Coach · Lizenzierter Privattrainer</p>
+                      </div>
                     </div>
                     <span class="sp-badge-theme text-[10px]">
                       Hamburg
@@ -92,20 +96,28 @@ import { RouterLink } from '@angular/router';
                 </div>
               </div>
 
-              <!-- Top floating trophy badge -->
-              <div class="absolute -top-4 -right-4 bg-white border border-slate-200 rounded-2xl p-3.5 shadow-xl hidden sm:flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-base">
-                  <i class="fa-solid fa-trophy"></i>
+              <!-- Top floating DFB badge -->
+              <div class="absolute -top-3 -right-3 bg-white border border-slate-200 rounded-2xl p-2.5 sm:p-3 shadow-xl hidden sm:flex items-center gap-2.5 z-10">
+                <div class="w-9 h-9 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-1.5 flex-shrink-0">
+                  <img src="img/logo/DFB-Logo-4.svg" alt="DFB zertifiziert" class="w-full h-full object-contain">
                 </div>
                 <div>
                   <p class="text-slate-900 font-bold text-xs">DFB-zertifiziert</p>
-                  <p class="text-slate-500 text-[11px]">Gezielte Talentförderung</p>
+                  <p class="text-slate-500 text-[10px]">Gezielte Talentförderung</p>
                 </div>
               </div>
 
             </div>
           </div>
 
+        </div>
+      </div>
+
+      <!-- Subtle Desktop Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1.5 opacity-50 hover:opacity-100 transition-opacity z-10 pointer-events-none">
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Scroll</span>
+        <div class="w-5 h-8 border-2 border-slate-300 rounded-full flex justify-center pt-1.5">
+          <div class="w-1 h-2 bg-red-600 rounded-full animate-bounce"></div>
         </div>
       </div>
 
@@ -178,7 +190,7 @@ import { RouterLink } from '@angular/router';
             <!-- Tab Content -->
             <div class="bg-white border border-slate-200 rounded-2xl p-6 mb-8 shadow-sm">
               <div *ngIf="activeTab() === 'mission'" class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl flex-shrink-0">
+                <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-xl flex-shrink-0">
                   <i class="fa-solid fa-bullseye"></i>
                 </div>
                 <div>
@@ -190,7 +202,7 @@ import { RouterLink } from '@angular/router';
               </div>
 
               <div *ngIf="activeTab() === 'vision'" class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl flex-shrink-0">
+                <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-xl flex-shrink-0">
                   <i class="fa-solid fa-eye"></i>
                 </div>
                 <div>
@@ -202,7 +214,7 @@ import { RouterLink } from '@angular/router';
               </div>
 
               <div *ngIf="activeTab() === 'ziel'" class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl flex-shrink-0">
+                <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-xl flex-shrink-0">
                   <i class="fa-solid fa-mountain"></i>
                 </div>
                 <div>
@@ -222,12 +234,12 @@ import { RouterLink } from '@angular/router';
               </a>
 
               <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-blue-600">
+                <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-red-600">
                   <i class="fa-solid fa-envelope"></i>
                 </div>
                 <div>
                   <p class="text-xs text-slate-500 font-semibold">Noch Fragen? Schreib mir direkt:</p>
-                  <a href="mailto:info@soccerprof.de" class="text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors">
+                  <a href="mailto:info@soccerprof.de" class="text-sm font-bold text-slate-900 hover:text-red-600 transition-colors">
                     info&#64;soccerprof.de
                   </a>
                 </div>
@@ -282,14 +294,14 @@ import { RouterLink } from '@angular/router';
           <!-- 2. Kleingruppe (FEATURED DARK CARD LIKE COACH MESUT) -->
           <div class="mesut-package-card featured relative">
             <div class="absolute -top-3 right-6">
-              <span class="bg-blue-600 text-white font-bold text-[10px] tracking-wider uppercase px-3 py-1 rounded-full shadow-md">
+              <span class="bg-red-600 text-white font-bold text-[10px] tracking-wider uppercase px-3 py-1 rounded-full shadow-md">
                 SEHR BELIEBT
               </span>
             </div>
             <div class="package-icon-box">
               <i class="fa-solid fa-users"></i>
             </div>
-            <span class="bg-slate-800 text-blue-400 font-bold text-[10px] uppercase px-2.5 py-1 rounded w-fit mb-3">
+            <span class="bg-slate-800 text-red-400 font-bold text-[10px] uppercase px-2.5 py-1 rounded w-fit mb-3">
               2 bis 4 Spieler
             </span>
             <h3 class="font-heading text-2xl font-black mb-2">Kleingruppe</h3>
@@ -374,7 +386,7 @@ import { RouterLink } from '@angular/router';
             <div class="flex flex-col gap-4">
               <div *ngFor="let ph of phases; let i = index"
                 class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 flex items-start gap-4 shadow-sm">
-                <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 font-extrabold flex items-center justify-center text-sm flex-shrink-0 border border-blue-100">
+                <div class="w-10 h-10 rounded-xl bg-red-50 text-red-600 font-extrabold flex items-center justify-center text-sm flex-shrink-0 border border-red-100">
                   0{{ i + 1 }}
                 </div>
                 <div>
@@ -408,9 +420,9 @@ import { RouterLink } from '@angular/router';
                 </div>
               </div>
               <div class="rounded-2xl overflow-hidden shadow-md aspect-square relative">
-                <img src="img/sami/Ich Taktiktafel.avif" alt="Taktiktraining" class="w-full h-full object-cover">
+                <img src="img/bilderwebsite/Fußballtraining im Freien.avif" alt="Taktik & Spielverständnis" class="w-full h-full object-cover">
                 <div class="absolute bottom-3 left-3 right-3">
-                  <span class="bg-white/95 font-bold text-slate-900 text-xs px-3 py-1.5 rounded-lg shadow-sm">3. Taktik</span>
+                  <span class="bg-white/95 font-bold text-slate-900 text-xs px-3 py-1.5 rounded-lg shadow-sm">3. Spielnähe</span>
                 </div>
               </div>
             </div>
@@ -422,15 +434,15 @@ import { RouterLink } from '@angular/router';
     </section>
 
     <!-- ══════════════════════════════════════════════
-         COACH MESUT STYLE BOOKING FORM SECTION
+         COACH MESUT STYLE BOOKING FORM SECTION IN ROT
          ══════════════════════════════════════════════ -->
     <section class="sp-section bg-white border-b border-slate-100">
       <div class="sp-container">
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-5xl mx-auto">
 
-          <!-- Left: Blue Highlights Card (like Coach Mesut) -->
-          <div class="lg:col-span-5 bg-blue-600 text-white rounded-3xl p-8 sm:p-10 flex flex-col justify-between shadow-xl">
+          <!-- Left: Red Highlights Card (Coach Mesut Style) -->
+          <div class="lg:col-span-5 bg-red-600 text-white rounded-3xl p-8 sm:p-10 flex flex-col justify-between shadow-xl">
             <div>
               <span class="bg-white/20 text-white font-bold text-xs uppercase px-3 py-1 rounded-full mb-6 inline-block">
                 Probetraining
@@ -438,7 +450,7 @@ import { RouterLink } from '@angular/router';
               <h3 class="font-heading text-2xl sm:text-3xl font-black mb-4 leading-tight">
                 Vereinbare jetzt dein persönliches Probetraining
               </h3>
-              <p class="text-blue-100 text-sm leading-relaxed mb-8">
+              <p class="text-red-100 text-sm leading-relaxed mb-8">
                 Lerne Trainer Sami Ghaouar kennen und teste das SoccerProf Trainingskonzept unverbindlich auf dem Platz in Hamburg.
               </p>
 
@@ -458,7 +470,7 @@ import { RouterLink } from '@angular/router';
               </div>
             </div>
 
-            <div class="mt-10 pt-6 border-t border-white/20 text-xs text-blue-100">
+            <div class="mt-10 pt-6 border-t border-white/20 text-xs text-red-100">
               Antwortzeit garantiert innerhalb von 24 Stunden.
             </div>
           </div>
@@ -471,15 +483,15 @@ import { RouterLink } from '@angular/router';
             <form class="space-y-4" (submit)="$event.preventDefault()">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input type="text" placeholder="Name des Spielers / Elternteil"
-                  class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-blue-600">
+                  class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-red-600">
                 <input type="tel" placeholder="Telefonnummer"
-                  class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-blue-600">
+                  class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-red-600">
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input type="email" placeholder="E-Mail-Adresse"
-                  class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-blue-600">
-                <select class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-blue-600 text-slate-700">
+                  class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-red-600">
+                <select class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-red-600 text-slate-700">
                   <option value="">Gewünschtes Format</option>
                   <option value="einzel">Einzeltraining (1:1)</option>
                   <option value="kleingruppe">Kleingruppe (2–4 Spieler)</option>
@@ -489,7 +501,7 @@ import { RouterLink } from '@angular/router';
               </div>
 
               <textarea rows="3" placeholder="Altersklasse, Position oder bisherige Erfahrung..."
-                class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-blue-600"></textarea>
+                class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-red-600"></textarea>
 
               <button type="submit" class="btn btn-block">
                 <span>Anfrage jetzt absenden</span>
@@ -528,7 +540,7 @@ import { RouterLink } from '@angular/router';
               "{{ t.text }}"
             </blockquote>
             <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
-              <div class="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs">
+              <div class="w-9 h-9 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-xs">
                 {{ t.name.charAt(0) }}
               </div>
               <div>
