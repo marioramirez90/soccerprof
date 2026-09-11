@@ -44,14 +44,15 @@ export class LogoBgOverlayComponent implements OnInit, OnDestroy {
   }
 
   private initParticles() {
-    const total = 18;
+    const total = 20;
     this.particles = [];
 
     for (let i = 0; i < total; i++) {
-      const baseX = 8 + (i % 6) * 16 + (Math.random() * 8 - 4);
-      const baseY = 10 + Math.floor(i / 6) * 28 + (Math.random() * 12 - 6);
-      const baseZ = -700 + (i * 65);
-      const rotSpeed = 0.15 + Math.random() * 0.35;
+      const baseX = 6 + (i % 5) * 20 + (Math.random() * 8 - 4);
+      const baseY = 8 + Math.floor(i / 5) * 24 + (Math.random() * 10 - 5);
+      const baseZ = -750 + (i * 70);
+      const rotSpeed = 0.2 + Math.random() * 0.4;
+      const size = 64 + (i % 4) * 16; // Varied sizes 64px, 80px, 96px, 112px
 
       this.particles.push({
         baseX,
@@ -59,32 +60,37 @@ export class LogoBgOverlayComponent implements OnInit, OnDestroy {
         baseZ,
         rotSpeed,
         currentZ: baseZ,
-        style: {}
+        style: {
+          width: `${size}px`,
+          height: `${size}px`
+        }
       });
     }
   }
 
   private updatePositions() {
     const scrollY = window.scrollY || window.pageYOffset || 0;
-    const loopSpan = 1150;
+    const loopSpan = 1200;
 
     this.particles.forEach((p, i) => {
-      let z = p.baseZ + scrollY * 0.75;
-      let shiftCount = Math.floor((z - (-700)) / loopSpan);
+      let z = p.baseZ + scrollY * 0.85;
+      let shiftCount = Math.floor((z - (-750)) / loopSpan);
       let currentZ = z - (shiftCount * loopSpan);
       if (currentZ > 450) currentZ -= loopSpan;
-      if (currentZ < -700) currentZ += loopSpan;
+      if (currentZ < -750) currentZ += loopSpan;
 
-      const normZ = (currentZ - (-700)) / 1150;
+      const normZ = (currentZ - (-750)) / 1200;
       let opacity = 0;
       if (normZ < 0.15) opacity = normZ / 0.15;
       else if (normZ > 0.82) opacity = (1 - normZ) / 0.18;
       else opacity = 1;
 
-      opacity = Math.max(0, Math.min(0.08, opacity * 0.08));
-      const rot = (scrollY * p.rotSpeed + i * 35) % 360;
+      // Noticeable, rich visibility (up to 24% opacity)
+      opacity = Math.max(0, Math.min(0.24, opacity * 0.24));
+      const rot = (scrollY * p.rotSpeed + i * 30) % 360;
 
       p.style = {
+        ...p.style,
         left: p.baseX + '%',
         top: p.baseY + '%',
         transform: `translate3d(0, 0, ${currentZ}px) rotate(${rot}deg)`,

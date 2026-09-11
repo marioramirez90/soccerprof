@@ -437,8 +437,6 @@ h1, h2, h3, h4, h5, .font-heading {
 
 .global-logo-particle {
   position: absolute;
-  width: 52px;
-  height: 52px;
   background-image: url('/img/logo/F3-3.avif');
   background-size: contain;
   background-repeat: no-repeat;
@@ -446,5 +444,78 @@ h1, h2, h3, h4, h5, .font-heading {
   transform-origin: center center;
   will-change: transform, opacity;
   backface-visibility: hidden;
-  filter: drop-shadow(0 2px 6px rgba(15, 23, 42, 0.05));
+  filter: drop-shadow(0 4px 12px rgba(15, 23, 42, 0.08));
+  transition: opacity 0.25s ease-out;
+}
+
+/* ════════════════════════════════════════════════════
+   SCROLL REVEAL (VON LINKS NACH RECHTS REINGLEITEN)
+   ════════════════════════════════════════════════════ */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-48px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(48px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-active {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* ════════════════════════════════════════════════════
+   HOVER & SCALE MICRO-INTERACTIONS
+   ════════════════════════════════════════════════════ */
+.hover-lift {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.025);
+  box-shadow: 0 22px 40px -10px rgba(15, 23, 42, 0.14);
+}
+
+.hover-zoom-card {
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-zoom-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 35px -8px rgba(15, 23, 42, 0.12);
+}
+
+.hover-zoom-card img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-zoom-card:hover img {
+  transform: scale(1.07);
+}
+
+.stat-box {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-box:hover {
+  transform: translateY(-4px) scale(1.04);
 }

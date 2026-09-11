@@ -1,5 +1,5 @@
-import { Component, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, AfterViewInit, signal, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -25,7 +25,7 @@ import { RouterLink } from '@angular/router';
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
 
           <!-- LEFT: Text Content -->
-          <div class="lg:col-span-7 xl:col-span-6 flex flex-col justify-between">
+          <div class="lg:col-span-7 xl:col-span-6 flex flex-col justify-between reveal-left reveal-active">
             <div>
               <div class="sub-title mb-3">
                 HAMBURG · KINDER, JUGENDLICHE & AMBITIONIERTE SPIELER
@@ -70,11 +70,11 @@ import { RouterLink } from '@angular/router';
           </div>
 
           <!-- RIGHT: Visual Column (Starts at subtitle, ends right at bottom of buttons) -->
-          <div class="lg:col-span-5 xl:col-span-6 relative">
+          <div class="lg:col-span-5 xl:col-span-6 relative reveal-right reveal-active">
             <div class="relative max-w-md mx-auto lg:max-w-none h-full">
               
               <!-- Coach Action Visual (Sami mit Taktiktafel) -->
-              <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 relative bg-slate-100 w-full h-full min-h-[380px] lg:min-h-full">
+              <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 relative bg-slate-100 w-full h-full min-h-[380px] lg:min-h-full hover-lift">
                 <img src="img/sami/Ich Taktiktafel.avif"
                   alt="Coach Sami Ghaouar – Taktik & Coaching Hamburg"
                   class="w-full h-full object-cover object-top">
@@ -98,7 +98,7 @@ import { RouterLink } from '@angular/router';
               </div>
 
               <!-- Top floating DFB badge -->
-              <div class="absolute -top-3 -right-3 bg-white border border-slate-200 rounded-2xl p-2.5 sm:p-3 shadow-xl hidden sm:flex items-center gap-2.5 z-10">
+              <div class="absolute -top-3 -right-3 bg-white border border-slate-200 rounded-2xl p-2.5 sm:p-3 shadow-xl hidden sm:flex items-center gap-2.5 z-10 hover-lift">
                 <div class="w-9 h-9 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-1.5 flex-shrink-0">
                   <img src="img/logo/DFB-Logo-4.svg" alt="DFB zertifiziert" class="w-full h-full object-contain">
                 </div>
@@ -116,15 +116,15 @@ import { RouterLink } from '@angular/router';
         <!-- STATS ROW: Right below the grid, right where the image ends! -->
         <div class="mt-8 lg:mt-10 pt-6 border-t border-slate-200">
           <div class="grid grid-cols-3 gap-6 max-w-lg">
-            <div>
+            <div class="stat-box cursor-default">
               <p class="font-heading font-black text-2xl sm:text-3xl text-slate-900">100<span class="text-red-600">%</span></p>
               <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Individuell</p>
             </div>
-            <div class="border-l border-slate-200 pl-6">
+            <div class="border-l border-slate-200 pl-6 stat-box cursor-default">
               <p class="font-heading font-black text-2xl sm:text-3xl text-slate-900">1:1</p>
               <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Intensiv-Fokus</p>
             </div>
-            <div class="border-l border-slate-200 pl-6">
+            <div class="border-l border-slate-200 pl-6 stat-box cursor-default">
               <p class="font-heading font-black text-2xl sm:text-3xl text-red-600">Hamburg</p>
               <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Flexibler Ort</p>
             </div>
@@ -147,16 +147,16 @@ import { RouterLink } from '@angular/router';
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
           <!-- Image column -->
-          <div class="lg:col-span-5 order-2 lg:order-1">
+          <div class="lg:col-span-5 order-2 lg:order-1 reveal-left">
             <div class="relative max-w-md mx-auto">
-              <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 aspect-[3/4] relative">
+              <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 aspect-[3/4] relative hover-zoom-card hover-lift">
                 <img src="img/sami/sami.jpg"
                   alt="Sami Ghaouar – Privater Fußballtrainer Hamburg"
                   class="w-full h-full object-cover object-top">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
 
                 <div class="absolute bottom-6 left-6 right-6">
-                  <div class="bg-white/95 backdrop-blur-md rounded-2xl p-4 flex items-center justify-between">
+                  <div class="bg-white/95 backdrop-blur-md rounded-2xl p-4 flex items-center justify-between shadow-lg">
                     <div>
                       <p class="text-slate-900 font-extrabold text-base">Sami Ghaouar</p>
                       <p class="text-slate-600 text-xs">Gründer & Head Coach</p>
@@ -169,7 +169,7 @@ import { RouterLink } from '@angular/router';
           </div>
 
           <!-- Text column with Interactive Tabs -->
-          <div class="lg:col-span-7 order-1 lg:order-2">
+          <div class="lg:col-span-7 order-1 lg:order-2 reveal-right">
             <div class="sub-title">MEHR ÜBER MICH!</div>
             <h2 class="font-heading text-3xl sm:text-4xl text-slate-900 mb-6">
               Entfalte dein volles Potenzial und erreiche deine Ziele.
@@ -271,7 +271,7 @@ import { RouterLink } from '@angular/router';
       <div class="sp-container">
 
         <!-- Section Header -->
-        <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal-up">
           <div class="sub-title justify-center">UNSERE ANGEBOTE</div>
           <h2 class="font-heading text-3xl sm:text-4xl text-slate-900 mb-4">
             Wähle das passende Trainingspaket für dich
@@ -285,7 +285,7 @@ import { RouterLink } from '@angular/router';
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
 
           <!-- 1. Einzeltraining -->
-          <div class="mesut-package-card">
+          <div class="mesut-package-card reveal-up delay-100 hover-lift">
             <div class="package-icon-box">
               <i class="fa-solid fa-user"></i>
             </div>
@@ -303,7 +303,7 @@ import { RouterLink } from '@angular/router';
           </div>
 
           <!-- 2. Kleingruppe (FEATURED DARK CARD LIKE COACH MESUT) -->
-          <div class="mesut-package-card featured relative">
+          <div class="mesut-package-card featured relative reveal-up delay-200 hover-lift">
             <div class="absolute -top-3 right-6">
               <span class="bg-red-600 text-white font-bold text-[10px] tracking-wider uppercase px-3 py-1 rounded-full shadow-md">
                 SEHR BELIEBT
@@ -328,7 +328,7 @@ import { RouterLink } from '@angular/router';
           </div>
 
           <!-- 3. Mannschaftstraining -->
-          <div class="mesut-package-card">
+          <div class="mesut-package-card reveal-up delay-300 hover-lift">
             <div class="package-icon-box">
               <i class="fa-solid fa-shield-halved"></i>
             </div>
@@ -346,7 +346,7 @@ import { RouterLink } from '@angular/router';
           </div>
 
           <!-- 4. Powercamp -->
-          <div class="mesut-package-card">
+          <div class="mesut-package-card reveal-up delay-400 hover-lift">
             <div class="package-icon-box">
               <i class="fa-solid fa-futbol"></i>
             </div>
@@ -385,7 +385,7 @@ import { RouterLink } from '@angular/router';
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
           <!-- Left: 4 Steps -->
-          <div class="lg:col-span-6">
+          <div class="lg:col-span-6 reveal-left">
             <div class="sub-title">METHODIK & SYSTEM</div>
             <h2 class="font-heading text-3xl sm:text-4xl text-slate-900 mb-6">
               Die SoccerProf 4-Phasen-Methode
@@ -396,7 +396,7 @@ import { RouterLink } from '@angular/router';
 
             <div class="flex flex-col gap-4">
               <div *ngFor="let ph of phases; let i = index"
-                class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 flex items-start gap-4 shadow-sm">
+                class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 flex items-start gap-4 shadow-sm hover-lift">
                 <div class="w-10 h-10 rounded-xl bg-red-50 text-red-600 font-extrabold flex items-center justify-center text-sm flex-shrink-0 border border-red-100">
                   0{{ i + 1 }}
                 </div>
@@ -416,21 +416,21 @@ import { RouterLink } from '@angular/router';
           </div>
 
           <!-- Right: Visual Collage -->
-          <div class="lg:col-span-6">
+          <div class="lg:col-span-6 reveal-right">
             <div class="grid grid-cols-2 gap-4">
-              <div class="rounded-2xl overflow-hidden shadow-md aspect-[3/4] col-span-1 row-span-2 relative">
+              <div class="rounded-2xl overflow-hidden shadow-md aspect-[3/4] col-span-1 row-span-2 relative hover-zoom-card hover-lift">
                 <img src="img/sami/Technik Fußstellung.avif" alt="Techniktraining" class="w-full h-full object-cover">
                 <div class="absolute bottom-4 left-4 right-4">
                   <span class="bg-white/95 font-bold text-slate-900 text-xs px-3 py-1.5 rounded-lg shadow-sm">1. Technik</span>
                 </div>
               </div>
-              <div class="rounded-2xl overflow-hidden shadow-md aspect-square relative">
+              <div class="rounded-2xl overflow-hidden shadow-md aspect-square relative hover-zoom-card hover-lift">
                 <img src="img/sami/Athletiktraining.avif" alt="Athletiktraining" class="w-full h-full object-cover">
                 <div class="absolute bottom-3 left-3 right-3">
                   <span class="bg-white/95 font-bold text-slate-900 text-xs px-3 py-1.5 rounded-lg shadow-sm">2. Athletik</span>
                 </div>
               </div>
-              <div class="rounded-2xl overflow-hidden shadow-md aspect-square relative">
+              <div class="rounded-2xl overflow-hidden shadow-md aspect-square relative hover-zoom-card hover-lift">
                 <img src="img/bilderwebsite/Fußballtraining im Freien.avif" alt="Taktik & Spielverständnis" class="w-full h-full object-cover">
                 <div class="absolute bottom-3 left-3 right-3">
                   <span class="bg-white/95 font-bold text-slate-900 text-xs px-3 py-1.5 rounded-lg shadow-sm">3. Spielnähe</span>
@@ -453,7 +453,7 @@ import { RouterLink } from '@angular/router';
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-5xl mx-auto">
 
           <!-- Left: Red Highlights Card (Coach Mesut Style) -->
-          <div class="lg:col-span-5 bg-red-600 text-white rounded-3xl p-8 sm:p-10 flex flex-col justify-between shadow-xl">
+          <div class="lg:col-span-5 bg-red-600 text-white rounded-3xl p-8 sm:p-10 flex flex-col justify-between shadow-xl reveal-left hover-lift">
             <div>
               <span class="bg-white/20 text-white font-bold text-xs uppercase px-3 py-1 rounded-full mb-6 inline-block">
                 Probetraining
@@ -487,7 +487,7 @@ import { RouterLink } from '@angular/router';
           </div>
 
           <!-- Right: Booking Form -->
-          <div class="lg:col-span-7 bg-slate-50 border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-sm flex flex-col justify-center">
+          <div class="lg:col-span-7 bg-slate-50 border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-sm flex flex-col justify-center reveal-right">
             <h4 class="font-heading font-black text-2xl text-slate-900 mb-2">Terminanfrage senden</h4>
             <p class="text-slate-600 text-sm mb-6">Fülle kurz die Angaben aus – wir melden uns schnellstmöglich.</p>
 
@@ -532,7 +532,7 @@ import { RouterLink } from '@angular/router';
     <section class="sp-section bg-slate-50 border-b border-slate-200">
       <div class="sp-container">
 
-        <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal-up">
           <div class="sub-title justify-center">ERFOLGREICHE ZUSAMMENARBEIT</div>
           <h2 class="font-heading text-3xl sm:text-4xl text-slate-900 mb-3">
             Was Eltern & Spieler sagen
@@ -543,7 +543,11 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div *ngFor="let t of testimonials" class="testimonial-card">
+          <div *ngFor="let t of testimonials; let i = index" 
+            class="testimonial-card reveal-up hover-lift"
+            [class.delay-100]="i === 0"
+            [class.delay-200]="i === 1"
+            [class.delay-300]="i === 2">
             <div class="stars mb-4">
               <i class="fa-solid fa-star" *ngFor="let _ of [1,2,3,4,5]"></i>
             </div>
@@ -566,7 +570,8 @@ import { RouterLink } from '@angular/router';
     </section>
   `,
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
+  private platformId = inject(PLATFORM_ID);
 
   activeTab = signal<'mission' | 'vision' | 'ziel'>('mission');
 
@@ -608,4 +613,22 @@ export class HomeComponent implements OnInit {
   ];
 
   ngOnInit() {}
+
+  ngAfterViewInit() {
+    if (isPlatformBrowser(this.platformId) && typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      setTimeout(() => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-active');
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up').forEach(el => {
+          observer.observe(el);
+        });
+      }, 60);
+    }
+  }
 }
