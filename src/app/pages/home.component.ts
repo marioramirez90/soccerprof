@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -9,15 +9,15 @@ import { RouterLink } from '@angular/router';
   template: `
 
     <!-- ══════════════════════════════════════════════
-         HERO SECTION (CLEAN WHITE & EDITORIAL)
+         HERO SECTION (COACH MESUT ATHLETIC STYLE)
          ══════════════════════════════════════════════ -->
-    <section class="relative bg-white pt-28 pb-16 md:pt-36 md:pb-24 border-b border-slate-100 overflow-hidden">
+    <section class="relative bg-white pt-28 pb-20 md:pt-36 md:pb-28 border-b border-slate-100 overflow-hidden">
 
-      <!-- Subtle background grid pattern -->
-      <div class="absolute inset-0 opacity-[0.025] pointer-events-none"
+      <!-- Subtle background grid -->
+      <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
         style="background-image: linear-gradient(#0F172A 1px, transparent 1px),
                                  linear-gradient(90deg, #0F172A 1px, transparent 1px);
-               background-size: 48px 48px;">
+               background-size: 44px 44px;">
       </div>
 
       <div class="sp-container relative z-10">
@@ -26,46 +26,42 @@ import { RouterLink } from '@angular/router';
           <!-- LEFT: Text Content -->
           <div class="lg:col-span-7 xl:col-span-6">
 
-            <!-- Badge -->
-            <div class="sp-badge sp-badge-red mb-6 anim-fade-up">
-              <span class="dot pulse"></span>
+            <div class="sub-title mb-4">
               HAMBURG · KINDER, JUGENDLICHE & AMBITIONIERTE SPIELER
             </div>
 
             <!-- Headline -->
-            <h1 class="hero-title mb-6 anim-fade-up delay-100">
+            <h1 class="hero-title mb-6">
               PRIVATER FUßBALL-TRAINER FÜR INDIVIDUELLES TRAINING FÜR ANFÄNGER & PROS.
             </h1>
 
-            <!-- Subtitle -->
-            <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-xl anim-fade-up delay-200">
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">
               Individuelles Fußballtraining für Kinder, Jugendliche und ambitionierte Spieler in Hamburg – abgestimmt auf die Stärken, Ziele und Entwicklung jedes Spielers. Einzeltraining und Kleingruppentraining als professionelle Ergänzung zum Vereinstraining.
             </p>
 
-            <!-- CTAs -->
-            <div class="flex flex-col sm:flex-row gap-4 anim-fade-up delay-300">
-              <a routerLink="/kontakt" class="btn btn-primary btn-lg shadow-md">
-                <i class="fa-solid fa-calendar-check text-sm"></i>
-                Jetzt Probetraining anfragen
+            <!-- Coach Mesut Style Buttons -->
+            <div class="flex flex-wrap gap-4 items-center">
+              <a routerLink="/kontakt" class="btn btn-lg">
+                <span>Jetzt Probetraining anfragen</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
               </a>
               <a routerLink="/preise" class="btn btn-outline btn-lg">
-                Trainingspakete entdecken
-                <i class="fa-solid fa-arrow-right text-sm"></i>
+                <span>Trainingspakete entdecken</span>
               </a>
             </div>
 
-            <!-- Trust / Stats Row -->
-            <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-slate-200 anim-fade-up delay-400 max-w-lg">
+            <!-- Trust / Stats Numbers -->
+            <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-slate-200 max-w-lg">
               <div>
-                <p class="stat-num text-slate-900">100<span class="text-red-600">%</span></p>
+                <p class="font-heading font-black text-3xl sm:text-4xl text-slate-900">100<span class="text-blue-600">%</span></p>
                 <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">Individuell</p>
               </div>
               <div class="border-l border-slate-200 pl-6">
-                <p class="stat-num text-slate-900">1:1</p>
+                <p class="font-heading font-black text-3xl sm:text-4xl text-slate-900">1:1</p>
                 <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">Intensiv-Fokus</p>
               </div>
               <div class="border-l border-slate-200 pl-6">
-                <p class="stat-num text-red-600">Hamburg</p>
+                <p class="font-heading font-black text-3xl sm:text-4xl text-blue-600">Hamburg</p>
                 <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">Flexibler Ort</p>
               </div>
             </div>
@@ -73,33 +69,32 @@ import { RouterLink } from '@angular/router';
           </div>
 
           <!-- RIGHT: Visual Column -->
-          <div class="lg:col-span-5 xl:col-span-6 relative anim-fade-up delay-200">
-
+          <div class="lg:col-span-5 xl:col-span-6 relative">
             <div class="relative max-w-md mx-auto lg:max-w-none">
-              <!-- Main action card -->
-              <div class="img-card aspect-[4/5] rounded-3xl shadow-xl overflow-hidden border border-slate-200">
+              
+              <!-- Action photo with rounded modern frame -->
+              <div class="rounded-3xl overflow-hidden shadow-2xl border border-slate-200 aspect-[4/5] relative">
                 <img src="img/bilderwebsite/Fußballtraining im Freien.avif"
                   alt="SoccerProf Academy Hamburg – Professionelles Fußballtraining"
                   class="w-full h-full object-cover">
-                <div class="img-card-overlay"></div>
-
-                <!-- Floating coach tag bottom -->
+                
+                <!-- Bottom Coach Bar -->
                 <div class="absolute bottom-6 left-6 right-6">
-                  <div class="glass-light rounded-2xl p-4 flex items-center justify-between shadow-lg">
+                  <div class="bg-white/90 backdrop-blur-md rounded-2xl p-4 flex items-center justify-between shadow-lg border border-white/40">
                     <div>
                       <p class="text-slate-900 font-extrabold text-sm">Sami Ghaouar</p>
                       <p class="text-slate-600 text-xs">Head Coach · Lizenzierter Privattrainer</p>
                     </div>
-                    <span class="sp-badge sp-badge-red text-[10px]">
+                    <span class="sp-badge-theme text-[10px]">
                       Hamburg
                     </span>
                   </div>
                 </div>
               </div>
 
-              <!-- Top-right feature pill -->
-              <div class="absolute -top-4 -right-4 bg-white border border-slate-200 rounded-2xl p-3.5 shadow-lg hidden sm:flex items-center gap-3">
-                <div class="w-9 h-9 rounded-xl bg-red-50 text-red-600 flex items-center justify-center font-bold text-sm">
+              <!-- Top floating trophy badge -->
+              <div class="absolute -top-4 -right-4 bg-white border border-slate-200 rounded-2xl p-3.5 shadow-xl hidden sm:flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-base">
                   <i class="fa-solid fa-trophy"></i>
                 </div>
                 <div>
@@ -109,17 +104,21 @@ import { RouterLink } from '@angular/router';
               </div>
 
             </div>
-
           </div>
 
         </div>
       </div>
+
+      <!-- Coach Mesut Torn Paper Divider Bottom -->
+      <div class="sec-shape-bottom">
+        <img src="img/sec-shape-bottom.png" alt="divider">
+      </div>
     </section>
 
     <!-- ══════════════════════════════════════════════
-         ÜBER MICH / DER TRAINER (SERIÖS & STRUKTURIERT)
+         ÜBER MICH / MISSION TABS (COACH MESUT STYLE)
          ══════════════════════════════════════════════ -->
-    <section class="sp-section bg-slate-50 border-b border-slate-200">
+    <section class="sp-section bg-slate-50 border-b border-slate-200 relative pt-20">
       <div class="sp-container">
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -127,18 +126,17 @@ import { RouterLink } from '@angular/router';
           <!-- Image column -->
           <div class="lg:col-span-5 order-2 lg:order-1">
             <div class="relative max-w-md mx-auto">
-              <div class="img-card aspect-[3/4] rounded-3xl shadow-lg border border-slate-200">
+              <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 aspect-[3/4] relative">
                 <img src="img/sami/sami.jpg"
                   alt="Sami Ghaouar – Privater Fußballtrainer Hamburg"
                   class="w-full h-full object-cover object-top">
-                <div class="img-card-overlay"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
 
-                <!-- Bottom tag -->
                 <div class="absolute bottom-6 left-6 right-6">
-                  <div class="glass-light rounded-2xl p-4 flex items-center justify-between">
+                  <div class="bg-white/95 backdrop-blur-md rounded-2xl p-4 flex items-center justify-between">
                     <div>
                       <p class="text-slate-900 font-extrabold text-base">Sami Ghaouar</p>
-                      <p class="text-slate-600 text-xs">Gründer & Cheftrainer SoccerProf</p>
+                      <p class="text-slate-600 text-xs">Gründer & Head Coach</p>
                     </div>
                     <img src="img/logo/F3-3.avif" alt="SoccerProf" class="h-9 w-auto">
                   </div>
@@ -147,42 +145,93 @@ import { RouterLink } from '@angular/router';
             </div>
           </div>
 
-          <!-- Text column -->
+          <!-- Text column with Interactive Tabs -->
           <div class="lg:col-span-7 order-1 lg:order-2">
-            <div class="sp-section-label">Über Mich · Der Trainer</div>
+            <div class="sub-title">MEHR ÜBER MICH!</div>
             <h2 class="font-heading text-3xl sm:text-4xl text-slate-900 mb-6">
-              Individuelle Förderung mit Leidenschaft & Fachkompetenz
+              Entfalte dein volles Potenzial und erreiche deine Ziele.
             </h2>
 
-            <p class="text-slate-700 text-base leading-relaxed mb-5">
-              Mein Name ist <strong class="text-slate-900 font-bold">Sami Ghaouar</strong>. Als lizenzierter Privattrainer in Hamburg verfolge ich das Ziel, Nachwuchstalenten und ambitionierten Fußballern die optimalen Trainingsbedingungen zu bieten, um ihr volles Potenzial auf dem Platz abzurufen.
-            </p>
-            <p class="text-slate-600 text-base leading-relaxed mb-8">
-              Im Vereinstraining bleibt für die individuellen Feinheiten oft keine Zeit. Genau hier setzen wir an: Gezieltes Einzel- und Kleingruppentraining für Technik, Passschärfe, Handlungsschnelligkeit und mentale Wettkampfstärke – mit messbaren Fortschritten nach jeder Einheit.
+            <p class="text-slate-600 text-base leading-relaxed mb-6">
+              Willkommen bei SoccerProf Academy – deiner Anlaufstelle für individuelles Technik- und Athletiktraining in Hamburg. Ob junger Nachwuchsspieler, ambitionierter Amateur oder angehender Profi: Gemeinsam arbeiten wir gezielt an deiner Ballbeherrschung, Schnelligkeit und mentalen Wettkampfstärke.
             </p>
 
-            <!-- 4 Training Pillars (Clean & Serious) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              <div *ngFor="let f of trainerFeatures"
-                class="bg-white border border-slate-200 rounded-2xl p-4 flex items-start gap-3.5 shadow-sm">
-                <div class="feature-icon flex-shrink-0">
-                  <i [class]="f.icon"></i>
+            <!-- Coach Mesut Style Tabs: Mission / Vision / Ziel -->
+            <div class="flex flex-wrap gap-2 mb-6">
+              <button (click)="activeTab.set('mission')"
+                [class.active]="activeTab() === 'mission'"
+                class="mesut-tab-btn">
+                Meine Mission
+              </button>
+              <button (click)="activeTab.set('vision')"
+                [class.active]="activeTab() === 'vision'"
+                class="mesut-tab-btn">
+                Meine Vision
+              </button>
+              <button (click)="activeTab.set('ziel')"
+                [class.active]="activeTab() === 'ziel'"
+                class="mesut-tab-btn">
+                Mein Ziel
+              </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 mb-8 shadow-sm">
+              <div *ngIf="activeTab() === 'mission'" class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl flex-shrink-0">
+                  <i class="fa-solid fa-bullseye"></i>
                 </div>
                 <div>
-                  <p class="text-slate-900 font-bold text-sm">{{ f.title }}</p>
-                  <p class="text-slate-600 text-xs mt-1 leading-relaxed">{{ f.desc }}</p>
+                  <h4 class="font-heading font-bold text-slate-900 mb-1">Gezielte Talentförderung</h4>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Meine Mission ist es, jedem Spieler durch maßgeschneiderte Einheiten genau die technische und taktische Sicherheit zu geben, die im normalen Vereinstraining oft zu kurz kommt.
+                  </p>
+                </div>
+              </div>
+
+              <div *ngIf="activeTab() === 'vision'" class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl flex-shrink-0">
+                  <i class="fa-solid fa-eye"></i>
+                </div>
+                <div>
+                  <h4 class="font-heading font-bold text-slate-900 mb-1">Ganzheitliche Entwicklung</h4>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Meine Vision ist eine Academy, die Athleten nicht nur technisch besser macht, sondern auch ihre Spielintelligenz, mentale Resilienz und Begeisterung für den Sport nachhaltig entfacht.
+                  </p>
+                </div>
+              </div>
+
+              <div *ngIf="activeTab() === 'ziel'" class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl flex-shrink-0">
+                  <i class="fa-solid fa-mountain"></i>
+                </div>
+                <div>
+                  <h4 class="font-heading font-bold text-slate-900 mb-1">Messbare Fortschritte</h4>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Mein Ziel ist es, dich Schritt für Schritt auf dein nächstes Leistungslevel zu heben – mit sichtbaren Erfolgen bei Ballkontrolle, Zweikampfverhalten und Spielübersicht.
+                  </p>
                 </div>
               </div>
             </div>
 
-            <div class="flex flex-wrap items-center gap-4">
-              <a routerLink="/ueber-uns" class="btn btn-dark">
-                Mehr über Philosophie & Trainer
+            <!-- Bottom CTA Button & Email Info (Coach Mesut Style) -->
+            <div class="flex flex-wrap items-center gap-6">
+              <a routerLink="/kontakt" class="btn">
+                <span>Vereinbare einen Termin!</span>
                 <i class="fa-solid fa-arrow-right text-xs"></i>
               </a>
-              <a routerLink="/kontakt" class="btn btn-outline">
-                Direkt Kontakt aufnehmen
-              </a>
+
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-blue-600">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-500 font-semibold">Noch Fragen? Schreib mir direkt:</p>
+                  <a href="mailto:info@soccerprof.de" class="text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors">
+                    info&#64;soccerprof.de
+                  </a>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -193,127 +242,110 @@ import { RouterLink } from '@angular/router';
     </section>
 
     <!-- ══════════════════════════════════════════════
-         KEY STATS STRIP (CLEAN LIGHT ACCENT STRIP)
-         ══════════════════════════════════════════════ -->
-    <section class="bg-slate-50 py-12 border-y border-slate-200">
-      <div class="sp-container">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div *ngFor="let s of stats" class="text-center">
-            <p class="font-heading font-black text-slate-900 text-3xl sm:text-4xl tracking-tight">
-              {{ s.value }}
-            </p>
-            <p class="text-slate-500 text-xs uppercase font-bold tracking-widest mt-1.5">{{ s.label }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════
-         TRAININGSANGEBOTE SECTION (WHITE & STRUCTURED)
+         TRAININGSPAKETE SECTION (COACH MESUT 4-KARTEN)
          ══════════════════════════════════════════════ -->
     <section class="sp-section bg-white border-b border-slate-100">
       <div class="sp-container">
 
-        <!-- Section header -->
+        <!-- Section Header -->
         <div class="text-center max-w-2xl mx-auto mb-16">
-          <div class="sp-section-label justify-center">Trainingsangebote Hamburg</div>
+          <div class="sub-title justify-center">UNSERE ANGEBOTE</div>
           <h2 class="font-heading text-3xl sm:text-4xl text-slate-900 mb-4">
-            Das passende Trainingspaket für dein Ziel
+            Wähle das passende Trainingspaket für dich
           </h2>
           <p class="text-slate-600 text-base">
-            Vom hochintensiven 1:1 Einzeltraining bis zum taktischen Mannschaftstraining.
+            Professionelle Trainingsformate für maximale Entwicklung und messbare Leistungssteigerung.
           </p>
         </div>
 
-        <!-- Cards grid -->
+        <!-- 4 Cards Grid (with Featured Dark Card like Coach Mesut) -->
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
 
           <!-- 1. Einzeltraining -->
-          <div class="price-card group">
-            <div class="flex items-center justify-between">
-              <div class="feature-icon">
-                <i class="fa-solid fa-user text-lg"></i>
-              </div>
-              <span class="sp-badge sp-badge-neutral text-[10px]">1:1 Exklusiv</span>
+          <div class="mesut-package-card">
+            <div class="package-icon-box">
+              <i class="fa-solid fa-user"></i>
             </div>
-            <div>
-              <h3 class="font-heading text-xl text-slate-900 mb-2">Einzeltraining</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">
-                Das effektivste Format. Technischer Feinschliff, Beidfüßigkeit, Handlungsschnelligkeit und Positionstraining.
-              </p>
+            <span class="sp-badge-theme text-[10px] w-fit mb-3">1:1 Exklusiv</span>
+            <h3 class="font-heading text-2xl font-black text-slate-900 mb-2">Einzeltraining</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              Maximale Aufmerksamkeit. Detaillierter Fokus auf Beidfüßigkeit, Schusstechnik und Handlungsschnelligkeit.
+            </p>
+            <div class="mt-auto pt-6 border-t border-slate-100 mb-6">
+              <p class="text-3xl font-black text-slate-900">ab 40€ <span class="text-xs font-normal text-slate-500">/ Einheit</span></p>
             </div>
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <p class="text-2xl font-black text-slate-900">ab 40€ <span class="text-xs font-normal text-slate-500">/ Einheit</span></p>
-            </div>
-            <a routerLink="/einzeltraining" class="btn btn-primary w-full">Details & Buchen</a>
+            <a routerLink="/einzeltraining" class="btn btn-block">
+              <span>Jetzt buchen</span>
+            </a>
           </div>
 
-          <!-- 2. Kleingruppe (Featured) -->
-          <div class="price-card price-card-featured group relative">
-            <div class="flex items-center justify-between">
-              <div class="feature-icon bg-red-600 text-white border-red-600">
-                <i class="fa-solid fa-users text-lg"></i>
-              </div>
-              <span class="sp-badge sp-badge-red text-[10px]">Sehr Beliebt</span>
+          <!-- 2. Kleingruppe (FEATURED DARK CARD LIKE COACH MESUT) -->
+          <div class="mesut-package-card featured relative">
+            <div class="absolute -top-3 right-6">
+              <span class="bg-blue-600 text-white font-bold text-[10px] tracking-wider uppercase px-3 py-1 rounded-full shadow-md">
+                SEHR BELIEBT
+              </span>
             </div>
-            <div>
-              <h3 class="font-heading text-xl text-slate-900 mb-2">Kleingruppe</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">
-                2 bis 4 Spieler. Ideal für Passschärfe, 1-gegen-1 Duelle und spielnahe wettkampforientierte Übungen.
-              </p>
+            <div class="package-icon-box">
+              <i class="fa-solid fa-users"></i>
             </div>
-            <div class="mt-auto pt-4 border-t border-red-100">
-              <p class="text-2xl font-black text-slate-900">20–25€ <span class="text-xs font-normal text-slate-500">/ Spieler</span></p>
+            <span class="bg-slate-800 text-blue-400 font-bold text-[10px] uppercase px-2.5 py-1 rounded w-fit mb-3">
+              2 bis 4 Spieler
+            </span>
+            <h3 class="font-heading text-2xl font-black mb-2">Kleingruppe</h3>
+            <p class="text-sm leading-relaxed mb-6">
+              Spielnahe Dynamik, 1-gegen-1 Situationen, Passschärfe und wettkampforientierte Übungen unter hohem Tempo.
+            </p>
+            <div class="mt-auto pt-6 border-t border-slate-800 mb-6">
+              <p class="text-3xl font-black text-white">20–25€ <span class="text-xs font-normal text-slate-400">/ Spieler</span></p>
             </div>
-            <a routerLink="/kleingruppe" class="btn btn-primary w-full">Details & Buchen</a>
+            <a routerLink="/kleingruppe" class="btn btn-block">
+              <span>Jetzt buchen</span>
+            </a>
           </div>
 
-          <!-- 3. Mannschaft -->
-          <div class="price-card group">
-            <div class="flex items-center justify-between">
-              <div class="feature-icon">
-                <i class="fa-solid fa-shield-halved text-lg"></i>
-              </div>
-              <span class="sp-badge sp-badge-neutral text-[10px]">Team-Paket</span>
+          <!-- 3. Mannschaftstraining -->
+          <div class="mesut-package-card">
+            <div class="package-icon-box">
+              <i class="fa-solid fa-shield-halved"></i>
             </div>
-            <div>
-              <h3 class="font-heading text-xl text-slate-900 mb-2">Mannschaft</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">
-                Spezifische Zusatzpakete für Jugend- und Amateurvereine zur Optimierung von Taktik, Fitness und Struktur.
-              </p>
+            <span class="sp-badge-theme text-[10px] w-fit mb-3">Vereinspaket</span>
+            <h3 class="font-heading text-2xl font-black text-slate-900 mb-2">Mannschaft</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              Spezifische Fördereinheiten für Jugend- und Herrenmannschaften zur Optimierung von Gruppentaktik & Athletik.
+            </p>
+            <div class="mt-auto pt-6 border-t border-slate-100 mb-6">
+              <p class="text-3xl font-black text-slate-900">ab 90€ <span class="text-xs font-normal text-slate-500">/ Session</span></p>
             </div>
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <p class="text-2xl font-black text-slate-900">ab 90€ <span class="text-xs font-normal text-slate-500">/ Session</span></p>
-            </div>
-            <a routerLink="/mannschaft" class="btn btn-outline w-full">Details & Anfrage</a>
+            <a routerLink="/mannschaft" class="btn btn-block">
+              <span>Jetzt anfragen</span>
+            </a>
           </div>
 
           <!-- 4. Powercamp -->
-          <div class="price-card group">
-            <div class="flex items-center justify-between">
-              <div class="feature-icon">
-                <i class="fa-solid fa-futbol text-lg"></i>
-              </div>
-              <span class="sp-badge sp-badge-neutral text-[10px]">Ferien-Event</span>
+          <div class="mesut-package-card">
+            <div class="package-icon-box">
+              <i class="fa-solid fa-futbol"></i>
             </div>
-            <div>
-              <h3 class="font-heading text-xl text-slate-900 mb-2">Powercamp</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">
-                Ganzheitliches Ferientraining mit Turnieren, Videoanalyse, gesunder Verpflegung und SoccerProf Ausrüstung.
-              </p>
+            <span class="sp-badge-theme text-[10px] w-fit mb-3">Ferien-Event</span>
+            <h3 class="font-heading text-2xl font-black text-slate-900 mb-2">Powercamp</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              Intensive Ferientage mit Turnieren, Videoanalyse, gesunder Verpflegung und SoccerProf Ausrüstung.
+            </p>
+            <div class="mt-auto pt-6 border-t border-slate-100 mb-6">
+              <p class="text-3xl font-black text-slate-900">80€ <span class="text-xs font-normal text-slate-500">/ Tag</span></p>
             </div>
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <p class="text-2xl font-black text-slate-900">80€ <span class="text-xs font-normal text-slate-500">/ Tag</span></p>
-            </div>
-            <a routerLink="/veranstaltungen" class="btn btn-outline w-full">Camp Termine</a>
+            <a routerLink="/veranstaltungen" class="btn btn-block">
+              <span>Termine ansehen</span>
+            </a>
           </div>
 
         </div>
 
-        <!-- All pricing link -->
+        <!-- All pricing CTA link -->
         <div class="text-center mt-12">
           <a routerLink="/preise" class="btn btn-outline">
-            Komplette Preisübersicht ansehen
+            <span>Alle Preise & Leistungsdetails</span>
             <i class="fa-solid fa-arrow-right text-xs"></i>
           </a>
         </div>
@@ -322,16 +354,16 @@ import { RouterLink } from '@angular/router';
     </section>
 
     <!-- ══════════════════════════════════════════════
-         TRAININGSMETHODE (4-PHASEN STRUKTUR)
+         TRAININGSMETHODIK (4-PHASEN STRUKTUR)
          ══════════════════════════════════════════════ -->
     <section class="sp-section bg-slate-50 border-b border-slate-200">
       <div class="sp-container">
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-          <!-- Left: 4-Step Methodology -->
+          <!-- Left: 4 Steps -->
           <div class="lg:col-span-6">
-            <div class="sp-section-label">Trainingsmethodik</div>
+            <div class="sub-title">METHODIK & SYSTEM</div>
             <h2 class="font-heading text-3xl sm:text-4xl text-slate-900 mb-6">
               Die SoccerProf 4-Phasen-Methode
             </h2>
@@ -341,47 +373,44 @@ import { RouterLink } from '@angular/router';
 
             <div class="flex flex-col gap-4">
               <div *ngFor="let ph of phases; let i = index"
-                class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 flex items-start gap-4 shadow-sm hover:border-slate-300 transition-colors">
-                <div class="w-10 h-10 rounded-xl bg-red-50 text-red-600 font-extrabold flex items-center justify-center text-sm flex-shrink-0 border border-red-100">
+                class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 flex items-start gap-4 shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 font-extrabold flex items-center justify-center text-sm flex-shrink-0 border border-blue-100">
                   0{{ i + 1 }}
                 </div>
                 <div>
-                  <p class="text-slate-900 font-bold text-sm sm:text-base mb-0.5">{{ ph.title }}</p>
-                  <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">{{ ph.desc }}</p>
+                  <p class="text-slate-900 font-bold text-base mb-0.5">{{ ph.title }}</p>
+                  <p class="text-slate-600 text-sm leading-relaxed">{{ ph.desc }}</p>
                 </div>
               </div>
             </div>
 
             <div class="mt-8">
-              <a routerLink="/trainingsmethoden" class="btn btn-dark">
-                Ausführliche Methodik entdecken
+              <a routerLink="/trainingsmethoden" class="btn">
+                <span>Ausführliche Methodik entdecken</span>
                 <i class="fa-solid fa-arrow-right text-xs"></i>
               </a>
             </div>
           </div>
 
-          <!-- Right: Visual Action Collage -->
+          <!-- Right: Visual Collage -->
           <div class="lg:col-span-6">
             <div class="grid grid-cols-2 gap-4">
-              <div class="img-card aspect-[3/4] rounded-2xl col-span-1 row-span-2 shadow-md">
+              <div class="rounded-2xl overflow-hidden shadow-md aspect-[3/4] col-span-1 row-span-2 relative">
                 <img src="img/sami/Technik Fußstellung.avif" alt="Techniktraining" class="w-full h-full object-cover">
-                <div class="img-card-overlay"></div>
                 <div class="absolute bottom-4 left-4 right-4">
-                  <span class="sp-badge bg-white text-slate-900 text-xs font-bold shadow-sm">1. Technik</span>
+                  <span class="bg-white/95 font-bold text-slate-900 text-xs px-3 py-1.5 rounded-lg shadow-sm">1. Technik</span>
                 </div>
               </div>
-              <div class="img-card aspect-square rounded-2xl shadow-md">
+              <div class="rounded-2xl overflow-hidden shadow-md aspect-square relative">
                 <img src="img/sami/Athletiktraining.avif" alt="Athletiktraining" class="w-full h-full object-cover">
-                <div class="img-card-overlay"></div>
                 <div class="absolute bottom-3 left-3 right-3">
-                  <span class="sp-badge bg-white text-slate-900 text-xs font-bold shadow-sm">2. Athletik</span>
+                  <span class="bg-white/95 font-bold text-slate-900 text-xs px-3 py-1.5 rounded-lg shadow-sm">2. Athletik</span>
                 </div>
               </div>
-              <div class="img-card aspect-square rounded-2xl shadow-md">
+              <div class="rounded-2xl overflow-hidden shadow-md aspect-square relative">
                 <img src="img/sami/Ich Taktiktafel.avif" alt="Taktiktraining" class="w-full h-full object-cover">
-                <div class="img-card-overlay"></div>
                 <div class="absolute bottom-3 left-3 right-3">
-                  <span class="sp-badge bg-white text-slate-900 text-xs font-bold shadow-sm">3. Taktik</span>
+                  <span class="bg-white/95 font-bold text-slate-900 text-xs px-3 py-1.5 rounded-lg shadow-sm">3. Taktik</span>
                 </div>
               </div>
             </div>
@@ -393,15 +422,97 @@ import { RouterLink } from '@angular/router';
     </section>
 
     <!-- ══════════════════════════════════════════════
-         FEEDBACK & ERFAHRUNGEN (SERIÖSE TESTIMONIALS)
+         COACH MESUT STYLE BOOKING FORM SECTION
          ══════════════════════════════════════════════ -->
     <section class="sp-section bg-white border-b border-slate-100">
       <div class="sp-container">
 
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-5xl mx-auto">
+
+          <!-- Left: Blue Highlights Card (like Coach Mesut) -->
+          <div class="lg:col-span-5 bg-blue-600 text-white rounded-3xl p-8 sm:p-10 flex flex-col justify-between shadow-xl">
+            <div>
+              <span class="bg-white/20 text-white font-bold text-xs uppercase px-3 py-1 rounded-full mb-6 inline-block">
+                Probetraining
+              </span>
+              <h3 class="font-heading text-2xl sm:text-3xl font-black mb-4 leading-tight">
+                Vereinbare jetzt dein persönliches Probetraining
+              </h3>
+              <p class="text-blue-100 text-sm leading-relaxed mb-8">
+                Lerne Trainer Sami Ghaouar kennen und teste das SoccerProf Trainingskonzept unverbindlich auf dem Platz in Hamburg.
+              </p>
+
+              <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-xs">✓</div>
+                  <span class="text-sm font-semibold">Individuelle Potenzialanalyse</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-xs">✓</div>
+                  <span class="text-sm font-semibold">Maßgeschneiderte Übungsformen</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-xs">✓</div>
+                  <span class="text-sm font-semibold">Direktes Feedback & Förderplan</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-white/20 text-xs text-blue-100">
+              Antwortzeit garantiert innerhalb von 24 Stunden.
+            </div>
+          </div>
+
+          <!-- Right: Booking Form -->
+          <div class="lg:col-span-7 bg-slate-50 border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-sm flex flex-col justify-center">
+            <h4 class="font-heading font-black text-2xl text-slate-900 mb-2">Terminanfrage senden</h4>
+            <p class="text-slate-600 text-sm mb-6">Fülle kurz die Angaben aus – wir melden uns schnellstmöglich.</p>
+
+            <form class="space-y-4" (submit)="$event.preventDefault()">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input type="text" placeholder="Name des Spielers / Elternteil"
+                  class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-blue-600">
+                <input type="tel" placeholder="Telefonnummer"
+                  class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-blue-600">
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input type="email" placeholder="E-Mail-Adresse"
+                  class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-blue-600">
+                <select class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-blue-600 text-slate-700">
+                  <option value="">Gewünschtes Format</option>
+                  <option value="einzel">Einzeltraining (1:1)</option>
+                  <option value="kleingruppe">Kleingruppe (2–4 Spieler)</option>
+                  <option value="mannschaft">Mannschaftstraining</option>
+                  <option value="powercamp">Powercamp</option>
+                </select>
+              </div>
+
+              <textarea rows="3" placeholder="Altersklasse, Position oder bisherige Erfahrung..."
+                class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-blue-600"></textarea>
+
+              <button type="submit" class="btn btn-block">
+                <span>Anfrage jetzt absenden</span>
+                <i class="fa-solid fa-paper-plane text-xs"></i>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         FEEDBACK & ERFAHRUNGEN (TESTIMONIALS)
+         ══════════════════════════════════════════════ -->
+    <section class="sp-section bg-slate-50 border-b border-slate-200">
+      <div class="sp-container">
+
         <div class="text-center max-w-2xl mx-auto mb-14">
-          <div class="sp-section-label justify-center">Feedback & Erfahrungen</div>
+          <div class="sub-title justify-center">ERFOLGREICHE ZUSAMMENARBEIT</div>
           <h2 class="font-heading text-3xl sm:text-4xl text-slate-900 mb-3">
-            Was Eltern und Spieler sagen
+            Was Eltern & Spieler sagen
           </h2>
           <p class="text-slate-600 text-base">
             Echte Bewertungen von Familien und Nachwuchsspielern aus Hamburg.
@@ -417,7 +528,7 @@ import { RouterLink } from '@angular/router';
               "{{ t.text }}"
             </blockquote>
             <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
-              <div class="w-9 h-9 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-xs">
+              <div class="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs">
                 {{ t.name.charAt(0) }}
               </div>
               <div>
@@ -430,76 +541,11 @@ import { RouterLink } from '@angular/router';
 
       </div>
     </section>
-
-    <!-- ══════════════════════════════════════════════
-         BOTTOM CTA (CLEAN WHITE / ACCENT BANNER)
-         ══════════════════════════════════════════════ -->
-    <section class="bg-slate-50 py-20 border-b border-slate-200 relative overflow-hidden">
-      <div class="sp-container relative z-10">
-        <div class="max-w-2xl">
-          <span class="sp-badge sp-badge-red mb-5">Jetzt unverbindlich anfragen</span>
-          <h2 class="font-heading text-3xl sm:text-4xl text-slate-900 mb-5 leading-tight">
-            Bereit für den nächsten Schritt in deiner Entwicklung?
-          </h2>
-          <p class="text-slate-600 text-base leading-relaxed mb-8">
-            Sende uns deine Anfrage für ein Probetraining in Hamburg. Wir melden uns innerhalb von 24 Stunden mit einem Terminvorschlag.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a routerLink="/kontakt" class="btn btn-primary btn-lg">
-              <i class="fa-solid fa-paper-plane text-xs"></i>
-              Probetraining anfragen
-            </a>
-            <a routerLink="/preise" class="btn btn-outline btn-lg">
-              Preise & Details
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mobile Sticky CTA Bar -->
-    <div class="mobile-cta-bar">
-      <a routerLink="/kontakt" class="btn btn-primary flex-1" style="border-radius:100px; padding: 11px 16px; font-size:0.8rem;">
-        <i class="fa-solid fa-calendar-check text-xs"></i>
-        Probetraining
-      </a>
-      <a routerLink="/preise" class="btn btn-outline flex-1" style="border-radius:100px; padding: 11px 16px; font-size:0.8rem;">
-        Pakete
-      </a>
-    </div>
   `,
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
 
-  trainerFeatures = [
-    {
-      icon: 'fa-solid fa-crosshairs',
-      title: 'Technische Präzision',
-      desc: 'Detaillierter Fokus auf saubere Ballannahme, Beidfüßigkeit und präzise Schusstechnik.'
-    },
-    {
-      icon: 'fa-solid fa-brain',
-      title: 'Spielintelligenz',
-      desc: 'Raumorientierung, Vororientierung (Scannen) und schnelle Entscheidungsfindung unter Druck.'
-    },
-    {
-      icon: 'fa-solid fa-bolt',
-      title: 'Athletik & Schnelligkeit',
-      desc: 'Fußballspezifische Explosivität, Richtungswechsel, Koordination und Stabilität.'
-    },
-    {
-      icon: 'fa-solid fa-shield',
-      title: 'Mentale Stärke',
-      desc: 'Selbstvertrauen auf dem Platz, Siegermentalität und Fokus im Wettkampf.'
-    },
-  ];
-
-  stats = [
-    { value: '100%', label: 'Individuelle Betreuung' },
-    { value: '1:1–1:4', label: 'Trainingsformate' },
-    { value: 'Hamburg', label: 'Flexibler Standort' },
-    { value: 'U8–Herren', label: 'Alle Altersklassen' },
-  ];
+  activeTab = signal<'mission' | 'vision' | 'ziel'>('mission');
 
   phases = [
     {
@@ -539,23 +585,4 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ];
 
   ngOnInit() {}
-
-  ngAfterViewInit() {
-    this.initScrollReveal();
-  }
-
-  private initScrollReveal() {
-    if (typeof window === 'undefined') return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('revealed');
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
-    );
-    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
-  }
 }
