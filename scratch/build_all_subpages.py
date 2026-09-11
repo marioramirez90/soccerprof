@@ -11,8 +11,7 @@ def make_page(filename, title, heading, subtitle, content_html, active_nav=""):
   {get_header(active_page=active_nav)}
 
   <!-- HERO HEADER FOR SUBPAGE -->
-  <section class="pt-32 pb-16 bg-slate-900 text-white relative z-10 border-b border-slate-800">
-    <div class="logo-particle-bg"></div>
+  <section class="pt-32 pb-16 bg-[#090D16] text-white relative z-10 border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-3xl text-left space-y-4" data-aos="fade-right">
         <div class="inline-block px-3.5 py-1 rounded-full bg-[#D4AF37]/20 text-[#D4AF37] font-black text-xs uppercase tracking-widest border border-[#D4AF37]/30">
@@ -43,21 +42,24 @@ make_page(
     "training.html",
     "Trainingsangebote | SoccerProf Academy Hamburg",
     "Unsere Trainingsangebote",
-    "Individuelles Fußballtraining für Kinder, Jugendliche und Erwachsene in Hamburg – die perfekte Ergänzung zum Vereinstraining.",
+    "Was möchten deine Kinder, Teenager oder auch du selbst lernen? Jedes Fußballtraining wird individuell auf die Stärken und Schwächen der Spieler:innen angepasst.",
     '''<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="glass-card p-8 rounded-3xl space-y-4">
-        <h3 class="text-2xl font-black text-slate-900">Einzeltraining (1:1)</h3>
-        <p class="text-slate-600 text-xs leading-relaxed">100% persönliche Aufmerksamkeit für maximale Weiterentwicklung in Technik, Taktik & Kognition.</p>
+        <span class="text-xs font-black uppercase text-[#D4AF37]">1:1 Betreuung</span>
+        <h3 class="text-2xl font-black text-slate-900">Einzeltraining</h3>
+        <p class="text-slate-600 text-xs leading-relaxed">Dein Kind spielt in einem Fußballverein, möchte aber privat noch mehr trainieren? Bestimmte Disziplinen sollen gefördert werden? Ab 40,00€ / Einheit.</p>
         <a href="einzeltraining.html" class="inline-block px-6 py-3 rounded-full bg-[#E63946] text-white font-bold text-xs uppercase shadow-red-glow">Details ansehen →</a>
       </div>
       <div class="glass-card p-8 rounded-3xl space-y-4">
+        <span class="text-xs font-black uppercase text-[#D4AF37]">Feste 5er-Gruppen</span>
         <h3 class="text-2xl font-black text-slate-900">Kleingruppentraining</h3>
-        <p class="text-slate-600 text-xs leading-relaxed">Feste 5er-Gruppen für hohe Intensität, Teamgeist und spielnahe Zweikämpfe.</p>
+        <p class="text-slate-600 text-xs leading-relaxed">In festen 5er-Gruppen trainieren wir gemeinsam, um individuelle Stärken auszubauen und Schwächen zu verbessern. 20€ - 25€ / Spieler.</p>
         <a href="kleingruppe.html" class="inline-block px-6 py-3 rounded-full bg-slate-900 text-white font-bold text-xs uppercase">Details ansehen →</a>
       </div>
       <div class="glass-card p-8 rounded-3xl space-y-4">
+        <span class="text-xs font-black uppercase text-[#D4AF37]">Für Vereine &amp; Betriebe</span>
         <h3 class="text-2xl font-black text-slate-900">Mannschaftstraining</h3>
-        <p class="text-slate-600 text-xs leading-relaxed">Professionelle Taktik- und Technikschulung für Vereine direkt auf eurem Platz.</p>
+        <p class="text-slate-600 text-xs leading-relaxed">Deine Mannschaft möchte Taktik, Technik oder den Gruppenzusammenhalt stärken? Ab 90,00€ / Einheit zzgl. Anfahrt.</p>
         <a href="mannschaft.html" class="inline-block px-6 py-3 rounded-full bg-slate-900 text-white font-bold text-xs uppercase">Details ansehen →</a>
       </div>
     </div>''',
@@ -68,21 +70,30 @@ make_page(
 make_page(
     "einzeltraining.html",
     "Einzeltraining (1:1) | SoccerProf Academy Hamburg",
-    "1:1 Einzeltraining",
-    "Maximale individuelle Betreuung mit Head Coach Sami Ghaouar (UEFA-B-Lizenz).",
+    "Regelmäßiges Einzeltraining",
+    "Ab 40,00€/Trainingseinheit · mind. 60 Minuten · Intensiv, Anspruchsvoll und sofort erkennbare Entwicklung.",
     '''<div class="max-w-4xl mx-auto glass-card p-8 sm:p-12 rounded-3xl space-y-6">
-      <h2 class="text-2xl font-black text-slate-900">Informationen zum Einzeltraining</h2>
+      <h2 class="text-2xl font-black text-slate-900">1:1 Einzeltraining in Hamburg</h2>
       <p class="text-slate-700 text-sm leading-relaxed">
-        Unser 1:1 Einzeltraining richtet sich an ambitionierte Kinder, Jugendliche und Erwachsene, die ihre Stärken gezielt ausbauen und Schwächen nachhaltig korrigieren möchten.
+        Dein Kind spielt in einem Fußballverein, möchte aber privat noch mehr trainieren? Bestimmte Disziplinen sollen gefördert werden? Dann bist du bei uns genau richtig! Unser individuelles Training richtet sich gänzlich nach euren Wünschen, um dich oder deine Kinder auf eurem persönlichen sportlichen Weg zu begleiten.
       </p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-bold text-slate-800 pt-4">
-        <div class="p-3 bg-slate-100 rounded-xl"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> Technik &amp; Ballführung</div>
-        <div class="p-3 bg-slate-100 rounded-xl"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> Passgenauigkeit &amp; Taktik</div>
-        <div class="p-3 bg-slate-100 rounded-xl"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> Kognition &amp; Vororientierung</div>
-        <div class="p-3 bg-slate-100 rounded-xl"><i class="fa-solid fa-check text-[#D4AF37] mr-2"></i> Individuelles Video-Feedback</div>
+      
+      <div class="border-t border-b border-slate-200/80 py-6 space-y-3">
+        <h3 class="text-lg font-black text-slate-900">Der 4-Phasen Aufbau des Trainings:</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div class="p-4 bg-slate-100 rounded-xl"><strong class="text-slate-900">1. Aufwärmung:</strong> Technik, Koordination &amp; Kognitives-Training</div>
+          <div class="p-4 bg-slate-100 rounded-xl"><strong class="text-slate-900">2. Einleitung:</strong> z.B. Tricks Ausführungsübungen</div>
+          <div class="p-4 bg-slate-100 rounded-xl"><strong class="text-slate-900">3. Hauptteil:</strong> Gelernte Tricks in Zweikämpfen anwenden bei steigender Intensität</div>
+          <div class="p-4 bg-slate-100 rounded-xl"><strong class="text-slate-900">4. Feedback:</strong> Ausführliche Trainingsanalyse und Reflexion</div>
+        </div>
       </div>
-      <div class="pt-6">
-        <a href="kontakt.html" class="px-8 py-4 rounded-full bg-[#E63946] text-white font-black text-xs uppercase tracking-wider shadow-red-glow">Jetzt Einzeltraining anfragen</a>
+
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <div class="text-2xl font-black text-[#E63946]">Ab 40,00 € / Einheit</div>
+          <div class="text-xs text-slate-500 font-bold">Pakete auf Anfrage</div>
+        </div>
+        <a href="mailto:sami@soccerprof.de?subject=Anfrage Einzeltraining" class="btn-fill-red px-8 py-4 rounded-full bg-[#E63946] text-white font-black text-xs uppercase tracking-wider shadow-red-glow">Jetzt Termin Vereinbaren</a>
       </div>
     </div>'''
 )
@@ -91,15 +102,19 @@ make_page(
 make_page(
     "kleingruppe.html",
     "Kleingruppentraining | SoccerProf Academy Hamburg",
-    "Kleingruppentraining (5er-Gruppen)",
-    "Gemeinsam trainieren, individuell gefördert werden.",
+    "Kleingruppentraining",
+    "75 Minuten Gruppentraining: 2-4 Spieler = 25€/Spieler | 5-6 Spieler = 20€/Spieler.",
     '''<div class="max-w-4xl mx-auto glass-card p-8 sm:p-12 rounded-3xl space-y-6">
       <h2 class="text-2xl font-black text-slate-900">Training in festen 5er-Teams</h2>
       <p class="text-slate-700 text-sm leading-relaxed">
-        In festen 5er-Gruppen verbinden wir die Vorteile von 1:1-Coaching mit echter Spielpraxis, Zweikämpfen und Teamgeist.
+        In festen 5er-Gruppen trainieren wir gemeinsam, um individuelle Stärken auszubauen und Schwächen zu verbessern. Die Gruppe fördert Motivation und Teamgeist. So lernen dein Kind oder du wichtiges Handwerkszeug, das in jedem Fußballspiel genutzt werden kann.
       </p>
-      <div class="pt-6">
-        <a href="kontakt.html" class="px-8 py-4 rounded-full bg-[#E63946] text-white font-black text-xs uppercase tracking-wider shadow-red-glow">Kleingruppe anfragen</a>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200">
+        <div>
+          <div class="text-2xl font-black text-[#D4AF37]">20,00 € - 25,00 € / Spieler</div>
+          <div class="text-xs text-slate-500 font-bold">75 Minuten Intensivtraining</div>
+        </div>
+        <a href="mailto:sami@soccerprof.de?subject=Anfrage Kleingruppentraining" class="btn-fill-gold px-8 py-4 rounded-full bg-[#D4AF37] text-slate-950 font-black text-xs uppercase tracking-wider shadow-gold-glow">Kleingruppe Anfragen</a>
       </div>
     </div>'''
 )
@@ -108,15 +123,19 @@ make_page(
 make_page(
     "mannschaft.html",
     "Mannschaftstraining | SoccerProf Academy Hamburg",
-    "Mannschaftstraining für Vereine",
-    "Gezielte Förderung von Vereinsmannschaften vor Ort.",
+    "Mannschafts-Training",
+    "Ab 90 EUR pro Trainingseinheit zzgl. Anfahrt ab 20 EUR · Für Vereine & Betriebe/Firmen.",
     '''<div class="max-w-4xl mx-auto glass-card p-8 sm:p-12 rounded-3xl space-y-6">
-      <h2 class="text-2xl font-black text-slate-900">Vereinsförderung</h2>
+      <h2 class="text-2xl font-black text-slate-900">Professionelles Mannschaftstraining</h2>
       <p class="text-slate-700 text-sm leading-relaxed">
-        Wir kommen direkt zu eurem Verein und führen spezifische Einheiten für Technik, Taktik und Gruppendynamik durch.
+        Deine Mannschaft möchte Taktik, Technik oder den Gruppenzusammenhalt stärken? Wir stellen ein individuelles privates Fußballtraining zusammen, um mit viel Spaß und Begeisterung Potenziale zu verbessern. Auch für Betriebe/Firmen möglich!
       </p>
-      <div class="pt-6">
-        <a href="kontakt.html" class="px-8 py-4 rounded-full bg-slate-900 text-white font-black text-xs uppercase tracking-wider">Mannschaftstraining anfragen</a>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200">
+        <div>
+          <div class="text-2xl font-black text-slate-900">Ab 90,00 € / Einheit</div>
+          <div class="text-xs text-slate-500 font-bold">zzgl. Anfahrt ab 20 EUR</div>
+        </div>
+        <a href="mailto:sami@soccerprof.de?subject=Anfrage Mannschaftstraining" class="btn-fill-red px-8 py-4 rounded-full bg-slate-900 text-white font-black text-xs uppercase tracking-wider">Mannschaftstraining anfragen</a>
       </div>
     </div>'''
 )
@@ -126,23 +145,32 @@ make_page(
     "trainingsmethoden.html",
     "Trainingsmethoden | SoccerProf Academy Hamburg",
     "Unsere Trainingsmethoden",
-    "8 Säulen für eine ganzheitliche fußballerische Entwicklung.",
-    '''<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="glass-card p-6 rounded-2xl space-y-2">
-        <h3 class="text-lg font-black text-slate-900">1. Technik</h3>
-        <p class="text-xs text-slate-600">Feinschliff an Ballannahme, Ballführung, Passpräzision und Beidfüßigkeit.</p>
+    "Technik | Taktik | Kognitivtraining | Mentaltraining",
+    '''<div class="space-y-8">
+      <div class="glass-card p-8 rounded-3xl space-y-4">
+        <h2 class="text-2xl font-black text-slate-900">Immer mit dabei: Viel Herz und gesunder Menschenverstand</h2>
+        <p class="text-slate-700 text-sm leading-relaxed">
+          So stellen wir sicher, dass unsere Schützlinge ganz ungezwungen das Beste aus sich herausholen können. Als ideale Ergänzung zum Verein schaffen wir die Möglichkeit, dass Fußballtalente über sich hinauswachsen.
+        </p>
       </div>
-      <div class="glass-card p-6 rounded-2xl space-y-2">
-        <h3 class="text-lg font-black text-slate-900">2. Kognition</h3>
-        <p class="text-xs text-slate-600">Schnelle Entscheidungsfindung unter Zeitdruck und Erhöhung des Handlungstempos.</p>
-      </div>
-      <div class="glass-card p-6 rounded-2xl space-y-2">
-        <h3 class="text-lg font-black text-slate-900">3. Koordination</h3>
-        <p class="text-xs text-slate-600">Laufkoordination, Beweglichkeit und optimale Körperbeherrschung.</p>
-      </div>
-      <div class="glass-card p-6 rounded-2xl space-y-2">
-        <h3 class="text-lg font-black text-slate-900">4. Kraft &amp; Ausdauer</h3>
-        <p class="text-xs text-slate-600">Fußballspezifische Fitness und Athletik für spürbare Ausdauer.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="glass-card p-6 rounded-2xl space-y-2">
+          <h3 class="text-lg font-black text-slate-900">1. Aufwärmung</h3>
+          <p class="text-xs text-slate-600">Technik, Koordination, Kognitives-Training.</p>
+        </div>
+        <div class="glass-card p-6 rounded-2xl space-y-2">
+          <h3 class="text-lg font-black text-slate-900">2. Einleitung</h3>
+          <p class="text-xs text-slate-600">z.B. Tricks Ausführungsübungen.</p>
+        </div>
+        <div class="glass-card p-6 rounded-2xl space-y-2">
+          <h3 class="text-lg font-black text-slate-900">3. Hauptteil</h3>
+          <p class="text-xs text-slate-600">Gelernte Tricks in Zweikämpfen anwenden bei steigender Intensität.</p>
+        </div>
+        <div class="glass-card p-6 rounded-2xl space-y-2">
+          <h3 class="text-lg font-black text-slate-900">4. Feedback</h3>
+          <p class="text-xs text-slate-600">Ausführliche Trainingsanalyse und Reflexion.</p>
+        </div>
       </div>
     </div>''',
     active_nav="Trainingsmethoden"
@@ -153,25 +181,44 @@ make_page(
     "preise.html",
     "Preise & Tarife | SoccerProf Academy Hamburg",
     "Preise & Konditionen",
-    "Transparente Preisgestaltung für erstklassiges Fußballtraining in Hamburg.",
-    '''<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    "Transparente Preise für echtes Profi-Training in Hamburg.",
+    '''<div class="space-y-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="glass-card p-8 rounded-3xl space-y-4">
+          <span class="text-xs font-black uppercase text-slate-500">Einzeltraining</span>
+          <h3 class="text-2xl font-black text-slate-900">1:1 Coaching</h3>
+          <div class="text-3xl font-black text-[#E63946]">Ab 40,00 €</div>
+          <p class="text-xs text-slate-600">mind. 60 Minuten. Intensiv, Anspruchsvoll und sofort erkennbare Entwicklung.</p>
+          <a href="kontakt.html" class="btn-fill-red block w-full text-center py-3.5 rounded-full bg-[#E63946] text-white font-black text-xs uppercase">Anfragen</a>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl space-y-4 border-2 border-[#D4AF37]">
+          <span class="text-xs font-black uppercase text-[#D4AF37]">Kleingruppe</span>
+          <h3 class="text-2xl font-black text-slate-900">5er-Gruppe</h3>
+          <div class="text-3xl font-black text-slate-900">20,00 € - 25,00 €</div>
+          <p class="text-xs text-slate-600">75 Minuten Gruppentraining (2-4 Spieler = 25€, 5-6 Spieler = 20€ per Spieler).</p>
+          <a href="kontakt.html" class="btn-fill-gold block w-full text-center py-3.5 rounded-full bg-[#D4AF37] text-slate-950 font-black text-xs uppercase">Anfragen</a>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl space-y-4">
+          <span class="text-xs font-black uppercase text-slate-500">Mannschaft</span>
+          <h3 class="text-2xl font-black text-slate-900">Vereinstraining</h3>
+          <div class="text-3xl font-black text-slate-900">Ab 90,00 €</div>
+          <p class="text-xs text-slate-600">Pro Einheiten zzgl. Anfahrt ab 20€. Auch für Firmen/Betriebe möglich.</p>
+          <a href="kontakt.html" class="btn-fill-red block w-full text-center py-3.5 rounded-full bg-slate-900 text-white font-black text-xs uppercase">Anfragen</a>
+        </div>
+
+      </div>
+
       <div class="glass-card p-8 rounded-3xl space-y-4">
-        <h3 class="text-2xl font-black text-slate-900">Erstberatung</h3>
-        <div class="text-3xl font-black text-[#E63946]">Kostenlos</div>
-        <p class="text-xs text-slate-600">100% unverbindliches Beratungsgespräch mit Trainer Sami.</p>
-        <a href="kontakt.html" class="block w-full text-center py-3 rounded-2xl bg-slate-900 text-white font-bold text-xs uppercase">Anfragen</a>
-      </div>
-      <div class="glass-card p-8 rounded-3xl space-y-4 border-2 border-[#E63946]">
-        <h3 class="text-2xl font-black text-slate-900">Kleingruppe</h3>
-        <div class="text-2xl font-black text-slate-900">Auf Anfrage</div>
-        <p class="text-xs text-slate-600">Training in festen 5er-Gruppen.</p>
-        <a href="kontakt.html" class="block w-full text-center py-3 rounded-2xl bg-[#E63946] text-white font-bold text-xs uppercase shadow-red-glow">Anfragen</a>
-      </div>
-      <div class="glass-card p-8 rounded-3xl space-y-4 border-2 border-[#D4AF37]">
-        <h3 class="text-2xl font-black text-slate-900">Einzeltraining</h3>
-        <div class="text-2xl font-black text-slate-900">Auf Anfrage</div>
-        <p class="text-xs text-slate-600">Flexibel über 5er- und 10er-Karten.</p>
-        <a href="kontakt.html" class="block w-full text-center py-3 rounded-2xl bg-slate-900 text-white font-bold text-xs uppercase">Anfragen</a>
+        <h3 class="text-xl font-black text-slate-900">Weitere Leistungen &amp; Zusatzangebote:</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-bold text-slate-700 pt-2">
+          <div class="p-4 bg-slate-100 rounded-xl"><i class="fa-solid fa-shirt text-[#D4AF37] mr-2"></i> Trikot: 45,00 EUR</div>
+          <div class="p-4 bg-slate-100 rounded-xl"><i class="fa-solid fa-clipboard text-[#D4AF37] mr-2"></i> Trainingsplan: ab 20,00 EUR/mtl.</div>
+          <div class="p-4 bg-slate-100 rounded-xl"><i class="fa-solid fa-apple-whole text-[#D4AF37] mr-2"></i> Ernährungsplan: ab 30,00 EUR/mtl.</div>
+          <div class="p-4 bg-slate-100 rounded-xl"><i class="fa-solid fa-cake-candles text-[#D4AF37] mr-2"></i> Kindergeburtstag: auf Anfrage</div>
+        </div>
       </div>
     </div>''',
     active_nav="Preise"
@@ -182,21 +229,31 @@ make_page(
     "ueber-uns.html",
     "Über uns & Trainer Sami Ghaouar | SoccerProf Academy Hamburg",
     "Über SoccerProf Academy",
-    "Erfahrenes Trainerteam für individuelle Talentförderung in Hamburg.",
-    '''<div class="max-w-4xl mx-auto glass-card p-8 sm:p-12 rounded-3xl space-y-6">
-      <h2 class="text-2xl font-black text-slate-900">Philosophie & Team</h2>
-      <p class="text-slate-700 text-sm leading-relaxed">
-        Unser Trainerteam besteht aus 2 Trainern. Wir haben uns darauf spezialisiert, jede:n Spieler:in individuell zu beraten und weiterzuentwickeln.
-      </p>
-      <div class="pt-4 border-t border-slate-200">
-        <h3 class="text-xl font-black text-slate-900 mb-2">Head Coach Sami Ghaouar</h3>
-        <ul class="text-xs text-slate-600 space-y-1 list-disc pl-5">
-          <li>UEFA-B-Lizenz (2018) &amp; C-Lizenz (2014)</li>
-          <li>Torwart-Trainer-Lizenz</li>
-          <li>DFB-Fortbildung an der Sportschule Duisburg-Wedau</li>
-          <li>Flügelspieler beim Hamburger SV (Regionalliga-Erfahrung)</li>
-          <li>Seit 2012 Individual- und Nachwuchstrainer</li>
-        </ul>
+    "Erhaltener Text von soccerprof.de",
+    '''<div class="max-w-4xl mx-auto space-y-8">
+      <div class="glass-card p-8 sm:p-12 rounded-3xl space-y-6">
+        <h2 class="text-2xl font-black text-slate-900">Der TRAINER: "Man lernt nie aus."</h2>
+        <p class="text-slate-700 text-sm leading-relaxed">
+          Immer wieder begegnet uns dieser Spruch im Alltag, im Berufsleben und auch im Fußball trifft er definitiv zu. Damit das Weiterlernen gut klappt und vor allem richtig Spaß macht, unterstützen wir erfahrene Trainer Kinder, Jugendlichen und Erwachsene – egal, ob Anfänger:innen oder Fortgeschrittene.
+        </p>
+        <div class="pt-4 border-t border-slate-200">
+          <h3 class="text-xl font-black text-slate-900 mb-2">Head Coach Sami Ghaouar</h3>
+          <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-5">
+            <li>UEFA-B-Lizenz (2018) &amp; C-Lizenz (2014)</li>
+            <li>Torwart-Trainer-Lizenz</li>
+            <li>DFB-Fortbildung an der Sportschule Duisburg-Wedau</li>
+            <li>Flügelspieler beim Hamburger SV (Regionalliga-Erfahrung)</li>
+            <li>Seit 2012 Individual- und Nachwuchstrainer in Hamburg</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="glass-card p-8 rounded-3xl space-y-3 border-2 border-[#D4AF37]">
+        <div class="text-[#D4AF37] text-lg">★★★★★</div>
+        <p class="text-sm italic font-medium text-slate-800">
+          "Danke lieber Sami! Uns hat’s auch gefreut und die Kids sind ganz begeistert von dir 🤩. Weil du so ein cooler Fußballer bist 😎. Und vor allem nett 😊"
+        </p>
+        <div class="text-xs font-bold text-slate-500">— Angelika (Mutter)</div>
       </div>
     </div>''',
     active_nav="Über uns"
@@ -206,18 +263,22 @@ make_page(
 make_page(
     "veranstaltungen.html",
     "Veranstaltungen & Camps | SoccerProf Academy Hamburg",
-    "Veranstaltungen, Camps & Events",
-    "Feriencamps, Turniere und sportliche Kindergeburtstage.",
-    '''<div class="max-w-4xl mx-auto glass-card p-8 rounded-3xl space-y-4">
-      <h2 class="text-2xl font-black text-slate-900">SoccerProf Feriencamps</h2>
-      <p class="text-slate-600 text-sm">
-        Unsere beliebten Feriencamps bieten intensivstes Training kombiniert mit purem Fußballspaß.
+    "Veranstaltungen & Powercamps",
+    "Wir veranstalten regelmäßig Fußballturniere, Events oder Camps für unsere SoccerProf-Spieler:innen.",
+    '''<div class="max-w-4xl mx-auto glass-card p-8 rounded-3xl space-y-6">
+      <h2 class="text-2xl font-black text-slate-900">Powercamp "Fußball pur"</h2>
+      <p class="text-slate-600 text-sm leading-relaxed">
+        2-3 Tage á 2x90 Minuten inkl. gesundes hochwertiges Essen. 1 Trainer = max. 7 Spieler. 80 EUR pro Tag zzgl. individuelles SoccerProf-Trikot 40 EUR. Kleine Gruppen mit hoher Intensität, Entwicklung und Spaß steht im Vordergrund!
       </p>
-      <a href="kontakt.html" class="inline-block px-6 py-3 rounded-full bg-[#E63946] text-white font-bold text-xs uppercase">Camp-Termine anfragen →</a>
+      <div class="pt-4 border-t border-slate-200">
+        <h3 class="text-lg font-black text-slate-900">Kindergeburtstage &amp; Turniere</h3>
+        <p class="text-xs text-slate-600 mt-1">Auch Kindergeburtstage könnt ihr bei uns feiern. Wir organisieren regelmäßige interne und externe Turniere (Jg. 2009 - 2018).</p>
+      </div>
+      <a href="kontakt.html" class="btn-fill-red inline-block px-8 py-4 rounded-full bg-[#E63946] text-white font-black text-xs uppercase shadow-red-glow">Camp-Termine anfragen →</a>
     </div>'''
 )
 
-# 9. jobs.html (Punkt 20)
+# 9. jobs.html
 make_page(
     "jobs.html",
     "Jobs & Karriere | SoccerProf Academy Hamburg",
@@ -240,12 +301,12 @@ make_page(
         </div>
       </div>
       <div class="pt-4">
-        <a href="mailto:sami@soccerprof.de?subject=Bewerbung als Trainer bei SoccerProf" class="px-8 py-4 rounded-full bg-[#E63946] text-white font-black text-xs uppercase tracking-wider shadow-red-glow">Jetzt bewerben</a>
+        <a href="mailto:sami@soccerprof.de?subject=Bewerbung als Trainer bei SoccerProf" class="btn-fill-red inline-block px-8 py-4 rounded-full bg-[#E63946] text-white font-black text-xs uppercase tracking-wider shadow-red-glow">Jetzt bewerben</a>
       </div>
     </div>'''
 )
 
-# 10. faq.html (Punkt 21)
+# 10. faq.html
 make_page(
     "faq.html",
     "Häufig gestellte Fragen (FAQ) | SoccerProf Academy Hamburg",
@@ -258,7 +319,7 @@ make_page(
           <i class="fa-solid fa-chevron-down text-sm text-[#D4AF37] faq-icon"></i>
         </summary>
         <div class="pt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 mt-3">
-          Von Bambini bis zur A-Jugend sowie ambitionierten Erwachsenen.
+          Wir trainieren Kinder, Jugendliche sowie Erwachsene – egal, ob Anfänger:innen oder Fortgeschrittene.
         </div>
       </details>
       <details class="glass-card rounded-2xl p-5 cursor-pointer border border-slate-200">
@@ -273,12 +334,12 @@ make_page(
     </div>'''
 )
 
-# 11. kontakt.html (Punkt 22)
+# 11. kontakt.html
 make_page(
     "kontakt.html",
     "Kontakt & Standorte | SoccerProf Academy Hamburg",
     "Kontakt & Standorte",
-    "Bist du an einem Training interessiert? Schreib uns oder ruf uns direkt an.",
+    "SoccerProf Academy · Öjendorfer Weg 80, 22119 Hamburg",
     '''<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
       <div class="lg:col-span-6 glass-card p-8 rounded-3xl space-y-6">
         <h3 class="text-xl font-black text-slate-900">SoccerProf Academy | Sami Ghaouar</h3>
@@ -296,7 +357,7 @@ make_page(
             <label class="block text-xs font-extrabold uppercase mb-1">E-Mail *</label>
             <input type="email" required placeholder="deine-email@beispiel.de" class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-xs">
           </div>
-          <button type="submit" class="w-full py-3.5 rounded-2xl bg-[#E63946] text-white font-black text-xs uppercase shadow-red-glow">Kostenloses Erstgespräch anfragen</button>
+          <button type="submit" class="btn-fill-red w-full py-3.5 rounded-2xl bg-[#E63946] text-white font-black text-xs uppercase shadow-red-glow">Kostenloses Beratungsgespräch anfragen</button>
         </form>
       </div>
       <div class="lg:col-span-6 glass-card rounded-3xl overflow-hidden border-2 border-[#D4AF37]/60">
@@ -306,7 +367,7 @@ make_page(
     active_nav="Kontakt"
 )
 
-# 12. shop.html (Punkt 23)
+# 12. shop.html
 make_page(
     "shop.html",
     "SoccerProf Shop | Trainingsekipment & Merchandise",
@@ -315,7 +376,7 @@ make_page(
     '''<div class="max-w-4xl mx-auto glass-card p-12 rounded-3xl text-center space-y-4">
       <i class="fa-solid fa-bag-shopping text-4xl text-[#D4AF37]"></i>
       <h2 class="text-2xl font-black text-slate-900">Demnächst verfügbar!</h2>
-      <p class="text-slate-600 text-xs">Unser offizieller Shop mit SoccerProf Trikots, Bällen und Equipment öffnet in Kürze.</p>
+      <p class="text-slate-600 text-xs">Unser offizieller Shop mit SoccerProf Trikots (45,00€), Bällen und Equipment öffnet in Kürze.</p>
       <a href="index.html" class="inline-block px-6 py-3 rounded-full bg-slate-900 text-white font-bold text-xs uppercase">Zurück zur Startseite</a>
     </div>'''
 )

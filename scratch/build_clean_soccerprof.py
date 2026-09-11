@@ -2,7 +2,7 @@ import os
 
 workspace_dir = r"c:\Users\mario\Desktop\newsoccerprof"
 
-def get_head(title="SoccerProf Academy | Privater Fußballtrainer Hamburg", desc="Individuelles Fußballtraining für Kinder, Jugendliche und Erwachsene in Hamburg."):
+def get_head(title="SoccerProf Academy | Privater Fußballtrainer Hamburg", desc="SoccerProf bietet ein privates, professionelles und individuelles Fussballtraining für Kinder, Jugendliche und auch Erwachsene in Hamburg."):
     html = '''<!DOCTYPE html>
 <html lang="de" class="scroll-smooth">
 
@@ -298,7 +298,7 @@ def get_header(active_page=""):
   </header>'''
 
 def get_footer():
-    return '''<!-- FOOTER -->
+    return '''<!-- FOOTER (Echte Daten von soccerprof.de) -->
   <footer class="bg-black text-slate-400 py-16 border-t border-slate-800 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
@@ -327,14 +327,15 @@ def get_footer():
           </ul>
         </div>
 
-        <!-- Spalte 3: Service & Shop -->
+        <!-- Spalte 3: Kontakt & Adresse -->
         <div class="space-y-3">
-          <h4 class="text-white font-black text-xs uppercase tracking-wider">Service</h4>
-          <ul class="space-y-2 text-xs">
-            <li><a href="shop.html" class="hover:text-white transition-colors">SoccerProf Shop</a></li>
-            <li><a href="kontakt.html" class="hover:text-white transition-colors">Kostenloses Erstgespräch</a></li>
-            <li><a href="kontakt.html" class="hover:text-white transition-colors">Direkter Ansprechpartner</a></li>
-          </ul>
+          <h4 class="text-white font-black text-xs uppercase tracking-wider">Kontakt Hamburg</h4>
+          <div class="text-xs space-y-1.5 text-slate-400">
+            <p class="font-bold text-white">SoccerProf Academy · Sami Ghaouar</p>
+            <p><i class="fa-solid fa-location-dot text-[#D4AF37] mr-1.5"></i>Öjendorfer Weg 80, 22119 Hamburg</p>
+            <p><i class="fa-solid fa-phone text-[#E63946] mr-1.5"></i><a href="tel:+4917684156542" class="hover:text-white">+49 176 841 565 42</a></p>
+            <p><i class="fa-solid fa-envelope text-[#D4AF37] mr-1.5"></i><a href="mailto:sami@soccerprof.de" class="hover:text-white">sami@soccerprof.de</a></p>
+          </div>
         </div>
 
         <!-- Spalte 4: Rechtlich -->
@@ -356,7 +357,7 @@ def get_footer():
           <span>© 2026 SoccerProf Academy · Sami Ghaouar · Alle Rechte vorbehalten.</span>
         </div>
         <div class="font-bold text-slate-400">
-          DIE PERFEKTE ERGÄNZUNG ZUM FUßBALLVEREIN 👍 ⚽
+          DIE PERFEKTE ERGÄNZUNG ZUM FUßBALL VEREIN 👍 ⚽
         </div>
       </div>
     </div>
@@ -368,9 +369,9 @@ def get_footer():
       <div class="text-[11px] font-black text-slate-900">SoccerProf Academy</div>
       <div class="text-[9px] text-[#D4AF37] font-black uppercase">Sami Ghaouar · Hamburg</div>
     </div>
-    <a href="kontakt.html" class="btn-fill-red px-4 py-2 rounded-full bg-[#E63946] text-white font-black text-xs uppercase tracking-wider shadow-red-glow flex items-center gap-1.5">
-      <i class="fa-solid fa-calendar-check"></i>
-      <span>Erstgespräch</span>
+    <a href="tel:+4917684156542" class="btn-fill-red px-4 py-2 rounded-full bg-[#E63946] text-white font-black text-xs uppercase tracking-wider shadow-red-glow flex items-center gap-1.5">
+      <i class="fa-solid fa-phone"></i>
+      <span>Anrufen</span>
     </a>
   </div>'''
 
@@ -412,21 +413,18 @@ def get_scripts():
           const el = document.createElement('div');
           el.className = 'global-logo-particle';
 
-          // Random initial positions distributed across viewport
           const posX = Math.random() * 92 + 4; // %
           const posY = Math.random() * 92 + 4; // %
           
-          // Z Depth start (-700px to +300px)
           const baseZ = -700 + Math.random() * 1000;
-          const zSpeed = 0.7 + Math.random() * 1.5; // Z fly speed on scroll
+          const zSpeed = 0.7 + Math.random() * 1.5;
           
-          // Independent float drift vectors ("jeder bewegt sich dahin, wo er möchte")
           const driftX = (Math.random() - 0.5) * 70;
           const driftY = (Math.random() - 0.5) * 70;
           const driftFreq = 0.001 + Math.random() * 0.002;
           const phase = Math.random() * Math.PI * 2;
           
-          const maxOpacity = 0.18 + Math.random() * 0.22; // High contrast & clear visibility
+          const maxOpacity = 0.18 + Math.random() * 0.22;
           const rotSpeed = (Math.random() - 0.5) * 0.15;
           let currRot = (Math.random() - 0.5) * 30;
 
@@ -460,17 +458,13 @@ def get_scripts():
           particlesData.forEach((pd) => {
             pd.currRot += pd.rotSpeed;
             
-            // Calculate continuous Z depth flying TOWARDS camera ("Das kommt zu mir!")
-            // Loop Z depth smoothly from -700px to +450px (total range 1150px)
             const rawZ = (pd.baseZ + scrolled * pd.zSpeed) % 1150;
             const currentZ = rawZ > 450 ? rawZ - 1150 : rawZ;
 
-            // Independent continuous floating oscillation ("Jeder bewegt sich dahin, wo er möchte")
             const floatX = Math.sin(elapsed * pd.driftFreq + pd.phase) * pd.driftX;
             const floatY = Math.cos(elapsed * pd.driftFreq * 0.8 + pd.phase) * pd.driftY;
             const scrollYOffset = scrolled * 0.08;
 
-            // Smooth opacity fade in from distance (-700px) and fade out as it flies past screen (+400px)
             let normOpacity = 1.0;
             if (currentZ < -400) {
               normOpacity = (currentZ + 700) / 300;
@@ -508,21 +502,21 @@ def generate_index_html():
   ''' + get_header(active_page="Home") + '''
 
   <!-- ============================================================
-       1. HERO SECTION (Links-bündig, Schriftfarben original & knackig)
+       1. HERO SECTION (Exakte Original-Texte von soccerprof.de)
        ============================================================ -->
   <section id="hero" class="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden min-h-[85vh] flex items-center z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative">
       <div class="max-w-3xl text-left space-y-7" data-aos="fade-right">
 
-        <!-- Badge: Hamburg & Zielgruppe -->
+        <!-- Original Slogan Badge -->
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 border border-[#D4AF37] shadow-sm backdrop-blur-md">
           <span class="w-2.5 h-2.5 rounded-full bg-[#D4AF37] animate-ping"></span>
           <span class="text-xs font-black tracking-wider text-slate-900 uppercase">
-            HAMBURG · KINDER, JUGENDLICHE &amp; AMBITIONIERTE SPIELER
+            DIE PERFEKTE ERGÄNZUNG ZUM FUßBALL VEREIN 👍 ⚽
           </span>
         </div>
 
-        <!-- Hauptüberschrift -->
+        <!-- Hauptüberschrift (Exakt verlangte Formulierung) -->
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">
           PRIVATER FUßBALL-TRAINER <br>
           <span class="text-[#D4AF37]">FÜR INDIVIDUELLES TRAINING</span> <br>
@@ -534,11 +528,11 @@ def generate_index_html():
           </span>
         </h1>
 
-        <!-- Subline -->
+        <!-- Original Fließtext von soccerprof.de -->
         <p class="text-base sm:text-lg text-slate-700 font-medium leading-relaxed max-w-2xl">
-          Individuelles Fußballtraining für Kinder, Jugendliche und ambitionierte Spieler in Hamburg – abgestimmt auf die Stärken, Ziele und Entwicklung jedes Spielers.
+          Du suchst einen zuverlässigen und erfahrenen Fußballtrainer, der das individuelle Potenzial deines Kindes oder Teenagers erkennt und spielerisch fördert? Den hast du gefunden!
           <span class="block mt-2 font-bold text-slate-900">
-            Einzeltraining und Kleingruppentraining als professionelle Ergänzung zum Vereinstraining.
+            Wir bei SoccerProf unterstützen talentierte Kinder und Jugendliche gezielt durch privates Konditions-, Taktik- und Mentaltraining.
           </span>
         </p>
 
@@ -546,13 +540,13 @@ def generate_index_html():
         <div class="flex flex-col sm:flex-row items-center justify-start gap-4 pt-2">
           <a href="kontakt.html"
             class="btn-fill-red w-full sm:w-auto px-8 py-4 rounded-full bg-[#E63946] text-white font-black text-sm uppercase tracking-wider shadow-red-glow hover:shadow-2xl flex items-center justify-center gap-3 group">
-            <span>JETZT PROBETRAINING ANFRAGEN</span>
+            <span>KOSTENLOSES BERATUNGSGESPRÄCH</span>
             <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
           </a>
-          <a href="preise.html"
+          <a href="trainingsmethoden.html"
             class="btn-fill-gold w-full sm:w-auto px-8 py-4 rounded-full bg-white/95 text-slate-900 border-2 border-slate-900 font-bold text-sm shadow-sm flex items-center justify-center gap-2">
-            <span>TRAININGSPAKETE ENTDECKEN</span>
-            <i class="fa-solid fa-tags text-xs text-[#D4AF37]"></i>
+            <span>UNSERE METHODEN</span>
+            <i class="fa-solid fa-futbol text-xs text-[#D4AF37]"></i>
           </a>
         </div>
 
@@ -572,7 +566,7 @@ def generate_index_html():
           </div>
           <div class="text-left">
             <div class="text-lg font-black text-[#E63946]">Hamburg</div>
-            <div class="text-[11px] text-slate-600 font-bold">3 Standorte</div>
+            <div class="text-[11px] text-slate-600 font-bold">Öjendorfer Weg 80</div>
           </div>
         </div>
 
@@ -581,7 +575,7 @@ def generate_index_html():
   </section>
 
   <!-- ============================================================
-       2. ÜBER MICH SEKTION (Sami Ghaouar) - DIREKT NACH DEM HERO!
+       2. ÜBER MICH & DER TRAINER (Sami Ghaouar) - DIREKT NACH DEM HERO!
        Foto: img/sami/sami.jpg
        Background: TIEFSCHWARZ (#090D16 / bg-black)
        ============================================================ -->
@@ -589,7 +583,7 @@ def generate_index_html():
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        <!-- Foto von Sami (Exakt img/sami/sami.jpg!) -->
+        <!-- Foto von Sami (img/sami/sami.jpg) -->
         <div class="lg:col-span-5 relative" data-aos="fade-right">
           <div class="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-[#D4AF37]/40 group">
             <img src="img/sami/sami.jpg" alt="Head Coach Sami Ghaouar" class="w-full h-[480px] object-cover group-hover:scale-105 transition-transform duration-700">
@@ -601,30 +595,30 @@ def generate_index_html():
           </div>
         </div>
 
-        <!-- Content Über Mich -->
+        <!-- Original Text "Der TRAINER" von soccerprof.de -->
         <div class="lg:col-span-7 space-y-6" data-aos="fade-left">
           <div class="inline-block px-3.5 py-1 rounded-full bg-[#D4AF37]/20 text-[#D4AF37] font-black text-xs uppercase tracking-widest border border-[#D4AF37]/30">
-            Über Mich &amp; Meine Philosophie
+            Der TRAINER
           </div>
           <h2 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
-            DEINE FUßBALLERISCHE ENTWICKLUNG STEHT AN ERSTER STELLE.
+            "MAN LERNT NIE AUS."
           </h2>
           <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Moin! Ich bin Sami Ghaouar, lizensierter UEFA-B Trainer und Gründer der SoccerProf Academy in Hamburg. Nach vielen Jahren Erfahrung im Jugend- und Seniorenbereich habe ich ein Trainingssystem entwickelt, das individuelle Stärken perfektioniert und Schwächen gezielt eliminiert.
+            Immer wieder begegnet uns dieser Spruch im Alltag, im Berufsleben und auch im Fußball trifft er definitiv zu. Damit das Weiterlernen gut klappt und vor allem richtig Spaß macht, unterstützen wir erfahrene Trainer Kinder, Jugendlichen und Erwachsene – egal, ob Anfänger:innen oder Fortgeschrittene.
           </p>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-            <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
-              <div class="text-[#D4AF37] font-black text-sm mb-1"><i class="fa-solid fa-graduation-cap mr-2"></i>UEFA-B Lizenz</div>
-              <div class="text-xs text-slate-400">Offiziell DFB-zertifizierte Methodik für beste Resultate.</div>
-            </div>
-            <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
-              <div class="text-[#E63946] font-black text-sm mb-1"><i class="fa-solid fa-video mr-2"></i>Video-Feedback</div>
-              <div class="text-xs text-slate-400">Detaillierte Analyse für direkte Bewegungs-Korrektur.</div>
-            </div>
+
+          <!-- Original Zitat Angelika (Mutter) -->
+          <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl space-y-2">
+            <div class="text-[#D4AF37] text-lg">★★★★★</div>
+            <p class="text-xs sm:text-sm text-slate-200 italic font-medium leading-relaxed">
+              "Danke lieber Sami! Uns hat’s auch gefreut und die Kids sind ganz begeistert von dir 🤩. Weil du so ein cooler Fußballer bist 😎. Und vor allem nett 😊"
+            </p>
+            <div class="text-xs font-bold text-slate-400 pt-1">— Angelika (Mutter)</div>
           </div>
-          <div class="pt-4">
+
+          <div class="pt-2">
             <a href="ueber-uns.html" class="btn-fill-gold inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#D4AF37] text-slate-950 font-black text-xs uppercase tracking-wider shadow-gold-glow">
-              <span>MEHR ÜBER SAMI &amp; DAS CONCEPT ERFAHREN</span>
+              <span>MEHR ÜBER UNS ERFAHREN</span>
               <i class="fa-solid fa-chevron-right text-xs"></i>
             </a>
           </div>
@@ -635,226 +629,222 @@ def generate_index_html():
   </section>
 
   <!-- ============================================================
-       3. DIE 8 SÄULEN DES SOCCERPROF TRAININGS (Methodik)
+       3. WARUM SOCCERPROF? (Methoden & Die 4 Phasen)
        ============================================================ -->
   <section id="methoden" class="py-20 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       <div class="text-center max-w-3xl mx-auto space-y-4" data-aos="fade-up">
         <div class="inline-block px-3.5 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] font-black text-xs uppercase tracking-widest border border-[#D4AF37]/20">
-          Systematisches Coaching
+          Technik | Taktik | Kognitivtraining | Mentaltraining
         </div>
         <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-          DIE 8 SÄULEN DES SOCCERPROF TRAININGS
+          WARUM SOCCERPROF?
         </h2>
         <p class="text-slate-600 text-sm sm:text-base font-medium">
-          Ein ganzheitliches Trainingssystem für maximale Weiterentwicklung auf dem Platz.
+          Immer mit dabei: Viel Herz und gesunder Menschenverstand. Als ideale Ergänzung zum Verein schaffen wir die Möglichkeit, dass Fußballtalente über sich hinauswachsen.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Die 4 Aufbaustufen von soccerprof.de -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="glass-card p-6 rounded-2xl space-y-3" data-aos="fade-up" data-aos-delay="100">
           <div class="w-12 h-12 rounded-xl bg-[#E63946]/10 text-[#E63946] flex items-center justify-center text-xl font-black">1</div>
-          <h3 class="text-lg font-black text-slate-900">Technik &amp; Ballführung</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">Präzise Ballannahme, Ballbeherrschung auf engstem Raum &amp; beidfüßiger Feinschliff.</p>
+          <h3 class="text-lg font-black text-slate-900">Aufwärmung</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Technik, Koordination &amp; Kognitives Training für die optimale Vorbereitung auf den Ball.</p>
         </div>
         <div class="glass-card p-6 rounded-2xl space-y-3" data-aos="fade-up" data-aos-delay="150">
           <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 text-[#D4AF37] flex items-center justify-center text-xl font-black">2</div>
-          <h3 class="text-lg font-black text-slate-900">Kognition &amp; Übersicht</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">Schnelle Vororientierung, Schulterblick &amp; Handlungsschnelligkeit unter Zeitdruck.</p>
+          <h3 class="text-lg font-black text-slate-900">Einleitung</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Gezielte Tricks- und Ausführungsübungen zur Feineinstellung der Bewegungsabläufe.</p>
         </div>
         <div class="glass-card p-6 rounded-2xl space-y-3" data-aos="fade-up" data-aos-delay="200">
           <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center text-xl font-black">3</div>
-          <h3 class="text-lg font-black text-slate-900">Koordination &amp; Agilität</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">Optimale Laufschule, Richtungswechsel &amp; Beweglichkeit für maximale Dynamik.</p>
+          <h3 class="text-lg font-black text-slate-900">Hauptteil</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Gelernte Tricks direkt in spielnahen Zweikämpfen anwenden bei steigender Intensität.</p>
         </div>
         <div class="glass-card p-6 rounded-2xl space-y-3" data-aos="fade-up" data-aos-delay="250">
           <div class="w-12 h-12 rounded-xl bg-[#E63946]/10 text-[#E63946] flex items-center justify-center text-xl font-black">4</div>
-          <h3 class="text-lg font-black text-slate-900">Fußball-Athletik</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">Spezifischer Kraftaufbau, Antrittsschnelligkeit &amp; verletzungsvorbeugendes Training.</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl space-y-3" data-aos="fade-up" data-aos-delay="300">
-          <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 text-[#D4AF37] flex items-center justify-center text-xl font-black">5</div>
-          <h3 class="text-lg font-black text-slate-900">Taktik &amp; Position</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">Positionsbezogenes Verhalten, Raumverständnis &amp; kluges Zweikampfverhalten.</p>
-        </div>
-        <div class="glass-card p-6 rounded-2xl space-y-3" data-aos="fade-up" data-aos-delay="350">
-          <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center text-xl font-black">6</div>
-          <h3 class="text-lg font-black text-slate-900">Mentale Stärke</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">Selbstvertrauen, Fokus bei Drucksituationen &amp; Sieger-Mentalität auf dem Platz.</p>
-        </div>
-        <div class="glass-card p-6 rounded-2xl space-y-3" data-aos="fade-up" data-aos-delay="400">
-          <div class="w-12 h-12 rounded-xl bg-[#E63946]/10 text-[#E63946] flex items-center justify-center text-xl font-black">7</div>
-          <h3 class="text-lg font-black text-slate-900">Spielformen &amp; 1v1</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">Hohe Intensität in Durchsetzungs- &amp; Finte-Situationen für echten Spielvorteil.</p>
-        </div>
-        <div class="glass-card p-6 rounded-2xl space-y-3" data-aos="fade-up" data-aos-delay="450">
-          <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/10 text-[#D4AF37] flex items-center justify-center text-xl font-black">8</div>
-          <h3 class="text-lg font-black text-slate-900">Video-Analyse</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">Visuelles Feedback zur Korrektur von Bewegungsabläufen &amp; Detail-Fehlern.</p>
+          <h3 class="text-lg font-black text-slate-900">Feedback</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Ausführliche Trainingsanalyse und Reflexion mit dem Trainer für nachhaltige Lerneffekte.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       4. STANDORTE IN HAMBURG (Billstedt, Reinbek, Eimsbüttel)
+       4. UNSER TRAININGSANGEBOT (Alle Angebote von soccerprof.de)
        ============================================================ -->
-  <section id="standorte" class="py-20 bg-black text-white relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-      <div class="text-center max-w-2xl mx-auto space-y-3" data-aos="fade-up">
-        <div class="inline-block px-3.5 py-1 rounded-full bg-[#E63946]/20 text-[#E63946] font-black text-xs uppercase tracking-widest border border-[#E63946]/30">
-          Dein Platz in Hamburg
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-black tracking-tight">TRAININGSSTANDORTE IN HAMBURG</h2>
-        <p class="text-slate-400 text-sm">Flexible &amp; moderne Trainingsstätten in deiner Nähe.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3" data-aos="fade-up" data-aos-delay="100">
-          <div class="text-[#D4AF37] font-black text-sm uppercase tracking-wider flex items-center gap-2">
-            <i class="fa-solid fa-location-dot"></i> Hamburg-Billstedt
-          </div>
-          <h3 class="text-xl font-black text-white">Haupt-Trainingszentrum</h3>
-          <p class="text-xs text-slate-400">Moderne Kunstrasen- &amp; Rasenplätze für Ganzjahrestraining.</p>
-        </div>
-        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3" data-aos="fade-up" data-aos-delay="200">
-          <div class="text-[#D4AF37] font-black text-sm uppercase tracking-wider flex items-center gap-2">
-            <i class="fa-solid fa-location-dot"></i> Hamburg-Reinbek
-          </div>
-          <h3 class="text-xl font-black text-white">Sportanlage Ost</h3>
-          <p class="text-xs text-slate-400">Optimale Anbindung für Spieler aus dem Osten Hamburgs.</p>
-        </div>
-        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3" data-aos="fade-up" data-aos-delay="300">
-          <div class="text-[#D4AF37] font-black text-sm uppercase tracking-wider flex items-center gap-2">
-            <i class="fa-solid fa-location-dot"></i> Hamburg-Eimsbüttel
-          </div>
-          <h3 class="text-xl font-black text-white">Standort West</h3>
-          <p class="text-xs text-slate-400">Zentrale Anlage für Athleten aus Eimsbüttel &amp; Umgebung.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       5. TRAININGSPAKETE & TARIFE (Pakete-Sektion)
-       ============================================================ -->
-  <section id="pakete" class="py-24 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
+  <section id="angebote" class="py-24 bg-[#090D16] text-white relative z-10 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
-      <div class="max-w-3xl mx-auto space-y-4" data-aos="fade-up">
-        <div class="inline-block px-3.5 py-1 rounded-full bg-[#E63946]/10 text-[#E63946] font-black text-xs uppercase tracking-widest border border-[#E63946]/20">
-          Transparente Tarife
+      <div class="text-center max-w-3xl mx-auto space-y-4" data-aos="fade-up">
+        <div class="inline-block px-3.5 py-1 rounded-full bg-[#E63946]/20 text-[#E63946] font-black text-xs uppercase tracking-widest border border-[#E63946]/30">
+          Individuelle Förderung
         </div>
-        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
-          WÄHLE DEIN TRAININGSPAKET
-        </h2>
-        <p class="text-slate-600 font-medium text-sm sm:text-base">
-          Ob 1:1 Einzeltraining für maximale Intensität oder Kleingruppentraining – finde die perfekte Option für deine Ziele.
+        <h2 class="text-3xl sm:text-5xl font-black tracking-tight">UNSER TRAININGSANGEBOT</h2>
+        <p class="text-slate-300 text-sm sm:text-base">
+          Was möchten deine Kinder, Teenager oder auch du selbst lernen? Jedes Fußballtraining wird individuell auf die Stärken und Schwächen angepasst.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        <!-- Paket 1: Einzeltraining -->
-        <div class="glass-card p-8 rounded-3xl space-y-6 relative flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+        <!-- Angebot 1: Einzeltraining -->
+        <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 space-y-5 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
           <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-black uppercase tracking-wider text-slate-500">Intensiv</span>
-              <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[10px] font-bold">1:1 Coaching</span>
-            </div>
-            <h3 class="text-2xl font-black text-slate-900">Einzeltraining</h3>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              100% individuelle Betreuung. Perfekt zur gezielten Technikverbesserung, Erstkorrektur &amp; Positionsschulung.
+            <div class="text-[#D4AF37] font-black text-xs uppercase tracking-wider">100% Persönlich</div>
+            <h3 class="text-2xl font-black text-white">Einzeltraining</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Dein Kind spielt in einem Fußballverein, möchte aber privat noch mehr trainieren? Bestimmte Disziplinen sollen gefördert werden? Unser individuelles Training richtet sich gänzlich nach euren Wünschen.
             </p>
-            <div class="text-3xl font-black text-slate-900 pt-2">
-              Auf Anfrage
+            <div class="text-xl font-black text-[#D4AF37] border-t border-slate-800 pt-3">
+              Ab 40,00€ <span class="text-xs font-normal text-slate-400">/ Einheit (mind. 60 Min.)</span>
             </div>
-            <ul class="space-y-2.5 text-xs font-semibold text-slate-700 border-t border-slate-200/80 pt-4">
-              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#D4AF37]"></i> Exklusiver 1:1 Fokus</li>
-              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#D4AF37]"></i> Individueller Entwicklungsplan</li>
-              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#D4AF37]"></i> Flexible Termine &amp; Plätze</li>
-              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#D4AF37]"></i> Video-Feedback Einheiten</li>
-            </ul>
           </div>
-          <div class="pt-6">
-            <a href="kontakt.html" class="btn-fill-red block w-full text-center py-3.5 rounded-full bg-slate-900 text-white font-black text-xs uppercase tracking-wider hover:bg-[#E63946] transition-colors">
-              Paket Anfragen
-            </a>
-          </div>
+          <a href="einzeltraining.html" class="btn-fill-red block text-center py-3 rounded-full bg-[#E63946] text-white font-black text-xs uppercase tracking-wider">
+            Mehr Erfahren
+          </a>
         </div>
 
-        <!-- Paket 2: Kleingruppe (Bestseller) -->
-        <div class="glass-card p-8 rounded-3xl space-y-6 relative border-2 border-[#D4AF37] shadow-xl flex flex-col justify-between scale-105" data-aos="fade-up" data-aos-delay="200">
+        <!-- Angebot 2: Kleingruppentraining -->
+        <div class="p-8 rounded-3xl bg-slate-900 border-2 border-[#D4AF37] space-y-5 flex flex-col justify-between relative scale-105 shadow-xl" data-aos="fade-up" data-aos-delay="150">
           <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#D4AF37] text-slate-950 font-black text-[10px] uppercase tracking-widest shadow-md">
-            Beliebteste Wahl
+            Beliebt
           </div>
           <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-black uppercase tracking-wider text-[#D4AF37]">Team &amp; Performance</span>
-              <span class="px-3 py-1 rounded-full bg-[#D4AF37]/20 text-[#D4AF37] text-[10px] font-bold">Max 5 Spieler</span>
-            </div>
-            <h3 class="text-2xl font-black text-slate-900">Kleingruppe</h3>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Hohe Intensität gepaart mit spielnahen Zweikämpfen, Zeitdruck &amp; hoher Wiederholungszahl.
+            <div class="text-[#D4AF37] font-black text-xs uppercase tracking-wider">Feste 5er-Gruppen</div>
+            <h3 class="text-2xl font-black text-white">Kleingruppentraining</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              In festen 5er-Gruppen trainieren wir gemeinsam, um individuelle Stärken auszubauen und Schwächen zu verbessern. Die Gruppe fördert Motivation und Teamgeist.
             </p>
-            <div class="text-3xl font-black text-slate-900 pt-2">
-              Auf Anfrage
+            <div class="text-xl font-black text-[#D4AF37] border-t border-slate-800 pt-3">
+              20,00€ - 25,00€ <span class="text-xs font-normal text-slate-400">/ Spieler (75 Min.)</span>
             </div>
-            <ul class="space-y-2.5 text-xs font-semibold text-slate-700 border-t border-slate-200/80 pt-4">
-              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#D4AF37]"></i> Feste 5er Leistungsgruppen</li>
-              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#D4AF37]"></i> Hohe Dynamik &amp; Motivation</li>
-              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#D4AF37]"></i> Spielnahe Situationen</li>
-              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#D4AF37]"></i> Regelmäßige Einheiten</li>
-            </ul>
           </div>
-          <div class="pt-6">
-            <a href="kontakt.html" class="btn-fill-gold block w-full text-center py-3.5 rounded-full bg-[#D4AF37] text-slate-950 font-black text-xs uppercase tracking-wider shadow-gold-glow">
-              Jetzt Anfragen
-            </a>
-          </div>
+          <a href="kleingruppe.html" class="btn-fill-gold block text-center py-3 rounded-full bg-[#D4AF37] text-slate-950 font-black text-xs uppercase tracking-wider shadow-gold-glow">
+            Mehr Erfahren
+          </a>
         </div>
 
-        <!-- Paket 3: Mannschaftstraining -->
-        <div class="glass-card p-8 rounded-3xl space-y-6 relative flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+        <!-- Angebot 3: Mannschaftstraining -->
+        <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 space-y-5 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
           <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-black uppercase tracking-wider text-slate-500">Verein</span>
-              <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[10px] font-bold">Vor Ort</span>
-            </div>
-            <h3 class="text-2xl font-black text-slate-900">Mannschaft</h3>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Spezifische Zusatztrainings für dein gesamtes Vereinsteam direkt auf eurem Platz in Hamburg.
+            <div class="text-[#D4AF37] font-black text-xs uppercase tracking-wider">Für Vereine &amp; Betriebe</div>
+            <h3 class="text-2xl font-black text-white">Mannschaftstraining</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Deine Mannschaft möchte Taktik, Technik oder den Gruppenzusammenhalt stärken? Wir stellen ein individuelles privates Fußballtraining zusammen. Auch für Betriebe/Firmen möglich!
             </p>
-            <div class="text-3xl font-black text-slate-900 pt-2">
-              Individuell
+            <div class="text-xl font-black text-[#D4AF37] border-t border-slate-800 pt-3">
+              Ab 90,00€ <span class="text-xs font-normal text-slate-400">/ Einheit zzgl. Anfahrt</span>
             </div>
-            <ul class="space-y-2.5 text-xs font-semibold text-slate-700 border-t border-slate-200/80 pt-4">
-              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#D4AF37]"></i> Taktik &amp; Gruppendynamik</li>
-              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#D4AF37]"></i> Gast-Coaching Einheiten</li>
-              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#D4AF37]"></i> Saison-Vorbereitung</li>
-              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#D4AF37]"></i> Auf den Verein abgestimmt</li>
+          </div>
+          <a href="mannschaft.html" class="btn-fill-red block text-center py-3 rounded-full bg-slate-800 text-white font-black text-xs uppercase tracking-wider hover:bg-[#E63946] transition-colors">
+            Mehr Erfahren
+          </a>
+        </div>
+
+        <!-- Angebot 4: Powercamp "Fußball pur" -->
+        <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 space-y-5 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="250">
+          <div class="space-y-4">
+            <div class="text-[#E63946] font-black text-xs uppercase tracking-wider">Camps &amp; Events</div>
+            <h3 class="text-2xl font-black text-white">Powercamp "Fußball pur"</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              2-3 Tage á 2x90 Minuten inkl. gesundes hochwertiges Essen. 1 Trainer = max. 7 Spieler. Kleine Gruppen mit hoher Intensität.
+            </p>
+            <div class="text-xl font-black text-[#D4AF37] border-t border-slate-800 pt-3">
+              80,00€ <span class="text-xs font-normal text-slate-400">/ Tag (zzgl. Trikot 40€)</span>
+            </div>
+          </div>
+          <a href="veranstaltungen.html" class="btn-fill-red block text-center py-3 rounded-full bg-slate-800 text-white font-black text-xs uppercase tracking-wider hover:bg-[#E63946] transition-colors">
+            Mehr Erfahren
+          </a>
+        </div>
+
+        <!-- Angebot 5: Training für Erwachsene -->
+        <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 space-y-5 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+          <div class="space-y-4">
+            <div class="text-[#D4AF37] font-black text-xs uppercase tracking-wider">Für Erwachsene</div>
+            <h3 class="text-2xl font-black text-white">Training für Erwachsene</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Optimal für Spieler:innen, die ihre Technik, Kraft-Ausdauer, ihr Stellungsspiel und kognitiven Fähigkeiten verfeinern möchten. Unsere Ziele kennen keine Grenzen.
+            </p>
+            <div class="text-xl font-black text-[#D4AF37] border-t border-slate-800 pt-3">
+              Individuell <span class="text-xs font-normal text-slate-400">nach Vereinbarung</span>
+            </div>
+          </div>
+          <a href="tel:+4917684156542" class="btn-fill-gold block text-center py-3 rounded-full bg-[#D4AF37] text-slate-950 font-black text-xs uppercase tracking-wider shadow-gold-glow">
+            Telefonische Vorabinfo
+          </a>
+        </div>
+
+        <!-- Angebot 6: Zusatzleistungen -->
+        <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 space-y-5 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="350">
+          <div class="space-y-4">
+            <div class="text-[#D4AF37] font-black text-xs uppercase tracking-wider">Zusatzangebote</div>
+            <h3 class="text-2xl font-black text-white">Weitere Leistungen</h3>
+            <ul class="text-xs text-slate-400 space-y-2 leading-relaxed">
+              <li><i class="fa-solid fa-check text-[#D4AF37] mr-1.5"></i> Personalisiertes Trikot: 45,00€</li>
+              <li><i class="fa-solid fa-check text-[#D4AF37] mr-1.5"></i> Trainingsplan: ab 20,00€ / Monat</li>
+              <li><i class="fa-solid fa-check text-[#D4AF37] mr-1.5"></i> Ernährungsplan: ab 30,00€ / Monat</li>
+              <li><i class="fa-solid fa-check text-[#D4AF37] mr-1.5"></i> Kindergeburtstag: auf Anfrage</li>
             </ul>
           </div>
-          <div class="pt-6">
-            <a href="kontakt.html" class="btn-fill-red block w-full text-center py-3.5 rounded-full bg-slate-900 text-white font-black text-xs uppercase tracking-wider hover:bg-[#E63946] transition-colors">
-              Verein Anfragen
-            </a>
-          </div>
+          <a href="kontakt.html" class="btn-fill-red block text-center py-3 rounded-full bg-slate-800 text-white font-black text-xs uppercase tracking-wider hover:bg-[#E63946] transition-colors">
+            Jetzt Anfragen
+          </a>
         </div>
 
       </div>
 
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. STANDORTE IN HAMBURG & ADRESSE
+       ============================================================ -->
+  <section id="standorte" class="py-20 relative z-10 bg-slate-100/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div class="text-center max-w-2xl mx-auto space-y-3" data-aos="fade-up">
+        <div class="inline-block px-3.5 py-1 rounded-full bg-slate-200 text-slate-800 font-bold text-xs uppercase tracking-widest">
+          Hamburg &amp; Umgebung
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">UNSERE STANDORTE IN HAMBURG</h2>
+        <p class="text-slate-600 text-sm font-medium">SoccerProf Academy · Öjendorfer Weg 80, 22119 Hamburg</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-card p-6 rounded-2xl space-y-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-[#D4AF37] font-black text-sm uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-location-dot"></i> Hamburg-Billstedt
+          </div>
+          <h3 class="text-xl font-black text-slate-900">Öjendorfer Weg 80</h3>
+          <p class="text-xs text-slate-600">Haupt-Trainingszentrum in 22119 Hamburg mit besten Rasen- &amp; Kunstrasenbedingungen.</p>
+        </div>
+        <div class="glass-card p-6 rounded-2xl space-y-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-[#D4AF37] font-black text-sm uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-location-dot"></i> Hamburg-Reinbek
+          </div>
+          <h3 class="text-xl font-black text-slate-900">Sportanlage Ost</h3>
+          <p class="text-xs text-slate-600">Optimal erreichbar für Spieler aus Reinbek &amp; dem Hamburger Osten.</p>
+        </div>
+        <div class="glass-card p-6 rounded-2xl space-y-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-[#D4AF37] font-black text-sm uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-location-dot"></i> Hamburg-Eimsbüttel
+          </div>
+          <h3 class="text-xl font-black text-slate-900">Standort West</h3>
+          <p class="text-xs text-slate-600">Zentrale Trainingsstätte für Nachwuchsathleten im Hamburger Westen.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ============================================================
        6. FAQ SEKTION (Accordion)
        ============================================================ -->
-  <section id="faq" class="py-20 relative z-10 bg-slate-100/80">
+  <section id="faq" class="py-20 relative z-10 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8" data-aos="fade-up">
       <div class="text-center space-y-3">
-        <div class="inline-block px-3 py-1 rounded-full bg-slate-200 text-slate-800 font-bold text-xs uppercase tracking-widest">
+        <div class="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-800 font-bold text-xs uppercase tracking-widest border border-slate-200">
           Transparenz &amp; Antworten
         </div>
         <h2 class="text-3xl font-black text-slate-900 tracking-tight">HÄUFIG GESTELLTE FRAGEN (FAQ)</h2>
@@ -867,7 +857,7 @@ def generate_index_html():
             <i class="fa-solid fa-chevron-down text-xs text-[#D4AF37] faq-icon transition-transform"></i>
           </summary>
           <p class="mt-3 text-xs text-slate-600 leading-relaxed">
-            Wir trainieren Kinder (ab ca. 6 Jahren), Jugendliche sowie ambitionierte Herren- und Damen-Spieler. Das Training wird exakt an das Alter und Leistungsniveau angepasst.
+            Wir trainieren Kinder, Jugendliche sowie Erwachsene – egal, ob Anfänger:innen oder Fortgeschrittene. Das Training wird exakt individuell angepasst.
           </p>
         </details>
 
@@ -877,7 +867,7 @@ def generate_index_html():
             <i class="fa-solid fa-chevron-down text-xs text-[#D4AF37] faq-icon transition-transform"></i>
           </summary>
           <p class="mt-3 text-xs text-slate-600 leading-relaxed">
-            Ja, absolut! Das SoccerProf Training ersetzt das Vereinstraining nicht, sondern ergänzt es gezielt in den Bereichen, die im Mannschaftstraining zu kurz kommen.
+            Ja, absolut! Wir sind die ideale Ergänzung zum Fußballverein und schaffen die Möglichkeit, dass Fußballtalente gezielt über sich hinauswachsen.
           </p>
         </details>
 
@@ -887,7 +877,7 @@ def generate_index_html():
             <i class="fa-solid fa-chevron-down text-xs text-[#D4AF37] faq-icon transition-transform"></i>
           </summary>
           <p class="mt-3 text-xs text-slate-600 leading-relaxed">
-            Unsere Haupt-Standorte befinden sich in Hamburg-Billstedt, Hamburg-Reinbek und Hamburg-Eimsbüttel. Zudem bieten wir Mannschaftstraining direkt auf eurem Vereinsgelände an.
+            Unser Hauptstandort ist in 22119 Hamburg (Öjendorfer Weg 80), weitere Plätze befinden sich in Reinbek &amp; Eimsbüttel. Zudem bieten wir Mannschaftstraining direkt bei eurem Verein vor Ort an.
           </p>
         </details>
       </div>
@@ -895,7 +885,7 @@ def generate_index_html():
   </section>
 
   <!-- ============================================================
-       7. KONTAKT & PROBETRAINING CTA
+       7. KOSTENLOSES BERATUNGSGESPRÄCH / KONTAKT CTA
        ============================================================ -->
   <section id="kontakt" class="py-20 bg-black text-white relative z-10">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8" data-aos="zoom-in">
@@ -903,14 +893,15 @@ def generate_index_html():
         Jetzt starten
       </div>
       <h2 class="text-3xl sm:text-5xl font-black tracking-tight">
-        BEREIT FÜR DEIN NÄCHSTES LEVEL IN HAMBURG?
+        KOSTENLOSES BERATUNGSGESPRÄCH VEREINBAREN
       </h2>
       <p class="text-slate-300 font-medium text-base sm:text-lg max-w-2xl mx-auto">
-        Vereinbare noch heute dein kostenloses Erstgespräch mit Head Coach Sami Ghaouar.
+        Melde dich direkt bei Head Coach Sami Ghaouar via WhatsApp oder Telefon.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-        <a href="kontakt.html" class="btn-fill-red px-8 py-4 rounded-full bg-[#E63946] text-white font-black text-sm uppercase tracking-wider shadow-red-glow">
-          Kostenloses Erstgespräch Buchen
+        <a href="tel:+4917684156542" class="btn-fill-red px-8 py-4 rounded-full bg-[#E63946] text-white font-black text-sm uppercase tracking-wider shadow-red-glow flex items-center gap-2">
+          <i class="fa-solid fa-phone"></i>
+          <span>+49 176 841 565 42</span>
         </a>
         <a href="https://wa.me/4917684156542" target="_blank" class="btn-fill-gold px-8 py-4 rounded-full bg-slate-900 text-white border border-slate-700 font-bold text-sm flex items-center gap-2">
           <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i>
